@@ -41,6 +41,12 @@ var UserSchema = new Schema({
 		type: String,
 		trim: true
 	},
+        userType: {
+		type: String,
+		trim: true,
+		default: 'Prospective',
+		validate: [validateLocalStrategyProperty, 'Please choose a user type'],
+	},
 	email: {
 		type: String,
 		trim: true,

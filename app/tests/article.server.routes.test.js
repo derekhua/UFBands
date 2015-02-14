@@ -29,6 +29,7 @@ describe('Article CRUD tests', function() {
 			firstName: 'Full',
 			lastName: 'Name',
 			displayName: 'Full Name',
+			userType: 'Current',
 			email: 'test@test.com',
 			username: credentials.username,
 			password: credentials.password,

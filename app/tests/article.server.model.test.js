@@ -22,6 +22,7 @@ describe('Article Model Unit Tests:', function() {
 			firstName: 'Full',
 			lastName: 'Name',
 			displayName: 'Full Name',
+                        userType: 'Current',
 			email: 'test@test.com',
 			username: 'username',
 			password: 'password'
