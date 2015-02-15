@@ -133,8 +133,12 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 							lastName: providerUserProfile.lastName,
 							username: availableUsername,
 							displayName: providerUserProfile.displayName,
-                                                        userType: providerUserProfile.userType,
+                            userType: providerUserProfile.userType,
 							email: providerUserProfile.email,
+							highSchool: providerUserProfile.highSchool,
+							phoneNumber: providerUserProfile.phoneNumber,
+							permanentAddress:provideUserProfile.permanentAddress,
+							graduationDate: provideUserProfile.graduationDate,
 							provider: providerUserProfile.provider,
 							providerData: providerUserProfile.providerData
 						});
