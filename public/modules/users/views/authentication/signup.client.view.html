@@ -34,10 +34,24 @@
                                 <div class="form-group ">
 					<label for="userType">User Type</label>
                                         <br>
-					Prospective<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" placeholder="User Type" value="Prospective">
-                                        Current<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" placeholder="User Type" value="Current">
-                                        Alumni<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" placeholder="User Type" value="Alumni">
+					Prospective<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" placeholder="User Type" value="Prospective" ng-click="prospectiveUser()">
+                                        Current<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" placeholder="User Type" value="Current" ng-click="currentUser()">
+                                        Alumni<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" placeholder="User Type" value="Alumni" ng-click="alumniUser()">
 				</div>
+
+				<div class="form-group" ng-show="currentFlag">
+					<label for="email">current test</label>
+					<input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
+				</div>
+				<div class="form-group" ng-show="alumniFlag">
+					<label for="username">alumni test</label>
+					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
+				</div>
+				<div class="form-group" ng-show="prospectiveFlag"> 
+					<label for="highSchool">prospective test</label>
+					<input type="text" id="highSchool" name="highSchool" class="form-control" data-ng-model="credentials.highSchool" placeholder="High School">
+				</div>
+
 
 				<div class="form-group">
 					<label for="email">Email</label>
@@ -47,7 +61,7 @@
 					<label for="username">Username</label>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
 				</div>
-				<div class="form-group">
+				<div class="form-group"> 
 					<label for="highSchool">High School</label>
 					<input type="text" id="highSchool" name="highSchool" class="form-control" data-ng-model="credentials.highSchool" placeholder="High School">
 				</div>
@@ -77,5 +91,6 @@
 				</div>
 			</fieldset>
 		</form>
+
 	</div>
 </section>

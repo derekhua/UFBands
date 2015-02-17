@@ -4,6 +4,10 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 	function($scope, $http, $location, Authentication) {
 		$scope.authentication = Authentication;
 
+		$scope.currentFlag = 'false';
+		$scope.alumniFlag = 'false';
+		$scope.prospectiveFlag = 'false';
+
 		// If user is signed in then redirect back home
 		if ($scope.authentication.user) $location.path('/home');
 
@@ -30,5 +34,23 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.error = response.message;
 			});
 		};
+
+		$scope.currentUser = function() {
+	        $scope.currentFlag = 'true';
+	        $scope.alumniFlag = 'false';
+	        $scope.prospectiveFlag = 'false';
+	    };
+
+	    $scope.prospectiveUser = function() {
+	        $scope.currentFlag = 'false';
+	        $scope.alumniFlag = 'false';
+	        $scope.prospectiveFlag = 'true';
+	    };		
+	
+		$scope.alumniUser = function() {
+	        $scope.currentFlag = 'false';
+	        $scope.alumniFlag = 'true';
+	        $scope.prospectiveFlag = 'false';
+	    };	
 	}
 ]);
