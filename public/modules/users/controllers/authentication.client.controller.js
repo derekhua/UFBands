@@ -17,7 +17,15 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.authentication.user = response;
 
 				// And redirect to the index page
-				$location.path('/home');
+                                if($scope.currentFlag==='true')
+                                    $location.path('/home/current');
+                                else if($scope.prospectiveFlag==='true')
+                                    $location.path('/home/prospective');
+                                else if($scope.alumniFlag==='true')
+                                    $location.path('/home/alumni');
+                                else
+                                    $location.path('/home');
+                                
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
@@ -29,7 +37,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.authentication.user = response;
 
 				// And redirect to the index page
-				$location.path('/home');
+				// And redirect to the index page
+                                if($scope.currentFlag==='true')
+                                    $location.path('/home/current');
+                                else if($scope.prospectiveFlag==='true')
+                                    $location.path('/home/prospective');
+                                else if($scope.alumniFlag==='true')
+                                    $location.path('/home/alumni');
+                                else
+                                    $location.path('/home');
+                                
 			}).error(function(response) {
 				$scope.error = response.message;
 			});

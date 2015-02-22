@@ -3,7 +3,8 @@
 angular.module('users').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication',
 	function($scope, $http, $location, Users, Authentication) {
 		$scope.user = Authentication.user;
-
+                $scope.edit = false; 
+                 
 		// If user is not signed in then redirect back login
 		if (!$scope.user) $location.path('/');
 
@@ -53,6 +54,10 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			} else {
 				$scope.submitted = true;
 			}
+		};
+                
+                $scope.editToggle = function() {
+			$scope.edit = !$scope.edit;			
 		};
 
 		// Change user password
