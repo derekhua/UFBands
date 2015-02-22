@@ -2,7 +2,7 @@
 
 angular.module('users').controller('AuthenticationController', ['$scope', '$http', '$location', 'Authentication',
 	function($scope, $http, $location, Authentication) {
-		$scope.authentication = Authentication;
+                $scope.authentication = Authentication;
 
 		$scope.currentFlag = 'false';
 		$scope.alumniFlag = 'false';
@@ -35,13 +35,13 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 			$http.post('/auth/signin', $scope.credentials).success(function(response) {
 				// If successful we assign the response to the global user model
 				$scope.authentication.user = response;
-
+                                $scope.user = Authentication.user;
 				// And redirect to the index page
-                                if($scope.currentFlag==='true')
+                                if($scope.user.userType==="Current")
                                     $location.path('/home/current');
-                                else if($scope.prospectiveFlag==='true')
+                                else if($scope.user.userType==="Prospective")
                                     $location.path('/home/prospective');
-                                else if($scope.alumniFlag==='true')
+                                else if($scope.user.userType==="Alumni")
                                     $location.path('/home/alumni');
                                 else
                                     $location.path('/home');
