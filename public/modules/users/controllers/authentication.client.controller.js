@@ -37,7 +37,6 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.authentication.user = response;
 
 				// And redirect to the index page
-				// And redirect to the index page
                                 if($scope.currentFlag==='true')
                                     $location.path('/home/current');
                                 else if($scope.prospectiveFlag==='true')
