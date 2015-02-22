@@ -12,16 +12,16 @@ var mongoose = require('mongoose'),
 var bandsSchema = new Schema({
     name:{
         type:String,
-        default: "Marching"
+        default: 'Marching'
     },
     link:{
-        type:URL,
-        default: "https://facebook.com"
-    },
-    endDate:{
-        type:Date,
-        default: Date.nov
+        type:String,
+        default: 'https://facebook.com'
     }
+    //endDate:{
+    //    type:Date,
+    //    default: Date.nov
+    //}
 });
 
 mongoose.model('Bands', bandsSchema);
