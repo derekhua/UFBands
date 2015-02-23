@@ -1,4 +1,4 @@
-<section class="row" data-ng-controller="SettingsController">
+<section class="row " data-ng-controller="SettingsController">
     <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
     <h3 class="col-md-12 text-center" ng-show="edit">Edit your profile</h3>
 	
@@ -48,6 +48,8 @@
 				</div>
 				<div class="text-center form-group">
 					<button type="submit" class="btn btn-large btn-primary">Save Profile</button>
+                                        <button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Done</button>
+
 				</div>
 				<div data-ng-show="success" class="text-center text-success">
 					<strong>Profile Saved Successfully</strong>
@@ -122,6 +124,5 @@
 	</div>
         <br>
         <br>
-        <button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Done</button>
         <button ng-hide="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Edit</button>
 </section>

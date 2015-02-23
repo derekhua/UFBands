@@ -9,7 +9,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 		$scope.prospectiveFlag = 'false';
 
 		// If user is signed in then redirect back home
-		if ($scope.authentication.user) $location.path('/home');
+		if ($scope.authentication.user) {
+                    if($scope.currentFlag==='true')
+                       $location.path('/home/current');
+                    else if($scope.prospectiveFlag==='true')
+                        $location.path('/home/prospective');
+                    else if($scope.alumniFlag==='true')
+                        $location.path('/home/alumni');
+                    else
+                        $location.path('/home');           
+                }
 
 		$scope.signup = function() {
 			$http.post('/auth/signup', $scope.credentials).success(function(response) {
@@ -37,11 +46,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.authentication.user = response;
                                 $scope.user = Authentication.user;
 				// And redirect to the index page
-                                if($scope.user.userType==="Current")
+                                if($scope.user.userType==='Current')
                                     $location.path('/home/current');
-                                else if($scope.user.userType==="Prospective")
+                                else if($scope.user.userType==='Prospective')
                                     $location.path('/home/prospective');
-                                else if($scope.user.userType==="Alumni")
+                                else if($scope.user.userType==='Alumni')
                                     $location.path('/home/alumni');
                                 else
                                     $location.path('/home');
