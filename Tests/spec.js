@@ -50,7 +50,7 @@ describe('CEN3031 login', function() {
     });
 
     it('should sign out', function(){
-        element(by.id('userDropdown')).click();
+        element(by.id('dropdown')).click();
         element(by.id('signout')).click();
 
         browser.driver.wait(function() {
@@ -87,7 +87,7 @@ describe('CEN3031 login', function() {
     });
 
     it('should sign out', function(){
-        element(by.id('userDropdown')).click();
+        element(by.id('dropdown')).click();
         element(by.id('signout')).click();
 
         browser.driver.wait(function() {
