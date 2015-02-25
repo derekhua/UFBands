@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/cen3031project-dev',
+	db: 'mongodb://g.delatorre:spy00g11@ds031691.mongolab.com:31691/testdb',
 	app: {
 		title: 'CEN3031Project - Development Environment'
 	},
