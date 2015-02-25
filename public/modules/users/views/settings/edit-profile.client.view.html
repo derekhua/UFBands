@@ -2,127 +2,99 @@
     <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
     <h3 class="col-md-12 text-center" ng-show="edit">Edit your profile</h3>
 	
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" ng-show="edit">
-		<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
-			<fieldset>
-				<div class="form-group">
-					<label for="firstName">First Name</label>
-					<input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name">
-				</div>
-				<div class="form-group">
-					<label for="lastName">Last Name</label>
-					<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name">
-				</div>
-                            
-                                <div class="form-group ">
-					<label for="userType">User Type</label>
-                                        <br>
-					Prospective<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Prospective">
-                                        Current<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Current">
-                                        Alumni<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Alumni">
-                                </div>
-                            
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">
-				</div>
-				<div class="form-group">
-					<label for="highSchool">High School</label>
-					<input type="text" id="highSchool" name="highSchool" class="form-control" data-ng-model="user.highSchool" placeholder="High School">
-				</div>
-				<div class="form-group">
-					<label for="phoneNumber">Phone Number</label>
-					<input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="user.phoneNumber" placeholder="Phone Number">
-				</div>
-				<div class="form-group">
-					<label for="permanentAddress">Permanent Address</label>
-					<input type="text" id="permanentAddress" name="permanentAddress" class="form-control" data-ng-model="user.permanentAddress" placeholder="Permanent Address">
-				</div>
-				<div class="form-group">
-					<label for="graduationDate">Graduation Date</label>
-					<input type="text" id="graduationDate" name="graduationDate" class="form-control" data-ng-model="user.graduationDate" placeholder="Graduation Date">
-				</div>
-				<div class="form-group">
-					<label for="username">Username</label>
-					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">
-				</div>
-				<div class="text-center form-group">
-					<button type="submit" class="btn btn-large btn-primary">Save Profile</button>
-                                        <button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Done</button>
-
-				</div>
-				<div data-ng-show="success" class="text-center text-success">
-					<strong>Profile Saved Successfully</strong>
-				</div>
-				<div data-ng-show="error" class="text-center text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-			</fieldset>
-		</form>
-	</div>
-    
-    
-    
-    
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2" ng-hide="edit">
-		<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
-			<fieldset>
-                            <br>
-                            <br>
-				<div class="form-group">
-					<label for="firstName">First Name</label>
-                                        <p><span ng-bind="user.firstName"></span></p>     <!-- ???Made the profile attribute appear as text not form -->
-<!--					<input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name">-->
-				</div>
-				<div class="form-group">
-					<label for="lastName">Last Name</label>
-                                        <p><span ng-bind="user.lastName"></span></p>
-<!--					<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name">-->
-				</div>
-                            
-                                <div class="form-group ">
-					<label for="userType">User Type</label>
-                                        <p><span ng-bind="user.userType"></span></p>
-<!--                                        <br>
-					Prospective<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Prospective">
-                                        Current<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Current">
-                                        Alumni<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Alumni">-->
-                                </div>
-                            
-				<div class="form-group">
-					<label for="email">Email</label>
-                                        <p><span ng-bind="user.email"></span></p>
-<!--					<input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">-->
-				</div>
-				<div class="form-group">
-					<label for="highSchool">High School</label>
-                                        <p><span ng-bind="user.highSchool"></span></p>
-<!--					<input type="text" id="highSchool" name="highSchool" class="form-control" data-ng-model="user.highSchool" placeholder="High School">-->
-				</div>
-				<div class="form-group">
-					<label for="phoneNumber">Phone Number</label>
-                                        <p><span ng-bind="user.phoneNumber"></span></p>
-<!--					<input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="user.phoneNumber" placeholder="Phone Number">-->
-				</div>
-				<div class="form-group">
-					<label for="permanentAddress">Permanent Address</label>
-                                        <p><span ng-bind="user.permanentAddress"></span></p>
-<!--					<input type="text" id="permanentAddress" name="permanentAddress" class="form-control" data-ng-model="user.permanentAddress" placeholder="Permanent Address">-->
-				</div>
-				<div class="form-group">
-					<label for="graduationDate">Graduation Date</label>
-                                        <p><span ng-bind="user.graduationDate"></span></p>
-<!--					<input type="text" id="graduationDate" name="graduationDate" class="form-control" data-ng-model="user.graduationDate" placeholder="Graduation Date">-->
-				</div>
-				<div class="form-group">
-					<label for="username">Username</label>
-                                        <p><span ng-bind="user.username"></span></p>
-<!--					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">-->
-				</div>
-			</fieldset>
-		</form>
-	</div>
-        <br>
-        <br>
+        <button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Done</button>
         <button ng-hide="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Edit</button>
+        
+<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">      
+<div id="wrap" ng-show="edit">
+	<div id="header">
+			<h1><p><input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name"><input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name"></p></h1>
+			<p class="slogan">slogan/motto goes here</p>
+	</div>
+
+	<div id="sidebar">
+		<h2 class="icon-home">Basic Info</h2>
+<!--		<p>Basic Info</p>-->
+		<ul>
+                        <li class="icon-contact">User Type<br />
+                            Prospective<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Prospective">
+                            Current<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Current">
+                            Alumni<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Alumni">
+                        </li>
+			<li class="icon-contact">Phone<br /><input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="user.phoneNumber" placeholder="Phone Number"></li>
+			<li class="icon-home">Address<br /><input type="text" id="permanentAddress" name="permanentAddress" class="form-control" data-ng-model="user.permanentAddress" placeholder="Permanent Address"></li>
+			<li class="icon-cv">Graduation Date<br /><input type="text" id="graduationDate" name="graduationDate" class="form-control" data-ng-model="user.graduationDate" placeholder="Graduation Date"></li>
+			<li class="icon-contact">Email<br /><input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email"></li>
+                        <li class="icon-contact">High School<br /><input type="text" id="highSchool" name="highSchool" class="form-control" data-ng-model="user.highSchool" placeholder="High School"></li>
+		</ul>
+	</div>
+
+	<div id="content">
+		<h2 class="icon-home">Make your voice heard!</h2>
+		<div class="left">
+			<p>This is Basic Profile (left). </p>
+		</div>
+		<div class="right">
+			<p>This is Basic Profile (right). </p>
+			
+		</div>
+		
+		<h3 class="icon-blog">Blog post example</h3>
+		<p class="timestamp">September 11th, 2012<br />
+		Tags: 
+		Author: 
+		<p>The original version of the Basic Profile template was very well recieved and generated a lot of positive feedback, and the alternate version which added icons and a secondary navigation menu became the most downloaded template on andreasviklund.com during the first couple of weeks after it was released. Inspired by the response, I decided to make a third version - and this is it. I hope that you find it useful! <a href="#">Read more...</a></p>
+		
+		<p class="credits">&copy; 2015 <span ng-bind="user.firstName"></span> <span ng-bind="user.lastName"></span><br />
+	</div>
+</div>
+</form>   
+        
+        
+        
+<div id="wrap" ng-hide="edit">
+	<div id="header">
+			<h1><p><span ng-bind="user.firstName"></span> <span ng-bind="user.lastName"></span></p></h1>
+			<p class="slogan">slogan/motto goes here</p>
+	</div>
+<!--	<div id="menu">
+		<ul>
+			<li class="icon-home"><a href="#">Page one</a><br />The front page...</li>
+			<li class="icon-bio"><a href="#">Biography</a><br />I think, therefore I am...</li>
+			<li class="icon-cv"><a href="#">CV</a><br />All the details worth knowing...</li>
+			<li class="icon-contact"><a href="#">Contact</a><br />Don't hesitate to get in touch...</li>
+		</ul>
+	</div>-->
+<!--	<hr class="clear" />-->
+	<div id="sidebar">
+		<h2 class="icon-home">Basic Info</h2>
+<!--		<p>Basic Info</p>-->
+		<ul>
+                        <li class="icon-contact">User Type<br /><span ng-bind="user.userType"></span></li>
+			<li class="icon-contact">Phone<br /><span ng-bind="user.phoneNumber"></span></li>
+			<li class="icon-home">Address<br /><span ng-bind="user.permanentAddress"></span></li>
+			<li class="icon-cv">Graduation Date<br /><span ng-bind="user.graduationDate"></span></</li>
+			<li class="icon-contact">Email<br /><span ng-bind="user.email"></span></li>
+		</ul>
+	</div>
+
+	<div id="content">
+		<h2 class="icon-home">Make your voice heard!</h2>
+		<div class="left">
+			<p>This is Basic Profile (left). </p>
+		</div>
+		<div class="right">
+			<p>This is Basic Profile (right). </p>
+			
+		</div>
+		
+		<h3 class="icon-blog">Blog post example</h3>
+		<p class="timestamp">September 11th, 2012<br />
+		Tags: 
+		Author: 
+		<p>The original version of the Basic Profile template was very well recieved and generated a lot of positive feedback, and the alternate version which added icons and a secondary navigation menu became the most downloaded template on andreasviklund.com during the first couple of weeks after it was released. Inspired by the response, I decided to make a third version - and this is it. I hope that you find it useful! <a href="#">Read more...</a></p>
+		
+		<p class="credits">&copy; 2015 <span ng-bind="user.firstName"></span> <span ng-bind="user.lastName"></span><br />
+	</div>
+</div>
 </section>
