@@ -27,6 +27,14 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
                 state('login', {
 			url: '/',
 			templateUrl: 'modules/core/views/login.client.view.html'
+		}).
+        		state('uniformrepairs', {
+			url: '/repairs/uniform',
+			templateUrl: 'modules/core/views/uniformrepairs.client.view.html'
+		}).
+                state('instrumentrepairs', {
+			url: '/repairs/instrument',
+			templateUrl: 'modules/core/views/instrumentrepairs.client.view.html'
 		});
 	}
 ]);
