@@ -7,5 +7,8 @@ angular.module('articles').run(['Menus',
 		Menus.addMenuItem('topbar', 'Articles', 'articles', 'dropdown', '/articles(/create)?');
 		Menus.addSubMenuItem('topbar', 'articles', 'List Articles', 'articles');
 		Menus.addSubMenuItem('topbar', 'articles', 'New Article', 'articles/create');
+		Menus.removeMenuItem('topbar', 'articles');
+		Menus.removeSubMenuItem('topbar', 'articles');
+		Menus.removeSubMenuItem('topbar', 'articles/create');
 	}
 ]);
