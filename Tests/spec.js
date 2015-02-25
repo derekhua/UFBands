@@ -74,7 +74,7 @@ describe('CEN3031 login', function() {
 
         element(by.id('username')).sendKeys(newUserName);
         element(by.id('password')).sendKeys('TestTest');
-        element(by.model('signin')).click();
+        element(by.id('signin')).click();
 
         browser.driver.wait(function() {
             return browser.driver.getCurrentUrl().then(function(url) {
