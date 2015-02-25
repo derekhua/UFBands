@@ -1,17 +1,18 @@
 <section class="row " data-ng-controller="SettingsController">
     <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-    <h3 class="col-md-12 text-center" ng-show="edit">Edit your profile</h3>
-	
-        <button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Done</button>
+    
         <button ng-hide="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Edit</button>
         
 <form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">      
 <div id="wrap" ng-show="edit">
+        <div data-ng-show="success" class="text-center text-success">
+            <strong>Profile Saved Successfully</strong>
+	</div>
 	<div id="header">
 			<h1><p><input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name"><input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name"></p></h1>
 			<p class="slogan">slogan/motto goes here</p>
 	</div>
-
+        <button type="submit" class="btn btn-large btn-primary">Save Profile</button><button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Done</button>
 	<div id="sidebar">
 		<h2 class="icon-home">Basic Info</h2>
 <!--		<p>Basic Info</p>-->
@@ -40,7 +41,7 @@
 		</div>
 		
 		<h3 class="icon-blog">Blog post example</h3>
-		<p class="timestamp">September 11th, 2012<br />
+		<p class="timestamp">September 69th, 2012<br />
 		Tags: 
 		Author: 
 		<p>The original version of the Basic Profile template was very well recieved and generated a lot of positive feedback, and the alternate version which added icons and a secondary navigation menu became the most downloaded template on andreasviklund.com during the first couple of weeks after it was released. Inspired by the response, I decided to make a third version - and this is it. I hope that you find it useful! <a href="#">Read more...</a></p>
@@ -92,7 +93,7 @@
 		<p class="timestamp">September 11th, 2012<br />
 		Tags: 
 		Author: 
-		<p>The original version of the Basic Profile template was very well recieved and generated a lot of positive feedback, and the alternate version which added icons and a secondary navigation menu became the most downloaded template on andreasviklund.com during the first couple of weeks after it was released. Inspired by the response, I decided to make a third version - and this is it. I hope that you find it useful! <a href="#">Read more...</a></p>
+		<p>As a administrator, I want to be able to "automatically receive emails" according to students' repair/uniform requests, so that requests can be easier to manage.</p> 
 		
 		<p class="credits">&copy; 2015 <span ng-bind="user.firstName"></span> <span ng-bind="user.lastName"></span><br />
 	</div>
