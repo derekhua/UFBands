@@ -37,6 +37,16 @@ var UserSchema = new Schema({
         default: '',
         validate: [validateLocalStrategyProperty, 'Please fill in your last name']
     },
+    nickName: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    ufid: {
+        type: String,
+        unique: true,
+        match: [/^\d{8}$/, 'Please enter a valid UF ID'] //8 digit input
+    },
     highSchool: {
         type: String,
         trim: true,
@@ -88,6 +98,9 @@ var UserSchema = new Schema({
         type: String,
         default: '',
         validate: [validateLocalStrategyPassword, 'Password should be longer']
+    },
+    weight: {
+        type: Number
     },
     salt: {
         type: String
