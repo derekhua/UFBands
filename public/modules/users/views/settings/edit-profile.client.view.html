@@ -1,32 +1,76 @@
 <section class="row " data-ng-controller="SettingsController">
     <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
     
-        <button ng-hide="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Edit</button>
+        <button ng-hide="edit" ng-click="editToggle()" class="btn btn-large btn-primary glyphicon glyphicon-edit"></button>
+        <button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary glyphicon glyphicon-ok"></button>
         
 <form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">      
 <div id="wrap" ng-show="edit">
-        <div data-ng-show="success" class="text-center text-success">
+        <div data-ng-show="success" class="text-center text-success alert alert-success">
             <strong>Profile Saved Successfully</strong>
 	</div>
 	<div id="header">
 			<h1><p><input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name"><input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name"></p></h1>
 			<p class="slogan">slogan/motto goes here</p>
 	</div>
-        <button type="submit" class="btn btn-large btn-primary">Save Profile</button><button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary">Done</button>
+        
+        <button type="submit" class="btn btn-large btn-primary glyphicon glyphicon-floppy-disk"></button>
+    
 	<div id="sidebar">
 		<h2 class="icon-home">Basic Info</h2>
 <!--		<p>Basic Info</p>-->
 		<ul>
-                        <li class="icon-contact">User Type<br />
-                            Prospective<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Prospective">
-                            Current<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Current">
-                            Alumni<input type="radio" id="userType" name="userType" class="form-control" data-ng-model="user.userType" value="Alumni">
+                        <li class="icon-contact">
+                            <label for="buttonProspective">&nbsp Prospective &nbsp</label>
+                                        <input type="radio" id="buttonProspective" name="userType" data-ng-model="user.userType" value="Prospective" ng-click="prospectiveUser()">
+                                        <br>
+                                        <label for="buttonCurrent">&nbsp Current &nbsp</label>
+                                        <input type="radio" id="buttonCurrent" name="userType" data-ng-model="user.userType" value="Current" ng-click="currentUser()">
+                                        <br>
+                                        <label for="buttonAlumni">&nbsp Alumni &nbsp</label>
+                                        <input type="radio" id="buttonAlumni" name="userType" data-ng-model="user.userType" value="Alumni" ng-click="alumniUser()">
                         </li>
-			<li class="icon-contact">Phone<br /><input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="user.phoneNumber" placeholder="Phone Number"></li>
-			<li class="icon-home">Address<br /><input type="text" id="permanentAddress" name="permanentAddress" class="form-control" data-ng-model="user.permanentAddress" placeholder="Permanent Address"></li>
-			<li class="icon-cv">Graduation Date<br /><input type="text" id="graduationDate" name="graduationDate" class="form-control" data-ng-model="user.graduationDate" placeholder="Graduation Date"></li>
-			<li class="icon-contact">Email<br /><input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email"></li>
-                        <li class="icon-contact">High School<br /><input type="text" id="highSchool" name="highSchool" class="form-control" data-ng-model="user.highSchool" placeholder="High School"></li>
+                        
+                        <li>
+                            <div class="input-group" > 
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-music" aria-hidden="true"></i>
+                                        </span>
+					<input type="text" id="instrument" name="instrument" class="form-control" data-ng-model="user.highSchool" placeholder="Instrument">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-phone" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="user.phoneNumber" placeholder="Phone Number">
+                            </div>
+                        </li>    
+			<li>
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-home" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="permanentAddress" name="permanentAddress" class="form-control" data-ng-model="user.permanentAddress" placeholder="Permanent Address">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-globe" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="graduationDate" name="graduationDate" class="form-control" data-ng-model="user.graduationDate" placeholder="Graduation Date">
+				</div>
+                        </li>
+                        <li>
+                            <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-envelope" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">
+                            </div>
+                        </li>
 		</ul>
 	</div>
 
@@ -71,11 +115,11 @@
 		<h2 class="icon-home">Basic Info</h2>
 <!--		<p>Basic Info</p>-->
 		<ul>
-                        <li class="icon-contact">User Type<br /><span ng-bind="user.userType"></span></li>
-			<li class="icon-contact">Phone<br /><span ng-bind="user.phoneNumber"></span></li>
-			<li class="icon-home">Address<br /><span ng-bind="user.permanentAddress"></span></li>
-			<li class="icon-cv">Graduation Date<br /><span ng-bind="user.graduationDate"></span></</li>
-			<li class="icon-contact">Email<br /><span ng-bind="user.email"></span></li>
+                        <li class="icon-contact">User Type:<br /><span ng-bind="user.userType"></span></li>
+			<li class="icon-contact">Phone:<br /><span ng-bind="user.phoneNumber"></span></li>
+			<li class="icon-home">Address:<br /><span ng-bind="user.permanentAddress"></span></li>
+			<li class="icon-cv">Graduation Date:<br /><span ng-bind="user.graduationDate"></span></</li>
+			<li class="icon-contact">Email:<br /><span ng-bind="user.email"></span></li>
 		</ul>
 	</div>
 
