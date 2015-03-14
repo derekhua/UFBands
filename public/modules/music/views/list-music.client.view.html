@@ -1,0 +1,22 @@
+<section data-ng-controller="MusicController" data-ng-init="find()">
+    <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+    <div class="page-header">
+        <h1>Music</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="music in music" data-ng-href="#!/music/{{music._id}}" class="list-group-item">
+			<h4 data-ng-bind="music.title"></h4>
+                        <h4 class="list-group-item-heading" data-ng-bind="music.instrument"></h4>
+                        <small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="music.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="music.user.displayName"></span>
+			</small>
+			
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!music.$resolved || music.length">
+    	No Music yet, why don't you <a href="/#!/music/create">create one</a>?
+    </div>
+</section>

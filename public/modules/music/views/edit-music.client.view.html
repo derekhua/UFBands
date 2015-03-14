@@ -1,14 +1,10 @@
-<section data-ng-controller="HomeController">
-
-        <!--paste this for every page that needs a menu-->
-    	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-
-            
-        <div class="page-header">
-        <h1>Instrument Repair Request</h1>
+<section data-ng-controller="MusicController" data-ng-init="findOne()">
+    <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+    <div class="page-header">
+        <h1>Edit Music</h1>
     </div>
     <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
@@ -18,7 +14,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label" for="title">Problem</label>
+                    <label class="control-label" for="name">Title</label>
                     <div class="controls">
                         <input type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
                     </div>
@@ -31,16 +27,20 @@
                     </div>
                 </div>
                 
+                <div class="form-group">
+                    <label class="control-label" for="path">Path</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="path" id="path" class="form-control" placeholder="Path" required>
+                    </div>
+                </div>
                 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default">
+                    <input type="submit" value="Update" class="btn btn-default">
                 </div>
-				<div data-ng-show="error" class="text-center text-danger alert alert-danger">
+				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
 				</div>
             </fieldset>
         </form>
     </div>
-    
-	
 </section>

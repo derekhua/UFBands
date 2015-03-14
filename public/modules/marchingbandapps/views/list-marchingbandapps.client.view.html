@@ -1,0 +1,19 @@
+<section data-ng-controller="MarchingbandappsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Marchingbandapps</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="marchingbandapp in marchingbandapps" data-ng-href="#!/marchingbandapps/{{marchingbandapp._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="marchingbandapp.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="marchingbandapp.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="marchingbandapp.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!marchingbandapps.$resolved || marchingbandapps.length">
+    	No Marchingbandapps yet, why don't you <a href="/#!/marchingbandapps/create">create one</a>?
+    </div>
+</section>

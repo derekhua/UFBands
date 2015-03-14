@@ -31,8 +31,8 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
                          $location.path('/home/prospective');
                     else if($scope.user.userType==='Alumni')
                         $location.path('/home/alumni');
-                    else
-                        $location.path('/home');
+//                    else
+//                        $location.path('/home');
                 };
 	}
 ]);
