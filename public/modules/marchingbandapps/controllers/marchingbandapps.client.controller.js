@@ -5,6 +5,16 @@ angular.module('marchingbandapps').controller('MarchingbandappsController', ['$s
 	function($scope, $stateParams, $location, Authentication, Marchingbandapps) {
 		$scope.authentication = Authentication;
 
+
+                $scope.instruments = ['piccolo', 'picc', 'flute', 'clarinet', 'oboe', 'english horn', 'basson', 'contrabass',
+		'contrabass bassoon', 'sax', 'saxophone', 'alto saxophone', 'alto sax', 'alto', 'tenor saxophone', 
+		'tenor sax', 'tenor', 'baritone saxophone', 'bari saxophone', 'bari sax', 'bari', 
+		'french horn', 'horn', 'mellophone', 'mello', 'trumpet', 'cornet', 'baritone', 'euphonium', 'trombone',
+		'bass trombone', 'tuba', 'sousaphone', 'string bass', 'bass', 'bass guitar', 'guitar',
+		'percussion', 'bass drum', 'quads', 'tenors', 'snare', 'cymbals', 'triangle', 'tympany', 
+		'marimba', 'vibraphone', 'xylophone', 'glockenspiel', 'drumset', 
+		'celeste', 'celesta', 'piano', 'harp', 'bongos'];
+                    
 		// Create new Marchingbandapp
 		$scope.create = function() {
 			// Create new Marchingbandapp object
@@ -62,5 +72,9 @@ angular.module('marchingbandapps').controller('MarchingbandappsController', ['$s
 				marchingbandappId: $stateParams.marchingbandappId
 			});
 		};
+                
+                
+                        
+                    
 	}
 ]);
