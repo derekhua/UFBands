@@ -201,17 +201,17 @@ var MarchingbandappSchema = new Schema({
 	homePhone: {
 		type: String,
 		validate: [validatePhoneRegex, 'Must enter a valid US telephone #']
-	},
-	secondaryPhone: {
-		phone1: {
-			type: String,
-			validate: [validatePhoneRegex, 'Must enter a valid telephone #']
-		},
-		phone2: {
-			type: String,
-			validate: [validatePhoneRegex, 'Must enter a valid telephone #']
-		}
 	}
+//	secondaryPhone: {
+//		phone1: {
+//			type: String,
+//			validate: [validatePhoneRegex, 'Must enter a valid telephone #']
+//		},
+//		phone2: {
+//			type: String,
+//			validate: [validatePhoneRegex, 'Must enter a valid telephone #']
+//		}
+//	}
 //	/**
 //	 * Ensemble Interest
 //	 */

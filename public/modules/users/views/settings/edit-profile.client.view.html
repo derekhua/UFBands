@@ -2,10 +2,10 @@
     <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
     
         <button ng-hide="edit" ng-click="editToggle()" class="btn btn-large btn-primary glyphicon glyphicon-edit"></button>
-        <button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary glyphicon glyphicon-ok"></button>
+        <button ng-show="edit" ng-click="reloadPage()" class="btn btn-large btn-primary glyphicon glyphicon-ok"></button>
         
 <form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off"> 
-    <button ng-show="edit" type="submit" class="btn btn-large btn-primary glyphicon glyphicon-floppy-disk"></button>
+    <button ng-show="edit" type="submit" onClick="" class="btn btn-large btn-primary glyphicon glyphicon-floppy-disk"></button>
     <div id="wrap" ng-show="edit">
             <div data-ng-show="success" class="text-center text-success alert alert-success">
                 <strong>Profile Saved Successfully</strong>

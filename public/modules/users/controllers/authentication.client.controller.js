@@ -60,7 +60,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 			});
 		};
 
-		$scope.currentUser = function() {
+            $scope.currentUser = function() {
 	        $scope.currentFlag = 'true';
 	        $scope.alumniFlag = 'false';
 	        $scope.prospectiveFlag = 'false';
