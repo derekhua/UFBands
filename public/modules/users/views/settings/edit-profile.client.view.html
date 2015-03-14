@@ -4,7 +4,8 @@
         <button ng-hide="edit" ng-click="editToggle()" class="btn btn-large btn-primary glyphicon glyphicon-edit"></button>
         <button ng-show="edit" ng-click="editToggle()" class="btn btn-large btn-primary glyphicon glyphicon-ok"></button>
         
-<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">      
+<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off"> 
+    <button type="submit" class="btn btn-large btn-primary glyphicon glyphicon-floppy-disk"></button>
     <div id="wrap" ng-show="edit">
             <div data-ng-show="success" class="text-center text-success alert alert-success">
                 <strong>Profile Saved Successfully</strong>
@@ -27,7 +28,7 @@
                             <p class="slogan">slogan/motto goes here</p>
             </div>
 
-            <button type="submit" class="btn btn-large btn-primary glyphicon glyphicon-floppy-disk"></button>
+            
 
             <div id="sidebar">
                     <h2 class="icon-home">Basic Info</h2>
