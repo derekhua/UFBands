@@ -1,4 +1,4 @@
-<section data-ng-controller="HomeController">
+<section data-ng-controller="InstrumentRepairsController">
 
         <!--paste this for every page that needs a menu-->
     	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
@@ -7,8 +7,8 @@
         <div class="page-header">
         <h1>Instrument Repair Request</h1>
     </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+<!--    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="" novalidate>
             <fieldset>
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
@@ -40,7 +40,9 @@
 				</div>
             </fieldset>
         </form>
+    </div>-->
+    <div class="col-md-12">
+        <button data-ng-click="sendEmail()">emailTestButton</button>
     </div>
-    
 	
 </section>
