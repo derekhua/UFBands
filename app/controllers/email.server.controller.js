@@ -18,7 +18,7 @@ var _ = require('lodash'),
  */
 
 exports.emailTest = function() {		
-			var message = {
+                    var message = {
                         "message": {
                             "from_email":"chaudown5@hotmail.com",
                             "to":[{"email":"heyguysbbq@gmail.com"}],
@@ -28,7 +28,7 @@ exports.emailTest = function() {
                      };			
 			var async = true;
 			var ip_pool = 'Main Pool';
-			m.messages.send({'message': message, 'async': async, 'ip_pool': ip_pool}, function(result) {
+			m.messages.send(message, function(result) {
 				console.log(result);			
 				return;
 			}, function() {
