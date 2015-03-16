@@ -98,18 +98,13 @@
                                         </span>
                                         <input type="text" id="permanentAddress" name="permanentAddress" class="form-control" data-ng-model="credentials.permanentAddress" placeholder="Permanent Address">
 				</div>
-				<div class="input-group" ng-show="currentFlag">
+				<div class="input-group">
                                         <span class="input-group-addon">
                                                 <i class="text-muted glyphicon glyphicon-globe" aria-hidden="true"></i>
                                         </span>
                                         <input type="text" id="graduationDateCurrent" name="graduationDate" class="form-control" data-ng-model="credentials.graduationDate" placeholder="Graduation Date">
 				</div>
-                                <div class="input-group" ng-show="prospectiveFlag">
-                                        <span class="input-group-addon">
-                                                <i class="text-muted glyphicon glyphicon-globe" aria-hidden="true"></i>
-                                        </span>
-                                        <input type="text" id="graduationDateProspective" name="graduationDate" class="form-control" data-ng-model="credentials.graduationDate" placeholder="Graduation Date">
-				</div>				                                
+                               			                                
 				
 				<div data-ng-show="error" class="text-center text-danger alert alert-danger">
 					<strong data-ng-bind="error"></strong>
