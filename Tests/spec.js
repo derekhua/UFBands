@@ -27,11 +27,12 @@ function signout(){
     expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment'); //Start Page
 }
 
-var newUserName = makeid();
+var newUserNameProspective = makeid();
+var newUserNameCurrent = makeid();
+var newUserNameAlumni = makeid();
 
 describe('CEN3031 login', function() {
     it('should sign up prospective member', function() {
-        var newUserName = makeid();
         browser.get('http://localhost:3000');
         element(by.id('signup')).click();
 
@@ -45,18 +46,18 @@ describe('CEN3031 login', function() {
         element(by.id('lastName')).sendKeys('Test');
         element(by.id('email')).sendKeys('test@test.com');
         element(by.id('buttonProspective')).click();
-        element(by.id('username')).sendKeys(newUserName);
+        element(by.id('username')).sendKeys(newUserNameProspective);
         element(by.id('password')).sendKeys('TestTest');
         element(by.id('instrument')).sendKeys('Trombone');
         element(by.id('highSchool')).sendKeys('Test');
         element(by.id('phoneNumber')).sendKeys('Test');
         element(by.id('permanentAddress')).sendKeys('Test');
-        element(by.id('graduationDateProspective')).sendKeys('Test');
+        element(by.id('graduationDate')).sendKeys('Test');
         element(by.id('signup')).click();
 
         browser.driver.wait(function() {
             return browser.driver.getCurrentUrl().then(function(url) {
-                return /#!/.test(url);
+                return /prospective/.test(url);
             });
         });
 
@@ -65,8 +66,8 @@ describe('CEN3031 login', function() {
     });
 
     it('should sign up current member', function() {
-        var newUserName = makeid();
-        browser.get('http://localhost:3000');
+        newUserName = makeid();
+
         element(by.id('signup')).click();
 
         browser.driver.wait(function () {
@@ -79,17 +80,17 @@ describe('CEN3031 login', function() {
         element(by.id('lastName')).sendKeys('Test');
         element(by.id('email')).sendKeys('test@test.com');
         element(by.id('buttonCurrent')).click();
-        element(by.id('username')).sendKeys(newUserName);
+        element(by.id('username')).sendKeys(newUserNameCurrent);
         element(by.id('password')).sendKeys('TestTest');
         element(by.id('instrument')).sendKeys('Trombone');
         element(by.id('phoneNumber')).sendKeys('Test');
         element(by.id('permanentAddress')).sendKeys('Test');
-        element(by.id('graduationDateCurrent')).sendKeys('Test');
+        element(by.id('graduationDate')).sendKeys('Test');
         element(by.id('signup')).click();
 
         browser.driver.wait(function() {
             return browser.driver.getCurrentUrl().then(function(url) {
-                return /#!/.test(url);
+                return /current/.test(url);
             });
         });
 
@@ -98,8 +99,8 @@ describe('CEN3031 login', function() {
     });
 
     it('should sign up alumni member', function() {
-        var newUserName = makeid();
-        browser.get('http://localhost:3000');
+         newUserName = makeid();
+
         element(by.id('signup')).click();
 
         browser.driver.wait(function () {
@@ -112,16 +113,17 @@ describe('CEN3031 login', function() {
         element(by.id('lastName')).sendKeys('Test');
         element(by.id('email')).sendKeys('test@test.com');
         element(by.id('buttonAlumni')).click();
-        element(by.id('username')).sendKeys(newUserName);
+        element(by.id('username')).sendKeys(newUserNameAlumni);
         element(by.id('password')).sendKeys('TestTest');
         element(by.id('instrument')).sendKeys('Trombone');
         element(by.id('phoneNumber')).sendKeys('Test');
         element(by.id('permanentAddress')).sendKeys('Test');
+        element(by.id('graduationDate')).sendKeys('Test');
         element(by.id('signup')).click();
 
         browser.driver.wait(function() {
             return browser.driver.getCurrentUrl().then(function(url) {
-                return /#!/.test(url);
+                return /alumni/.test(url);
             });
         });
 
@@ -138,13 +140,13 @@ describe('CEN3031 login', function() {
             });
         });
 
-        element(by.id('username')).sendKeys(newUserName);
+        element(by.id('username')).sendKeys(newUserNameProspective);
         element(by.id('password')).sendKeys('TestTest');
         element(by.id('signin')).click();
 
         browser.driver.wait(function() {
             return browser.driver.getCurrentUrl().then(function(url) {
-                return /prospective/.test(url); //should be current, address bug
+                return /prospective/.test(url);
             });
         });
 
