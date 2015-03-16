@@ -20,9 +20,9 @@ var _ = require('lodash'),
 exports.emailTest = function() {		
                     var message = {
                         "message": {
-                            "from_email":"chaudown5@hotmail.com",
-                            "to":[{"email":"heyguysbbq@gmail.com"}],
-                            "subject": "HelloHelloTestballs",
+                            "from_email":"cen3031uf@gmail.com",
+                            "to":[{"email":"cen3031uf@gmail.com"}],
+                            "subject": "HelloHelloTest",
                             "text": "YelloYello."
                         }
                      };			
@@ -76,7 +76,7 @@ exports.resultMail = function(req, res, next) {
 			var message = {
 	    		'html': emailHTML,
 	    		'subject': 'Test Complete',
-	    		'from_email': 'sltalty@gmail.com',
+	    		'from_email': 'cen3031uf@gmail.com',
 	    		'from_name': 'Customer Support',
 	    		'to': [{
 	            	'email': user.email,
@@ -84,7 +84,7 @@ exports.resultMail = function(req, res, next) {
 	            	'type': 'to'
 	    		}],
 	    		'headers': {
-	        		'Reply-To': 'sltalty@gmail.com'
+	        		'Reply-To': 'cen3031uf@gmail.com'
 	    		}
 	    	};			
 			var async = true;
