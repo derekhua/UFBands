@@ -17,15 +17,17 @@ var _ = require('lodash'),
  * Create a Email
  */
 
-exports.emailTest = function() {		
+exports.emailTest = function(req, res) {		
                     var message = {
                         "message": {
                             "from_email":"cen3031uf@gmail.com",
                             "to":[{"email":"cen3031uf@gmail.com"}],
-                            "subject": "HelloHelloTest",
-                            "text": "YelloYello."
+                            "subject": "Instrument Repair " + req.user.displayName,
+                            "text": "ID of item needing repairs: " + req.body.ID + "\nName: " + req.user.displayName + "\nDescription of damage: " + req.body.description
                         }
-                     };			
+
+                     };		
+
 			var async = true;
 			var ip_pool = 'Main Pool';
 			m.messages.send(message, function(result) {
