@@ -26,7 +26,7 @@ Original design: Basic Profile (fluid) (v2.0 - Sep 11, 2012) - A free xhtml/css 
 For more information, see http://andreasviklund.com/templates/basic-profile/
 Icons from http://iconza.com/
 */
-
+/*
 *{margin:0; padding:0;}
 /*body {background:#fff url(background.jpg) top center no-repeat; color:#303030; font:84% Arial,Helvetica,sans-serif; line-height:1.6em;}*/
 a {color:#2a5a9a; text-decoration:none;}
@@ -65,3 +65,8 @@ h1,h2,h3 {font-weight:700; line-height:1.4em;}
 .icon-cv {background: #fff url(images/icons/document_32x32.png) top left no-repeat;}
 .icon-contact {background: #fff url(images/icons/mail_32x32.png) top left no-repeat;}
 .icon-blog {background: #fff url(images/icons/edit_32x32.png) top left no-repeat;}
+
+
+
+
+
