@@ -171,10 +171,6 @@ var BandapplicationSchema = new Schema({
         },
         
         // 2015-2016 Generic App
-        primaryYears: {
-            type: String,
-            default: '0'
-        },
         secondaryYears: {
             type: String,
             default: '0'
