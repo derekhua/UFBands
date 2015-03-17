@@ -5,14 +5,14 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 	function($scope, $stateParams, $location, Authentication, Bandapplications) {
 		$scope.authentication = Authentication;
 
-                $scope.instruments = ['piccolo', 'picc', 'flute', 'clarinet', 'oboe', 'english horn', 'basson', 'contrabass',
-		'contrabass bassoon', 'sax', 'saxophone', 'alto saxophone', 'alto sax', 'alto', 'tenor saxophone', 
-		'tenor sax', 'tenor', 'baritone saxophone', 'bari saxophone', 'bari sax', 'bari', 
-		'french horn', 'horn', 'mellophone', 'mello', 'trumpet', 'cornet', 'baritone', 'euphonium', 'trombone',
+                $scope.instruments = ['piccolo', 'flute', 'clarinet', 'oboe', 'english horn', 'basson', 'contrabass',
+		'contrabass bassoon', 'alto saxophone', 'tenor saxophone','baritone saxophone', 
+		'french horn', 'horn', 'mellophone','trumpet', 'cornet', 'baritone', 'euphonium', 'trombone',
 		'bass trombone', 'tuba', 'sousaphone', 'string bass', 'bass', 'bass guitar', 'guitar',
-		'percussion', 'bass drum', 'quads', 'tenors', 'snare', 'cymbals', 'triangle', 'tympany', 
+		'percussion', 'bass drum', 'quads', 'tenors', 'snare', 'cymbals', 'triangle', 'timpani', 
 		'marimba', 'vibraphone', 'xylophone', 'glockenspiel', 'drumset', 
 		'celeste', 'celesta', 'piano', 'harp', 'bongos'];
+                $scope.instruments.sort();
                 
                 $scope.status = ['University of Florida', 'Santa Fe', 'Innovation Academy', 'Other State School'];
                 $scope.marchingBandFlag = false;
