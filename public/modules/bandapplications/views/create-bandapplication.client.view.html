@@ -16,41 +16,41 @@
                     </div>
                 </div>-->
                 <div class="col-md-4">
-                    <div class="input-group" >
+                    <div class="input-group input-group-lg" >
                         <h5 class="glyphicon glyphicon-check"><b>Check all that apply</b></h5>
 
                     </div>
-                    <div class="input-group ">
-
-                        <label for="marchingBand">&nbsp Marching Band &nbsp</label>
+                    <div class="input-group input-group-lg">
                         <input type="checkbox" id="buttonProspective" name="marchingBand" data-ng-model="marchingBand" value="true" ng-Click="marchingBandToggle()">  
+                        <label for="marchingBand"> &nbsp Marching Band &nbsp</label>
+                        
                     </div>
-                    <div class="input-group ">
-
-                        <label for="windSymphony">&nbsp Wind Symphony &nbsp</label>
+                    <div class="input-group input-group-lg">
                         <input type="checkbox" id="windSymphony" name="windSymphony" data-ng-model="windSymphony" value="true">  
+                        <label for="windSymphony"> &nbsp Wind Symphony &nbsp</label>
+                        
                     </div>
-                    <div class="input-group ">
-
-                        <label for="symphonicband">&nbsp Symphonic Band &nbsp</label>
+                    <div class="input-group input-group-lg">
                         <input type="checkbox" id="symphonicband" name="symphonicband" data-ng-model="symphonicband" value="true">  
+                        <label for="symphonicband">&nbsp Symphonic Band &nbsp</label>
+                        
                     </div>
-                    <div class="input-group ">
-
-                        <label for="jazzBand">&nbsp Jazz Band &nbsp</label>
+                    <div class="input-group input-group-lg">
                         <input type="checkbox" id="jazzBand" name="jazzBand" data-ng-model="jazzBand" value="true">  
+                        <label for="jazzBand">&nbsp Jazz Band &nbsp</label>
+                        
                     </div>
-                    <div class="input-group ">
-
-                        <label for="pepBand">&nbsp Pep Band &nbsp</label>
+                    <div class="input-group input-group-lg">
                         <input type="checkbox" id="pepBand" name="pepBand" data-ng-model="pepBand" value="true" ng-Click="pepBandToggle()">  
+                        <label for="pepBand">&nbsp Pep Band &nbsp</label>
+                        
                     </div>
                 </div>    
                 
                 <div class="col-md-4">
                     
                     <label class="control-label" for="secondary">Secondary Instrument</label>
-                    <div class="input-group">
+                    <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                             <i class="text-muted glyphicon glyphicon-music" aria-hidden="true"></i>
                         </span>
@@ -60,7 +60,7 @@
                             </select>
                     </div>
 
-                    <div class="input-group">
+                    <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                             <i class="text-muted glyphicon glyphicon-fire" aria-hidden="true"></i>
                         </span>
@@ -68,7 +68,7 @@
                     </div>
                     
                     <label class="control-label" for="secondary">School Status</label>
-                    <div class="input-group">
+                    <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                             <i class="text-muted glyphicon glyphicon-book" aria-hidden="true"></i>
                         </span>
@@ -77,19 +77,20 @@
                                     <option ng-repeat="status in status" value="{{status}}">{{status}}</option>
                             </select>
                     </div>
+                    <br>
                 </div>
                     
                 <div class="col-md-4">
                     <div ng-show="marchingBandFlag">
                     <label class="control-label" for="weight">Marching Band Specific Information</label>
-                    <div class="input-group">
+                    <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                             <i class="text-muted glyphicon glyphicon-user" aria-hidden="true"></i>
                         </span>
                         <input type="text" data-ng-model="weight" id="weight" class="form-control" placeholder="Weight" >
                     </div>
                     <label class="control-label" for="size">Shirt Size</label>
-                    <div class="input-group">
+                    <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                             <i class="text-muted glyphicon glyphicon-user" aria-hidden="true"></i>
                         </span>
@@ -101,14 +102,14 @@
                     
                     <div ng-show="pepBandFlag">
                     <label class="control-label" for="weight">Pep Band Specific Information</label>
-                    <div class="input-group">
+                    <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                             <i class="text-muted glyphicon glyphicon-user" aria-hidden="true"></i>
                         </span>
                         <input type="text" data-ng-model="weight" id="weight" class="form-control" placeholder="Weight" >
                     </div>
                     <label class="control-label" for="size">Shirt Size</label>
-                    <div class="input-group">
+                    <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                             <i class="text-muted glyphicon glyphicon-user" aria-hidden="true"></i>
                         </span>
@@ -119,12 +120,16 @@
                     </div>
                 </div>
 
-                <br><br>
+                <br><br><br>
+                
                 <div class="form-group text-center col-md-12">
-                    <input type="submit" class="btn btn-default">
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-lg btn-info">
+                    </div>
+                    
                     <div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
+			<strong data-ng-bind="error"></strong>
+                    </div>
                 </div>
 				
             </fieldset>
