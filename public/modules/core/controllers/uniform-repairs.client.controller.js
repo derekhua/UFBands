@@ -11,6 +11,7 @@ angular.module('core').controller('UniformRepairsController', ['$scope', '$http'
                     }).error(function(response) {
 				$scope.error = response.message;
 			});
+                 alert("Thank you for submitting your repair request.");
                 };
 	}
 ]);

@@ -15,6 +15,7 @@ angular.module('core').controller('InstrumentRepairsController', ['$scope', '$ht
                     	console.log(response);
 				$scope.error = response.message;
 			});
+                alert("Thank you for submitting your repair request.");
                 };
 	}
 ]);
