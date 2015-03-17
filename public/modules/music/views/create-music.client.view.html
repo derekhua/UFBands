@@ -23,7 +23,9 @@
                 <div class="form-group">
                     <label class="control-label" for="instrument">Instrument</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="instrument" id="instrument" class="form-control" placeholder="Instrument" required>
+                        <select name="mydropdown" data-ng-model="instrument" id="instrument" class="form-control" placeholder="instrument" required>
+                                    <option ng-repeat="instruments in instruments" value="{{instruments}}">{{instruments}}</option>
+                        </select>
                     </div>
                 </div>
                 
