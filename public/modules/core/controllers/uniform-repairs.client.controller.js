@@ -7,10 +7,11 @@ angular.module('core').controller('UniformRepairsController', ['$scope', '$http'
                 
                 $scope.sendEmail = function (){
 
-                    $http.post('/email/repairEmail').success(function(response) {
+                    $http.post('/email/uniformRepairEmail').success(function(response) {
                     }).error(function(response) {
 				$scope.error = response.message;
 			});
+                 alert("Thank you for submitting your repair request.");
                 };
 	}
 ]);
