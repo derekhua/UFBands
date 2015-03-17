@@ -73,6 +73,8 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			});
 		};
                 
-                $scope.reloadPage = function(){window.location.reload();}
+                $scope.reloadPage = function() {
+                    window.location.reload();
+                };
 	}
 ]);

@@ -65,5 +65,6 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 				musicId: $stateParams.musicId
 			});
 		};
+
 	}
 ]);

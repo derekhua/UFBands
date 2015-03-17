@@ -57,7 +57,7 @@
 			});
 
 			// Create a sample Music array that includes the new Music
-			var sampleMusic = [sampleMusic];
+			sampleMusic = [sampleMusic];
 
 			// Set GET response
 			$httpBackend.expectGET('music').respond(sampleMusic);

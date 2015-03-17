@@ -21,6 +21,9 @@ var validateLocalStrategyPassword = function(password) {
     return (this.provider !== 'local' || (password && password.length > 6));
 };
 
+
+var validatePhoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+
 /**
  * User Schema
  */
@@ -37,6 +40,45 @@ var UserSchema = new Schema({
         default: '',
         validate: [validateLocalStrategyProperty, 'Please fill in your last name']
     },
+    phoneNumber: {
+        type: String,
+        trim: true,
+        default: '',
+        validate: [validateLocalStrategyProperty, 'Please fill in your phone number']
+    },
+    gatorlink: {
+        type: String,
+        trim: true,
+        default: '',
+        validate: [validateLocalStrategyProperty, 'Please fill in your email'],
+        match: [/.+\@.+\..+/, 'Please fill a valid UF gatorlink email address'] //TODO regex for ufl.edu
+	},
+    email: {
+        type: String,
+        trim: true,
+        default: '',
+        validate: [validateLocalStrategyProperty, 'Please fill in your email'],
+        match: [/.+\@.+\..+/, 'Please fill a valid email address']
+    },
+    //Primary Instrument
+    primary: {
+	type: String,
+	lowercase: true,
+	default: '',
+	required: 'Must specify an instrument',
+	enum: ['piccolo', 'picc', 'flute', 'clarinet', 'oboe', 'english horn', 'basson', 'contrabass',
+	'contrabass bassoon', 'sax', 'saxophone', 'alto saxophone', 'alto sax', 'alto', 'tenor saxophone', 
+	'tenor sax', 'tenor', 'baritone saxophone', 'bari saxophone', 'bari sax', 'bari', 
+	'french horn', 'horn', 'mellophone', 'mello', 'trumpet', 'cornet', 'baritone', 'euphonium', 'trombone',
+	'bass trombone', 'tuba', 'sousaphone', 'string bass', 'bass', 'bass guitar', 'guitar',
+	'percussion', 'bass drum', 'quads', 'tenors', 'snare', 'cymbals', 'triangle', 'tympany', 
+	'marimba', 'vibraphone', 'xylophone', 'glockenspiel', 'drumset', 
+	'celeste', 'celesta', 'piano', 'harp', 'bongos']
+    },
+    primaryYears: {
+            type: String,
+            default: '0'
+        },
     nickName: {
         type: String,
         trim: true,
@@ -45,25 +87,57 @@ var UserSchema = new Schema({
     ufid: {
         type: String,
         unique: true,
+        default: '',
         match: [/^\d{8}$/, 'Please enter a valid UF ID'] //8 digit input
     },
+    permanentAddress: {
+		line1: {
+			type: String,
+			required: true
+		},
+		line2: {
+			type: String,
+		},
+		city: {
+			type: String,
+			required: true
+		},
+		state: {
+			type: String,
+			required: true,
+			match: [/^.{2}$/, 'Must enter a (2) letter state abbreviation']
+		},
+		zip: {
+			type: String,
+			required: true,
+			match: [/^\d{5}/, 'Must enter a (5) digit zip code']
+		}
+	},
+    localAddress: {
+		line1: {
+			type: String,
+		},
+		line2: {
+			type: String,
+		},
+		city: {
+			type: String,
+		},
+		state: {
+			type: String,
+			match: [/^.{2}$/, 'Must enter a (2) letter state abbreviation']
+		},
+		zip: {
+			type: String,
+			match: [/^\d{5}$/, 'Must enter a (5) digit zip code']
+		}
+	},
+    //highschool and grad year
     highSchool: {
         type: String,
         trim: true,
         default: '',
-        validate: [validateLocalStrategyProperty, 'Please fill in your high school']
-    },
-    phoneNumber: {
-        type: String,
-        trim: true,
-        default: '',
-        validate: [validateLocalStrategyProperty, 'Please fill in your phone number']
-    },
-    permanentAddress: {
-        type: String,
-        trim: true,
-        default: '',
-        validate: [validateLocalStrategyProperty, 'Please fill in your permanent address']
+        validate: [validateLocalStrategyProperty, 'Please fill in your high school and grad year']
     },
     graduationDate: {
         type: String,
@@ -71,22 +145,35 @@ var UserSchema = new Schema({
         default: '',
         validate: [validateLocalStrategyProperty, 'Please fill in your graduation date']
     },
-    displayName: {
+    // class 1EG,..
+    class: {
         type: String,
-        trim: true
+        trim: true,
+        default: '',
+        validate: [validateLocalStrategyProperty, 'Please fill in your class']
+    },
+    major: {
+        type: String,
+        trim: true,
+        default: '',
+        validate: [validateLocalStrategyProperty, 'Please fill in your major']
+    },
+    // e.g. freshman
+    year: {
+        type: String,
+        trim: true,
+        default: '',
+        validate: [validateLocalStrategyProperty, 'Please fill in your year (e.g. freshman)']
     },
     userType: {
         type: String,
         trim: true,
         default: 'Prospective',
         validate: [validateLocalStrategyProperty, 'Please choose a user type']
-    },
-    email: {
+    },    
+    displayName: {
         type: String,
-        trim: true,
-        default: '',
-        validate: [validateLocalStrategyProperty, 'Please fill in your email'],
-        match: [/.+\@.+\..+/, 'Please fill a valid email address']
+        trim: true
     },
     username: {
         type: String,

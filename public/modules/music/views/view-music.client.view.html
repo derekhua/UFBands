@@ -9,10 +9,10 @@
         <p>{{music.title}}</p>
         <p>{{music.instrument}}</p>
         <p>{{music.path}}</p>
-
+        <a href="../sheet_music/SHEET.pdf"></a>
         
-        <a href="#" class="btn btn-primary btn-lg" onClick="openPDF('sheet_music/SHEET.pdf')">View</a>
-
+        <div class="btn btn-primary btn-lg" onClick="openPDF('sheet_music/SHEET.pdf')">View</div>
+        <div class="btn btn-primary btn-lg"><a href="../sheet_music/SHEET.pdf">Link</a></div>
         
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == music.user._id))">
 		<a class="btn btn-primary" href="/#!/music/{{music._id}}/edit">

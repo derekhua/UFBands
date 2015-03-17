@@ -7,7 +7,7 @@ angular.module('core').controller('InstrumentRepairsController', ['$scope', '$ht
                 
                 $scope.sendEmail = function (){
 
-console.log("hello world");
+console.log('hello world');
 
                     $http.post('/email/repairEmail', $scope.formdata).success(function(response) {
                     	console.log(response);
