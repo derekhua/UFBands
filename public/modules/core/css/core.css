@@ -20,7 +20,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+.jumbotron {
+   background: rgba(0, 0, 0, 0.5); 
+}
 /*
 Original design: Basic Profile (fluid) (v2.0 - Sep 11, 2012) - A free xhtml/css website template by Andreas Viklund.
 For more information, see http://andreasviklund.com/templates/basic-profile/
