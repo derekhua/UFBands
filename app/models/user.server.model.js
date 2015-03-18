@@ -66,14 +66,13 @@ var UserSchema = new Schema({
 	lowercase: true,
 	default: '',
 	required: 'Must specify an instrument',
-	enum: ['piccolo', 'picc', 'flute', 'clarinet', 'oboe', 'english horn', 'basson', 'contrabass',
-	'contrabass bassoon', 'sax', 'saxophone', 'alto saxophone', 'alto sax', 'alto', 'tenor saxophone', 
-	'tenor sax', 'tenor', 'baritone saxophone', 'bari saxophone', 'bari sax', 'bari', 
-	'french horn', 'horn', 'mellophone', 'mello', 'trumpet', 'cornet', 'baritone', 'euphonium', 'trombone',
-	'bass trombone', 'tuba', 'sousaphone', 'string bass', 'bass', 'bass guitar', 'guitar',
-	'percussion', 'bass drum', 'quads', 'tenors', 'snare', 'cymbals', 'triangle', 'tympany', 
-	'marimba', 'vibraphone', 'xylophone', 'glockenspiel', 'drumset', 
-	'celeste', 'celesta', 'piano', 'harp', 'bongos']
+	enum: ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
+		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone', 
+		'French Horn', 'Horn', 'Mellophone','Trumpet', 'Cornet', 'Baritone', 'Euphonium', 'Trombone',
+		'Bass Trombone', 'Tuba', 'Sousaphone', 'String Bass', 'Bass', 'Bass Guitar', 'Guitar',
+		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani', 
+		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
+		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos']
     },
     primaryYears: {
             type: String,
