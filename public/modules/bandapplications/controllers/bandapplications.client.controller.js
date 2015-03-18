@@ -11,7 +11,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		'Bass Trombone', 'Tuba', 'Sousaphone', 'String Bass', 'Bass', 'Bass Guitar', 'Guitar',
 		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani', 
 		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
-		'Celeste', 'Celesta', 'P1iano', 'Harp', 'Bongos'];
+		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 $scope.instruments.sort();
                 
                 $scope.status = ['University of Florida', 'Santa Fe', 'Innovation Academy', 'Other State School'];
