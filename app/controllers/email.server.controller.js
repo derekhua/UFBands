@@ -34,7 +34,7 @@ exports.instrumentRepair = function(req, res) {
 				return;
 			}, function() {
 	    			// Mandrill returns the error as an object with name and message keys
-	    			console.log('A mandrill error occurred: ');
+	    			console.log('A mandrill error occurred');
 	    	});
 };
 exports.uniformRepair = function(req, res) {	
@@ -52,7 +52,7 @@ exports.uniformRepair = function(req, res) {
 				return;
 			}, function() {
 	    			// Mandrill returns the error as an object with name and message keys
-	    			console.log('A mandrill error occurred: ');
+	    			console.log('A mandrill error occurred');
 	    	});
 };
 exports.resultMail = function(req, res, next) {
