@@ -14,7 +14,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 		'Bass Trombone', 'Tuba', 'Sousaphone', 'String Bass', 'Bass', 'Bass Guitar', 'Guitar',
 		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani', 
 		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
-		'Celeste', 'Celesta', 'P1iano', 'Harp', 'Bongos'];
+		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 $scope.instruments.sort();
                 
 		// If user is signed in then redirect back home

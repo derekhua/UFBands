@@ -12,7 +12,7 @@ angular.module('core').controller('InstrumentRepairsController', ['$scope', '$ht
 		'Bass Trombone', 'Tuba', 'Sousaphone', 'String Bass', 'Bass', 'Bass Guitar', 'Guitar',
 		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani', 
 		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
-		'Celeste', 'Celesta', 'P1iano', 'Harp', 'Bongos'];
+		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 $scope.instruments.sort();
                 $scope.sendEmail = function (){
 
