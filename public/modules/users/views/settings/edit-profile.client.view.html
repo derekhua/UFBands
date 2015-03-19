@@ -5,13 +5,16 @@
         <button ng-show="edit" ng-click="reloadPage()" class="btn btn-large btn-primary glyphicon glyphicon-ok"></button>
         
 <form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off"> 
-    <button ng-show="edit" type="submit" onClick="" class="btn btn-large btn-primary glyphicon glyphicon-floppy-disk"></button>
+    <button ng-show="edit" type="submit" class="btn btn-large btn-primary glyphicon glyphicon-floppy-disk"></button>
     <div id="wrap" ng-show="edit">
             <div data-ng-show="success" class="text-center text-success alert alert-success">
                 <strong>Profile Saved Successfully</strong>
             </div>
+            <div data-ng-show="error" class="text-center text-success alert alert-danger">
+                <strong>Profile Saved NOT Successfully</strong>
+            </div>
             <div id="header">
-                            <h1>
+                            
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="text-muted glyphicon glyphicon-star" aria-hidden="true"></i>
@@ -24,15 +27,15 @@
                                     </span>
                                     <input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name">
                                 </div>
-                            </h1>
+                            
                             <p class="slogan">slogan/motto goes here</p>
             </div>
 
             
 
-            <div id="sidebar">
+<!--            <div id="sidebar">
                     <h2 class="icon-home">Basic Info</h2>
-    <!--		<p>Basic Info</p>-->
+    		<p>Basic Info</p>
                     <ul>
                             <li class="icon-contact">
                                 <label for="buttonProspective">&nbsp Prospective &nbsp</label>
@@ -50,7 +53,7 @@
                                             <span class="input-group-addon">
                                                     <i class="text-muted glyphicon glyphicon-music" aria-hidden="true"></i>
                                             </span>
-                                            <input type="text" id="instrument" name="instrument" class="form-control" data-ng-model="user.highSchool" placeholder="Instrument">
+                                            <input type="text" id="instrument" name="instrument" class="form-control" data-ng-model="user.instrument" placeholder="Instrument">
                                 </div>
                             </li>
                             <li>
@@ -86,7 +89,7 @@
                                 </div>
                             </li>
                     </ul>
-            </div>
+            </div>-->
 
             <div id="content">
                     <h2 class="icon-home">Make your voice heard!</h2>
@@ -102,7 +105,7 @@
                     <p class="timestamp">September 69th, 2012<br />
                     Tags: 
                     Author: 
-                    <p>The original version of the Basic Profile template was very well recieved and generated a lot of positive feedback, and the alternate version which added icons and a secondary navigation menu became the most downloaded template on andreasviklund.com during the first couple of weeks after it was released. Inspired by the response, I decided to make a third version - and this is it. I hope that you find it useful! <a href="#">Read more...</a></p>
+                    <p>The original version of the Basic Profile template was very well received and generated a lot of positive feedback, and the alternate version which added icons and a secondary navigation menu became the most downloaded template on andreasviklund.com during the first couple of weeks after it was released. Inspired by the response, I decided to make a third version - and this is it. I hope that you find it useful! <a href="#">Read more...</a></p>
 
                     <p class="credits">&copy; 2015 <span ng-bind="user.firstName"></span> <span ng-bind="user.lastName"></span><br />
             </div>
@@ -131,8 +134,8 @@
 		<ul>
                         <li class="icon-contact">User Type:<br /><span ng-bind="user.userType"></span></li>
 			<li class="icon-contact">Phone:<br /><span ng-bind="user.phoneNumber"></span></li>
-			<li class="icon-home">Address:<br /><span ng-bind="user.permanentAddress"></span></li>
-			<li class="icon-cv">Graduation Date:<br /><span ng-bind="user.graduationDate"></span></</li>
+<!--			<li class="icon-home">Address:<br /><span ng-bind="user.permanentAddress"></span></li>
+			<li class="icon-cv">Graduation Date:<br /><span ng-bind="user.graduationDate"></span></</li>-->
 			<li class="icon-contact">Email:<br /><span ng-bind="user.email"></span></li>
 		</ul>
 	</div>
@@ -156,4 +159,182 @@
 		<p class="credits">&copy; 2015 <span ng-bind="user.firstName"></span> <span ng-bind="user.lastName"></span><br />
 	</div>
 </div>
+        
+        
+        
+        
+<div ng-show="edit" class="well centerOfScreen">          
+        <div class="row">
+<!--			<div class="col-md-4 col-sm-offset-4">
+				<img alt="UFBands" class="img-responsive text-center" src="modules/core/img/brand/logo.png" />
+			</div>-->
+                <h1 class="text-center"><font color="black">Sign Up</font></h1>
+        </div>
+        
+	<div class="col-md-12">
+		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
+			<fieldset>
+                            <div class="col-md-6">
+				<div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-star text-warning" aria-hidden="true"></i>
+                                        </span>
+					<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name">
+				</div>
+				<div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-star text-warning" aria-hidden="true"></i>
+                                        </span>
+					<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Last Name">
+				</div>
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-star-empty text-warning" aria-hidden="true"></i>
+                                        </span>
+					<input type="text" id="nickName" name="nickName" class="form-control" data-ng-model="credentials.nickName" placeholder="Nickname">
+				</div>
+				<div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-envelope text-info" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
+				</div>
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-envelope text-info" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="email" id="gatorlink" name="gatorlink" class="form-control" data-ng-model="credentials.gatorlink" placeholder="Gatorlink">
+				</div>
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-plus text-success" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="ufid" name="ufid" class="form-control" data-ng-model="credentials.ufid" placeholder="UFID">
+				</div>
+                                <div class="input-group ">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-check text-primary" aria-hidden="true"></i>
+                                        </span>
+                                        
+                                        <label for="buttonProspective">&nbsp Prospective &nbsp</label>
+                                        <input type="radio" id="buttonProspective" name="userType" data-ng-model="credentials.userType" value="Prospective" ng-click="prospectiveUser()">
+                                        <br>
+                                        <label for="buttonCurrent">&nbsp Current &nbsp</label>
+                                        <input type="radio" id="buttonCurrent" name="userType" data-ng-model="credentials.userType" value="Current" ng-click="currentUser()">
+                                        <br>
+                                        <label for="buttonAlumni">&nbsp Alumni &nbsp</label>
+                                        <input type="radio" id="buttonAlumni" name="userType" data-ng-model="credentials.userType" value="Alumni" ng-click="alumniUser()">
+				</div>
+                                
+                                <div class="input-group" > 
+                                        <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-music" aria-hidden="true"></i>
+                                        </span>
+                                        <select name="mydropdown" data-ng-model="credentials.primary" id="primary" class="form-control" placeholder="primary" required>
+                                                <option ng-repeat="instruments in instruments" value="{{instruments}}" placeholder="Instrument">{{instruments}}</option>
+                                        </select>
+				</div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="text-muted glyphicon glyphicon-fire text-danger" aria-hidden="true"></i>
+                                    </span>
+                                        <input type="text" data-ng-model="credentials.primaryYears" id="primaryYears" class="form-control" placeholder="Years Experience" required>
+                                </div>
+				<div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-phone text-primary" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="credentials.phoneNumber" placeholder="Phone Number">
+				</div>
+                                <div class="input-group"> 
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-apple text-danger" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="highSchool" name="highSchool" class="form-control" data-ng-model="credentials.highSchool" placeholder="High School and Grad Year">
+				</div>
+                                
+                                
+				<div class="input-group" >
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-user text-primary" aria-hidden="true"></i>
+                                        </span>
+					<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
+				</div>
+                                
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-asterisk text-danger" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
+				</div>
+                            </div>
+                            
+                            <div class="col-md-6">
+				
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-home text-success" aria-hidden="true"></i>
+                                    </span>
+                                        <input type="text" data-ng-model="credentials.permanentAddress.line1" id="line1" class="form-control" placeholder="Permanent Address line 1" required>
+                                        <input type="text" data-ng-model="credentials.permanentAddress.line2" id="line2" class="form-control" placeholder="Permanent Address line 2" required>
+                                        <input type="text" data-ng-model="credentials.permanentAddress.city" id="city" class="form-control" placeholder="City" required>
+                                        <input type="text" data-ng-model="credentials.permanentAddress.state" id="state" class="form-control" placeholder="State" required>
+                                        <input type="text" data-ng-model="credentials.permanentAddress.zip" id="zip" class="form-control" placeholder="Zip code" required>
+                                </div>
+                                
+                                
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-tent text-warning" aria-hidden="true"></i>
+                                    </span>
+                                        <input type="text" data-ng-model="credentials.localAddress.line1" id="line1" class="form-control" placeholder="Local Address line 1" required>
+                                        <input type="text" data-ng-model="credentials.localAddress.line2" id="line2" class="form-control" placeholder="Local Address line 2" required>
+                                        <input type="text" data-ng-model="credentials.localAddress.city" id="city" class="form-control" placeholder="City" required>
+                                        <input type="text" data-ng-model="credentials.localAddress.state" id="state" class="form-control" placeholder="State" required>
+                                        <input type="text" data-ng-model="credentials.localAddress.zip" id="zip" class="form-control" placeholder="Zip code" required>
+                                </div>
+                                
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-chevron-up text-warning" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="major" name="major" class="form-control" data-ng-model="credentials.major" placeholder="Major">
+				</div>
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-bell text-warning" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="class" name="class" class="form-control" data-ng-model="credentials.class" placeholder="Class (e.g. 1EG)">
+				</div>
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-pawn " aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="permanentAddress" name="year" class="form-control" data-ng-model="credentials.year" placeholder="Year (e.g. freshman)">
+				</div>
+				<div class="input-group">
+                                        <span class="input-group-addon">
+                                                <i class="text-muted glyphicon glyphicon-calendar text-primary" aria-hidden="true"></i>
+                                        </span>
+                                        <input type="text" id="graduationDate" name="graduationDate" class="form-control" data-ng-model="credentials.graduationDate" placeholder="College Graduation Date">
+				</div>
+                               			                                
+                            </div>
+                            
+                            
+                            <div class="text-center form-group center col-md-12">
+                                    <br>
+                                    <div data-ng-show="error" class="text-center text-danger alert alert-danger">
+					<strong data-ng-bind="error"></strong>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-large btn-primary" id = "signup">Sign up</button>&nbsp; or&nbsp;
+                                    <a href="/#!/signin" class="show-signup">Sign in</a>
+                            </div>
+			</fieldset>
+		</form>
+
+	</div>
+</div>
+        
 </section>
