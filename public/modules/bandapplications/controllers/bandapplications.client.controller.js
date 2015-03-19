@@ -30,7 +30,18 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		$scope.create = function() {
 			// Create new Bandapplication object
 			var bandapplication = new Bandapplications ({
-				name: this.name
+				user: this.user,
+                                created: this.created,
+                                marchingBand: this.name,
+                                windSymphony: this.windSymphony,
+                                symphonicBand: this.symphonicBand,
+                                jazzBand: this.jazzBand,
+                                pepBand: this.pepBand,
+                                secondaryYears: this.secondaryYears,
+                                status: this.status,
+                                secondary: this.secondary,
+                                weight: this.weight,
+                                shirtSize:this.shirtSize
 			});
 
 			// Redirect after save
