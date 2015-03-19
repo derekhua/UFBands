@@ -10,10 +10,10 @@ var mongoose = require('mongoose'),
  * Music Schema
  */
 var MusicSchema = new Schema({
-	name: {
+	title: {
 		type: String,
 		default: '',
-		required: 'Please fill Music name',
+		required: 'Please fill Music title',
 		trim: true
 	},
 	created: {
@@ -29,11 +29,11 @@ var MusicSchema = new Schema({
 		default: '',
 		required: 'Must enter a file path'
  	},
-	title: {
+	composer: {
 		type: String,
 		default: '',
 		trim: true,
-		required: 'Title cannot be blank'
+		required: 'Composer cannot be blank'
 	},
 	instrument: {
 		type: String,

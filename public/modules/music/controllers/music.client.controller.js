@@ -19,9 +19,9 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 		$scope.create = function() {
 			// Create new Music object
 			var music = new Music ({
-				name: this.name,
+				title: this.title,
+                                composer: this.composer,
                                 path: this.path,
-                                title: this.title,
                                 instrument: this.instrument
 			});
 
