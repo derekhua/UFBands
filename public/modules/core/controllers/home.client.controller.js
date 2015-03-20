@@ -1,8 +1,31 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', '$location', 'Authentication',
-	function($scope, $location, Authentication) {
+angular.module('core').controller('HomeController', ['$scope', '$location', 'Authentication',	
+        
+        function($scope, $location, Authentication) {
+            
+//                $scope.embed = [
+//                'nalYHVvAF5Y',
+//                'FrHpVICF264',
+//                'fij7liDhDqk'
+//                ];
+//                
+                $scope.embed = [
+                '<iframe width="560" height="315" src="https://www.youtube.com/embed/nalYHVvAF5Y" frameborder="0" allowfullscreen></iframe>',
+                '<iframe width="560" height="315" src="https://www.youtube.com/embed/FrHpVICF264" frameborder="0" allowfullscreen></iframe>',
+                '<iframe width="560" height="315" src="https://www.youtube.com/embed/fij7liDhDqk" frameborder="0" allowfullscreen></iframe>'
+                ];
+//                
+//                $scope.embed = [
+//                'https://www.youtube.com/embed/nalYHVvAF5Y',
+//                'https://www.youtube.com/embed/FrHpVICF264',
+//                'https://www.youtube.com/embed/fij7liDhDqk'
+//                ];
+                $scope.randomEmbed = $scope.embed[Math.floor(Math.random() * $scope.embed.length)];
+                
+//              
+                
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
                 $scope.user = Authentication.user;
