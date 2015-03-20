@@ -5,6 +5,15 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		$scope.user = Authentication.user;
                 $scope.edit = false; 
                  
+                $scope.instruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
+		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone', 
+		'French Horn', 'Horn', 'Mellophone','Trumpet', 'Cornet', 'Baritone', 'Euphonium', 'Trombone',
+		'Bass Trombone', 'Tuba', 'Sousaphone', 'String Bass', 'Bass', 'Bass Guitar', 'Guitar',
+		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani', 
+		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
+		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
+                $scope.instruments.sort();
+                
 		// If user is not signed in then redirect back login
 		if (!$scope.user) $location.path('/');
 
