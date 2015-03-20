@@ -2,123 +2,11 @@
     <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
     
         <button ng-hide="edit" ng-click="editToggle()" class="btn btn-large btn-primary glyphicon glyphicon-edit"></button>
-        <button ng-show="edit" ng-click="reloadPage()" class="btn btn-large btn-primary glyphicon glyphicon-ok"></button>
-        
-<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off"> 
-    <button ng-show="edit" type="submit" class="btn btn-large btn-primary glyphicon glyphicon-floppy-disk"></button>
-    <div id="wrap" ng-show="edit">
-            
-<!--            notification-->
-            <div data-ng-show="success" class="text-center text-success alert alert-success">
-                <strong>Profile Saved Successfully</strong>
-            </div>
-            <div data-ng-show="error" class="text-center text-success alert alert-danger">
-                <strong>Profile Saved NOT Successfully</strong>
-            </div>
-        
-            <div id="header">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="text-muted glyphicon glyphicon-star" aria-hidden="true"></i>
-                                    </span>
-                                    <input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="user.firstName" placeholder="First Name">
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="text-muted glyphicon glyphicon-star" aria-hiddem="true"></i>
-                                    </span>
-                                    <input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name">
-                                </div>
-                            
-                            <p class="slogan">slogan/motto goes here</p>
-            </div>
-
-            
-
-<!--            <div id="sidebar">
-                    <h2 class="icon-home">Basic Info</h2>
-    		<p>Basic Info</p>
-                    <ul>
-                            <li class="icon-contact">
-                                <label for="buttonProspective">&nbsp Prospective &nbsp</label>
-                                            <input type="radio" id="buttonProspective" name="userType" data-ng-model="user.userType" value="Prospective" ng-click="prospectiveUser()">
-                                            <br>
-                                            <label for="buttonCurrent">&nbsp Current &nbsp</label>
-                                            <input type="radio" id="buttonCurrent" name="userType" data-ng-model="user.userType" value="Current" ng-click="currentUser()">
-                                            <br>
-                                            <label for="buttonAlumni">&nbsp Alumni &nbsp</label>
-                                            <input type="radio" id="buttonAlumni" name="userType" data-ng-model="user.userType" value="Alumni" ng-click="alumniUser()">
-                            </li>
-
-                            <li>
-                                <div class="input-group" > 
-                                            <span class="input-group-addon">
-                                                    <i class="text-muted glyphicon glyphicon-music" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="text" id="instrument" name="instrument" class="form-control" data-ng-model="user.instrument" placeholder="Instrument">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="input-group">
-                                            <span class="input-group-addon">
-                                                    <i class="text-muted glyphicon glyphicon-phone" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="user.phoneNumber" placeholder="Phone Number">
-                                </div>
-                            </li>    
-                            <li>
-                                <div class="input-group">
-                                            <span class="input-group-addon">
-                                                    <i class="text-muted glyphicon glyphicon-home" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="text" id="permanentAddress" name="permanentAddress" class="form-control" data-ng-model="user.permanentAddress" placeholder="Permanent Address">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="input-group">
-                                            <span class="input-group-addon">
-                                                    <i class="text-muted glyphicon glyphicon-globe" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="text" id="graduationDate" name="graduationDate" class="form-control" data-ng-model="user.graduationDate" placeholder="Graduation Date">
-                                    </div>
-                            </li>
-                            <li>
-                                <div class="input-group">
-                                            <span class="input-group-addon">
-                                                    <i class="text-muted glyphicon glyphicon-envelope" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">
-                                </div>
-                            </li>
-                    </ul>
-            </div>-->
-
-            <div id="content">
-                    <h2 class="icon-home">Make your voice heard!</h2>
-                    <div class="left">
-                            <p>This is Basic Profile (left). </p>
-                    </div>
-                    <div class="right">
-                            <p>This is Basic Profile (right). </p>
-
-                    </div>
-
-                    <h3 class="icon-blog">Blog post example</h3>
-                    <p class="timestamp">September 69th, 2012<br />
-                    Tags: 
-                    Author: 
-                    <p>The original version of the Basic Profile template was very well received and generated a lot of positive feedback, and the alternate version which added icons and a secondary navigation menu became the most downloaded template on andreasviklund.com during the first couple of weeks after it was released. Inspired by the response, I decided to make a third version - and this is it. I hope that you find it useful! <a href="#">Read more...</a></p>
-
-                    <p class="credits">&copy; 2015 <span ng-bind="user.firstName"></span> <span ng-bind="user.lastName"></span><br />
-            </div>
-    </div>
-</form>   
-        
-        
+        <button ng-show="edit" ng-click="reloadPage()" class="btn btn-large btn-primary glyphicon glyphicon-ok"></button>                        
         
 <div id="wrap" ng-hide="edit">
 	<div id="header">
-			<h1><p><span ng-bind="user.firstName"></span> <span ng-bind="user.lastName"></span></p></h1>
+			<h1><span ng-bind="user.firstName"></span> "<span ng-bind="user.nickName"></span>" <span ng-bind="user.lastName"></span> </h1>
 			<p class="slogan">slogan/motto goes here</p>
 	</div>
 <!--	<div id="menu">
@@ -134,11 +22,19 @@
 		<h2 class="icon-home">Basic Info</h2>
 <!--		<p>Basic Info</p>-->
 		<ul>
+                        <li class="icon-contact">Primary Instrument<br /><span ng-bind="user.primary"></span></li>
                         <li class="icon-contact">User Type:<br /><span ng-bind="user.userType"></span></li>
 			<li class="icon-contact">Phone:<br /><span ng-bind="user.phoneNumber"></span></li>
-<!--			<li class="icon-home">Address:<br /><span ng-bind="user.permanentAddress"></span></li>
-			<li class="icon-cv">Graduation Date:<br /><span ng-bind="user.graduationDate"></span></</li>-->
+			<li class="icon-home">Address:<br /><span ng-bind="user.permanentAddress.line1"></span> 
+                            <span ng-bind="user.permanentAddress.line2"></span>,
+                            <span ng-bind="user.permanentAddress.city"></span>,
+                            <span ng-bind="user.permanentAddress.state"></span>,
+                            <span ng-bind="user.permanentAddress.zip"></span>
+                        </li>
+            
+			<li class="icon-cv">Graduation Date:<br /><span ng-bind="user.graduationDate"></span></</li>
 			<li class="icon-contact">Email:<br /><span ng-bind="user.email"></span></li>
+                                                
 		</ul>
 	</div>
 
@@ -167,14 +63,23 @@
         
 <div ng-show="edit" class="well centerOfScreen">          
         <div class="row">
-<!--			<div class="col-md-4 col-sm-offset-4">
-				<img alt="UFBands" class="img-responsive text-center" src="modules/core/img/brand/logo.png" />
-			</div>-->
-                <h1 class="text-center"><font color="black">Sign Up</font></h1>
+                <h1 class="text-center"><font color="black">Edit</font></h1>
+        </div>
+    
+        <div class="row">
+            <div class="text-center form-group center col-md-12">
+                <br>
+                <div data-ng-show="success" class="text-center text-success alert alert-success">
+                    <strong>Profile Saved Successfully</strong>
+                </div>
+                <div data-ng-show="error" class="text-center text-success alert alert-danger">
+                    <strong>Profile Saved NOT Successfully</strong>
+                </div>
+            </div>
         </div>
         
 	<div class="col-md-12">
-		<form name="userForm" data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
+		<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
                             <div class="col-md-6">
 				<div class="input-group">
@@ -269,6 +174,7 @@
                                         </span>
                                         <input type="password" id="password" name="password" class="form-control" data-ng-model="user.password" placeholder="Password">
 				</div>
+                                <br>
                             </div>
                             
                             <div class="col-md-6">
@@ -278,7 +184,7 @@
                                                 <i class="text-muted glyphicon glyphicon-home text-success" aria-hidden="true"></i>
                                     </span>
                                         <input type="text" data-ng-model="user.permanentAddress.line1" id="line1" class="form-control" placeholder="Permanent Address line 1" required>
-                                        <input type="text" data-ng-model="user.permanentAddress.line2" id="line2" class="form-control" placeholder="Permanent Address line 2" required>
+                                        <input type="text" data-ng-model="user.permanentAddress.line2" id="line2" class="form-control" placeholder="Permanent Address line 2" >
                                         <input type="text" data-ng-model="user.permanentAddress.city" id="city" class="form-control" placeholder="City" required>
                                         <input type="text" data-ng-model="user.permanentAddress.state" id="state" class="form-control" placeholder="State" required>
                                         <input type="text" data-ng-model="user.permanentAddress.zip" id="zip" class="form-control" placeholder="Zip code" required>
@@ -290,7 +196,7 @@
                                                 <i class="text-muted glyphicon glyphicon-tent text-warning" aria-hidden="true"></i>
                                     </span>
                                         <input type="text" data-ng-model="user.localAddress.line1" id="line1" class="form-control" placeholder="Local Address line 1" required>
-                                        <input type="text" data-ng-model="user.localAddress.line2" id="line2" class="form-control" placeholder="Local Address line 2" required>
+                                        <input type="text" data-ng-model="user.localAddress.line2" id="line2" class="form-control" placeholder="Local Address line 2" >
                                         <input type="text" data-ng-model="user.localAddress.city" id="city" class="form-control" placeholder="City" required>
                                         <input type="text" data-ng-model="user.localAddress.state" id="state" class="form-control" placeholder="State" required>
                                         <input type="text" data-ng-model="user.localAddress.zip" id="zip" class="form-control" placeholder="Zip code" required>
@@ -320,19 +226,11 @@
                                         </span>
                                         <input type="text" id="graduationDate" name="graduationDate" class="form-control" data-ng-model="user.graduationDate" placeholder="College Graduation Date">
 				</div>
-                               			                                
+                               	<br>		                                
                             </div>
                             
                             
-                            <div class="text-center form-group center col-md-12">
-                                    <br>
-                                    <div data-ng-show="error" class="text-center text-danger alert alert-danger">
-					<strong data-ng-bind="error"></strong>
-                                    </div>
-                                    
-                                    <button type="submit" class="btn btn-large btn-primary" id = "signup">Sign up</button>&nbsp; or&nbsp;
-                                    <a href="/#!/signin" class="show-signup">Sign in</a>
-                            </div>
+                            <button type="submit" class="btn btn-large btn-primary text-center col-md-10 col-md-offset-1" id = "signup">Update</button>
 			</fieldset>
 		</form>
 
