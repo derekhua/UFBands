@@ -37,7 +37,6 @@ var MusicSchema = new Schema({
 	},
 	instrument: {
 		type: String,
-		lowercase: true,
 		default: '',
                 trim: true,
 		required: 'Must specify an instrument'
