@@ -63,7 +63,6 @@ var UserSchema = new Schema({
     //Primary Instrument
     primary: {
 	type: String,
-	lowercase: true,
 	default: '',
 	required: 'Must specify an instrument',
 //	enum: ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
