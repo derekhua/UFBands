@@ -1,18 +1,17 @@
 <section data-ng-controller="MusicController" data-ng-init="findOne()">
 	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-        <div class="page-header">
+        <div class="page-header lead">
                 <h1>{{music.name}}</h1>
 		
 	</div>
         
-        <p>{{music.name}}</p>
-        <p>{{music.title}}</p>
+<!--        <h2>{{music.name}}</h2>-->
+        <p>{{music.composer}}</p>
         <p>{{music.instrument}}</p>
-        <p>{{music.path}}</p>
-        <a href="../sheet_music/SHEET.pdf"></a>
+<!--        <p>{{music.path}}</p>-->
         
-        <div class="btn btn-primary btn-lg" onClick="openPDF('sheet_music/SHEET.pdf')">View</div>
-        <div class="btn btn-primary btn-lg"><a href="../sheet_music/SHEET.pdf">Link</a></div>
+        
+        <a href="{{music.path}}" class="btn btn-info btn-lg" target="_blank">View</a>
         
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == music.user._id))">
 		<a class="btn btn-primary" href="/#!/music/{{music._id}}/edit">

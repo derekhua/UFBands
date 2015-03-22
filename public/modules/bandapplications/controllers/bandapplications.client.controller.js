@@ -18,22 +18,17 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		//Volleyball and Basketball Pep Band Instruments
 		$scope.pepBandInstruments = ['Piccolo', 'Clarinet', 'Saxophone', 'Mellophone', 'Trumpet', 
 		'Baritone', 'Trombone', 'Sousaphone', 'Bass Guitar', 'Drumset'];
-                
-         $scope.instruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
+ 		
+ 		$scope.instruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
 		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone', 
 		'French Horn', 'Horn', 'Mellophone','Trumpet', 'Cornet', 'Baritone', 'Euphonium', 'Trombone',
 		'Bass Trombone', 'Tuba', 'Sousaphone', 'String Bass', 'Bass', 'Bass Guitar', 'Guitar',
 		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani', 
 		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
 		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
-        $scope.instruments.sort();
-        
-        $scope.status = ['University of Florida', 'Santa Fe', 'Innovation Academy', 'Other State School'];
-        $scope.marchingBandFlag = false;
-        $scope.pepBandFlag = false;
-        
-        $scope.size = ['XS', 'S', 'M', 'L', 'XL'];
                 
+        $scope.size = ['XS', 'S', 'M', 'L', 'XL'];
+            
         $scope.status = ['University of Florida', 'Santa Fe', 'Innovation Academy', 'Other State School'];
         $scope.marchingBandFlag = false;
         $scope.volleyballPepBandFlag = false;
@@ -62,19 +57,27 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		$scope.create = function() {
 			// Create new Bandapplication object
 			var bandapplication = new Bandapplications ({
-				name: this.name,
+
 				user: this.user,
                 created: this.created,
-                marchingBand: this.name,
-                windSymphony: this.windSymphony,
-                symphonicBand: this.symphonicBand,
+                marchingBand: this.marchingBand,
+                concertEnsembles: this.concertEnsembles,
                 jazzBand: this.jazzBand,
-                pepBand: this.pepBand,
-                secondaryYears: this.secondaryYears,
+                volleyballPepBand: this.volleyballPepBand,
+                basketballPepBand: this.volleyballPepBand,
+                MBSecondary: this.MBSecondary,
+                CESecondary: this.CESecondary,
+                JBSecondary: this.JBSecondary,
+                VBSecondary: this.VBSecondary,
+                BBSecondary: this.BBSecondary,
+                MBSecondaryYears: this.MBSecondaryYears,
+                CESecondaryYears: this.CESecondaryYears,
+                JBSecondaryYears: this.JBSecondaryYears,
+                VBSecondaryYears: this.VBSecondaryYears,
+                BBSecondaryYears: this.BBSecondaryYears,
                 status: this.status,
-                secondary: this.secondary,
                 weight: this.weight,
-                shirtSize:this.shirtSize
+                shirtSize: this.shirtSize
 			});
 
 			// Redirect after save
