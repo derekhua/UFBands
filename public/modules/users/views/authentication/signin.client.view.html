@@ -19,51 +19,51 @@
 		<img alt="UFBands" class="img" src="modules/core/img/brand/logo_white_blue.png" width="200" height="50"/>
 	</div>
         
-<div class="well centerOfScreen">        
-	<div class="row">
-<!--			<div class="col-md-4 col-sm-offset-4">
-				<img alt="UFBands" class="img-responsive text-center" src="modules/core/img/brand/logo.png" />
-			</div>-->
-                        
-                <h1 class="text-center"><font color="black">Sign In to UFBands</font></h1>
+        <div class="well centerOfScreen">        
+                <div class="row">
+        <!--			<div class="col-md-4 col-sm-offset-4">
+                                        <img alt="UFBands" class="img-responsive text-center" src="modules/core/img/brand/logo.png" />
+                                </div>-->
+
+                        <h1 class="text-center"><font color="black">Sign In to UFBands</font></h1>
+                </div>
+        <!--        <h3 class="col-md-12 text-center lead">login</h3>-->
+
+                <div class="col-md-4 col-md-offset-4 ">
+                        <form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
+                                <fieldset>
+                                        <div data-ng-show="error" class="text-center text-danger alert alert-danger">
+                                                <strong data-ng-bind="error"></strong>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group input-group-lg">
+                                                    <span class="input-group-addon">
+                                                        <i class="text-muted glyphicon glyphicon-user text-primary" aria-hidden="true"></i>
+                                                    </span>
+                                                    <input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group input-group-lg">
+                                                    <span class="input-group-addon">
+                                                        <i class="text-muted  glyphicon glyphicon-asterisk text-danger" aria-hidden="true"></i>
+                                                    </span>
+                                                    <input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="text-center form-group">
+                                                <button id="signin" type="submit" class="btn btn-success btn-lg btn-block">Login</button>
+
+                                        </div>
+                                        <div class="forgot-password text-center">
+                                                <a href="/#!/password/forgot">Forgot your password?</a>
+                                                <br>
+                                                Not a member?<a href="/#!/signup"> Sign up</a>
+                                        </div>
+
+                                </fieldset>
+                        </form>
+                </div>
         </div>
-<!--        <h3 class="col-md-12 text-center lead">login</h3>-->
-
-	<div class="col-md-4 col-md-offset-4 ">
-		<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
-			<fieldset>
-                                <div data-ng-show="error" class="text-center text-danger alert alert-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-                                <div class="form-group">
-                                    <div class="input-group input-group-lg">
-                                            <span class="input-group-addon">
-                                                <i class="text-muted glyphicon glyphicon-user text-primary" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group input-group-lg">
-                                            <span class="input-group-addon">
-                                                <i class="text-muted  glyphicon glyphicon-asterisk text-danger" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
-                                    </div>
-                                </div>
-				<div class="text-center form-group">
-					<button id="signin" type="submit" class="btn btn-success btn-lg btn-block">Login</button>
-					
-				</div>
-				<div class="forgot-password text-center">
-					<a href="/#!/password/forgot">Forgot your password?</a>
-                                        <br>
-                                        Not a member?<a href="/#!/signup"> Sign up</a>
-				</div>
-				
-			</fieldset>
-		</form>
-	</div>
-</div>
 </section>
