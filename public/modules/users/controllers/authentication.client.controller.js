@@ -3,7 +3,11 @@
 angular.module('users').controller('AuthenticationController', ['$scope', '$http', '$location', 'Authentication',
 	function($scope, $http, $location, Authentication) {
                 $scope.authentication = Authentication;
-                
+
+		$scope.currentFlag = 'false';
+		$scope.alumniFlag = 'false';
+		$scope.prospectiveFlag = 'false';
+
                 $scope.instruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
 		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone', 
 		'French Horn', 'Horn', 'Mellophone','Trumpet', 'Cornet', 'Baritone', 'Euphonium', 'Trombone',
@@ -64,6 +68,23 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.error = response.message;
 			});
 		};
+
+            $scope.currentUser = function() {
+	        $scope.currentFlag = 'true';
+	        $scope.alumniFlag = 'false';
+	        $scope.prospectiveFlag = 'false';
+	    };
+
+	    $scope.prospectiveUser = function() {
+	        $scope.currentFlag = 'false';
+	        $scope.alumniFlag = 'false';
+	        $scope.prospectiveFlag = 'true';
+	    };		
 	
+		$scope.alumniUser = function() {
+	        $scope.currentFlag = 'false';
+	        $scope.alumniFlag = 'true';
+	        $scope.prospectiveFlag = 'false';
+	    };	
 	}
 ]);
