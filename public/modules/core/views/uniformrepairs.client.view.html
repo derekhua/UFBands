@@ -1,44 +1,46 @@
 <section data-ng-controller="UniformRepairsController">
     	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-<div class="jumbotron" >
-<div class="page-header">
-        <h1 class="text-center">Uniform Repair Request</h1>
-</div>
         
-    <div class="col-md-8 col-md-offset-2">
-        <form class="form-horizontal" data-ng-submit="sendEmail()" novalidate>
-            <fieldset>
-
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon">
-                            <i class="text-muted glyphicon glyphicon-barcode" aria-hidden="true"></i>
-                    </span>
-                    
-                    <input type="text" data-ng-model="formdata.ID" id="id" class="form-control" placeholder="Uniform ID" required>
-
+        <div class="jumbotron">
+                <div class="page-header">
+                        <h1 class="text-center">Uniform Repair Request</h1>
                 </div>
-                <br>
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon">
-                            <i class="text-muted glyphicon glyphicon-pencil" aria-hidden="true"></i>
-                    </span>
-                    
-                    <input type="text" data-ng-model="formdata.description" id="description" class="form-control" placeholder="Description of the Problem" required>
 
+                <div class="col-md-8 col-md-offset-2">
+                    <form class="form-horizontal" data-ng-submit="sendEmail()" novalidate>
+                        <fieldset>
 
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon">
+                                        <i class="text-muted glyphicon glyphicon-barcode" aria-hidden="true"></i>
+                                </span>
+
+                                <input type="text" data-ng-model="formdata.ID" id="id" class="form-control" placeholder="Uniform ID" required>
+                            </div>
+                            
+                            <br>
+                            
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon">
+                                        <i class="text-muted glyphicon glyphicon-pencil" aria-hidden="true"></i>
+                                </span>
+
+                                <input type="text" data-ng-model="formdata.description" id="description" class="form-control" placeholder="Description of the Problem" required>
+                            </div>
+
+                            <br>
+
+                            <div class="form-group text-center">
+                                <input type="submit" class="btn btn-lg btn-info">
+                            </div>
+                                            
+                            <div data-ng-show="error" class="text-center text-danger alert alert-danger">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             
-                <br>
-                
-                <div class="form-group text-center">
-                    <input type="submit" class="btn btn-lg btn-info">
-                </div>
-				<div data-ng-show="error" class="text-center text-danger alert alert-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-            </fieldset>
-        </form>
-    </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div>	
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>	
 </section>
