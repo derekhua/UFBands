@@ -5,13 +5,13 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 	function($scope, $stateParams, $location, Authentication, Music) {
 		$scope.authentication = Authentication;
                
-                $scope.instruments = ['piccolo', 'flute', 'clarinet', 'oboe', 'english horn', 'basson', 'contrabass',
-		'contrabass bassoon', 'alto saxophone', 'tenor saxophone','baritone saxophone', 
-		'french horn', 'horn', 'mellophone','trumpet', 'cornet', 'baritone', 'euphonium', 'trombone',
-		'bass trombone', 'tuba', 'sousaphone', 'string bass', 'bass', 'bass guitar', 'guitar',
-		'percussion', 'bass drum', 'quads', 'tenors', 'snare', 'cymbals', 'triangle', 'timpani', 
-		'marimba', 'vibraphone', 'xylophone', 'glockenspiel', 'drumset', 
-		'celeste', 'celesta', 'piano', 'harp', 'bongos'];
+                $scope.instruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
+		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone', 
+		'French Horn', 'Horn', 'Mellophone','Trumpet', 'Cornet', 'Baritone', 'Euphonium', 'Trombone',
+		'Bass Trombone', 'Tuba', 'Sousaphone', 'String Bass', 'Bass', 'Bass Guitar', 'Guitar',
+		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani', 
+		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
+		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 $scope.instruments.sort();
 
 
