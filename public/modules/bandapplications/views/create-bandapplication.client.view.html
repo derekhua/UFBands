@@ -3,8 +3,8 @@
     <div class="page-header">
         <h1>New Band Application</h1>
     </div>
-    
-    
+
+
     <div class="col-md-12">
         <p>Some information is taken from your user profile.</p>
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
@@ -21,40 +21,40 @@
 
                     </div>
                     <div class="input-group input-group-lg">
-                        <input type="checkbox" id="buttonProspective" name="marchingBand" data-ng-model="marchingBand" value="true" ng-Click="marchingBandToggle()">  
+                        <input type="checkbox" id="marchingBand" name="marchingBand" data-ng-model="marchingBand" value="true" ng-Click="marchingBandToggle()">
                         <label for="marchingBand"> &nbsp Marching Band &nbsp</label>
-                        
+
                     </div>
                     <div class="input-group input-group-lg">
-                        <input type="checkbox" id="windSymphony" name="windSymphony" data-ng-model="windSymphony" value="true">  
+                        <input type="checkbox" id="windSymphony" name="windSymphony" data-ng-model="windSymphony" value="true">
                         <label for="windSymphony"> &nbsp Wind Symphony &nbsp</label>
-                        
+
                     </div>
                     <div class="input-group input-group-lg">
-                        <input type="checkbox" id="symphonicband" name="symphonicband" data-ng-model="symphonicband" value="true">  
+                        <input type="checkbox" id="symphonicBand" name="symphonicband" data-ng-model="symphonicband" value="true">
                         <label for="symphonicband">&nbsp Symphonic Band &nbsp</label>
-                        
+
                     </div>
                     <div class="input-group input-group-lg">
-                        <input type="checkbox" id="jazzBand" name="jazzBand" data-ng-model="jazzBand" value="true">  
+                        <input type="checkbox" id="jazzBand" name="jazzBand" data-ng-model="jazzBand" value="true">
                         <label for="jazzBand">&nbsp Jazz Band &nbsp</label>
-                        
+
                     </div>
                     <div class="input-group input-group-lg">
-                        <input type="checkbox" id="pepBand" name="pepBand" data-ng-model="pepBand" value="true" ng-Click="pepBandToggle()">  
+                        <input type="checkbox" id="pepBand" name="pepBand" data-ng-model="pepBand" value="true" ng-Click="pepBandToggle()">
                         <label for="pepBand">&nbsp Pep Band &nbsp</label>
-                        
+
                     </div>
-                </div>    
-                
+                </div>
+
                 <div class="col-md-4">
-                    
+
                     <label class="control-label" for="secondary">Secondary Instrument</label>
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                             <i class="text-muted glyphicon glyphicon-music" aria-hidden="true"></i>
                         </span>
-                        
+
                             <select name="mydropdown" data-ng-model="secondary" id="secondary" class="form-control" placeholder="secondary" required>
                                     <option ng-repeat="instruments in instruments" value="{{instruments}}">{{instruments}}</option>
                             </select>
@@ -66,23 +66,23 @@
                         </span>
                             <input type="text" data-ng-model="secondaryYears" id="secondaryYears" class="form-control" placeholder="Secondary Years Experience" required>
                     </div>
-                    
+
                     <label class="control-label" for="secondary">School Status</label>
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                             <i class="text-muted glyphicon glyphicon-book" aria-hidden="true"></i>
                         </span>
-                        
+
                             <select name="mydropdown" data-ng-model="status" id="status" class="form-control" placeholder="status" required>
                                     <option ng-repeat="status in status" value="{{status}}">{{status}}</option>
                             </select>
                     </div>
                     <br>
                     <div class="form-group text-center">
-                        <input type="submit" class="btn btn-lg btn-info">
+                        <input id = "submitButton" type="submit" class="btn btn-lg btn-info">
                     </div>
                 </div>
-                    
+
                 <div class="col-md-4">
                     <div ng-show="marchingBandFlag">
                     <label class="control-label" for="weight">Marching Band Specific Information</label>
@@ -102,7 +102,7 @@
                             </select>
                     </div>
                     </div>
-                    
+
                     <div ng-show="pepBandFlag">
                     <label class="control-label" for="weight">Pep Band Specific Information</label>
                     <div class="input-group input-group-lg">
@@ -124,15 +124,15 @@
                 </div>
 
                 <br><br><br>
-                
+
                 <div class="form-group text-center col-md-12">
-                    
-                    
+
+
                     <div data-ng-show="error" class="text-danger">
 			<strong data-ng-bind="error"></strong>
                     </div>
                 </div>
-				
+
             </fieldset>
         </form>
     </div>

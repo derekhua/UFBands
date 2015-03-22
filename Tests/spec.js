@@ -31,8 +31,8 @@ var newUserNameProspective = makeid();
 var newUserNameCurrent = makeid();
 var newUserNameAlumni = makeid();
 
-describe('CEN3031 login', function() {
-    it('should sign up prospective member', function() {
+describe('CEN3031 Testing', function() {
+/*    it('should sign up prospective member', function() {
         browser.get('http://localhost:3000');
         element(by.id('signup')).click();
 
@@ -82,8 +82,8 @@ describe('CEN3031 login', function() {
         signout();
     });
 
-    it('should sign up prospective member', function() {
-        browser.get('http://localhost:3000');
+    it('should sign up curren member', function() {
+//        browser.get('http://localhost:3000');
         element(by.id('signup')).click();
 
         browser.driver.wait(function () {
@@ -132,8 +132,8 @@ describe('CEN3031 login', function() {
         signout();
     });
 
-    it('should sign up prospective member', function() {
-        browser.get('http://localhost:3000');
+    it('should sign up alumni member', function() {
+//        browser.get('http://localhost:3000');
         element(by.id('signup')).click();
 
         browser.driver.wait(function () {
@@ -180,9 +180,10 @@ describe('CEN3031 login', function() {
 
         expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment'); //Change to new current page header
         signout();
-    });
+    });*/
 
     it('should log in', function() {
+        browser.get('http://localhost:3000');
         element(by.id('login')).click();
 
         browser.driver.wait(function() {
@@ -191,8 +192,8 @@ describe('CEN3031 login', function() {
             });
         });
 
-        element(by.id('username')).sendKeys(newUserNameProspective);
-        element(by.id('password')).sendKeys('TestTest');
+        element(by.id('username')).sendKeys('g.delatorre');
+        element(by.id('password')).sendKeys('spy00g11');
         element(by.id('signin')).click();
 
         browser.driver.wait(function() {
@@ -201,8 +202,35 @@ describe('CEN3031 login', function() {
             });
         });
 
-        expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment'); //Current page
-        signout();
+        expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment');
     });
 
-});
+    it('should apply for bands', function() {
+        element(by.id('applyButton')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /bands/.test(url);
+            });
+        });
+
+        element(by.id('bandButton')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /create/.test(url);
+            });
+        });
+
+        element(by.id('marchingBand')).click();
+        element.all(by.repeater('instruments in instruments')).click();
+        element(by.id('secondaryYears')).sendKeys('5');
+        element.all(by.repeater('status in status')).click();
+        element(by.id('weight')).sendKeys('50');
+        //element.all(by.repeater('size in size')).click();
+        element(by.id('submitButton')).click();
+
+
+        });
+
+    });
