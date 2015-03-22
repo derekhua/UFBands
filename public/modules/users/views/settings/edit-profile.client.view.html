@@ -1,9 +1,9 @@
 <section class="row " data-ng-controller="SettingsController">
     <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-    
-        <button ng-hide="edit" ng-click="editToggle()" class="btn btn-large btn-primary glyphicon glyphicon-edit"></button>
-        <button ng-show="edit" ng-click="reloadPage()" class="btn btn-large btn-primary glyphicon glyphicon-ok"></button>                        
-        
+
+        <button ng-hide="edit" ng-click="editToggle()" id = "editToggle" class="btn btn-large btn-primary glyphicon glyphicon-edit"></button>
+        <button ng-show="edit" ng-click="reloadPage()" id = "reloadPage" class="btn btn-large btn-primary glyphicon glyphicon-ok"></button>
+
 <div id="wrap" ng-hide="edit">
 	<div id="header">
 			<h1><span ng-bind="user.firstName"></span> "<span ng-bind="user.nickName"></span>" <span ng-bind="user.lastName"></span> </h1>
@@ -25,16 +25,16 @@
                         <li class="icon-contact">Primary Instrument<br /><span ng-bind="user.primary"></span></li>
                         <li class="icon-contact">User Type:<br /><span ng-bind="user.userType"></span></li>
 			<li class="icon-contact">Phone:<br /><span ng-bind="user.phoneNumber"></span></li>
-			<li class="icon-home">Address:<br /><span ng-bind="user.permanentAddress.line1"></span> 
+			<li class="icon-home">Address:<br /><span ng-bind="user.permanentAddress.line1"></span>
                             <span ng-bind="user.permanentAddress.line2"></span>,
                             <span ng-bind="user.permanentAddress.city"></span>,
                             <span ng-bind="user.permanentAddress.state"></span>,
                             <span ng-bind="user.permanentAddress.zip"></span>
                         </li>
-            
+
 			<li class="icon-cv">Graduation Date:<br /><span ng-bind="user.graduationDate"></span></</li>
 			<li class="icon-contact">Email:<br /><span ng-bind="user.email"></span></li>
-                                                
+
 		</ul>
 	</div>
 
@@ -45,27 +45,27 @@
 		</div>
 		<div class="right">
 			<p>This is Basic Profile (right). </p>
-			
+
 		</div>
-		
+
 		<h3 class="icon-blog">Blog post example</h3>
 		<p class="timestamp">September 11th, 2012<br />
-		Tags: 
-		Author: 
-		<p>As a administrator, I want to be able to "automatically receive emails" according to students' repair/uniform requests, so that requests can be easier to manage.</p> 
-		
+		Tags:
+		Author:
+		<p>As a administrator, I want to be able to "automatically receive emails" according to students' repair/uniform requests, so that requests can be easier to manage.</p>
+
 		<p class="credits">&copy; 2015 <span ng-bind="user.firstName"></span> <span ng-bind="user.lastName"></span><br />
 	</div>
 </div>
-        
-        
-        
-        
-<div ng-show="edit" class="well centerOfScreen">          
+
+
+
+
+<div ng-show="edit" class="well centerOfScreen">
         <div class="row">
                 <h1 class="text-center"><font color="black">Edit</font></h1>
         </div>
-        
+
 	<div class="col-md-12">
 		<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
@@ -110,7 +110,7 @@
                                         <span class="input-group-addon">
                                                 <i class="text-muted glyphicon glyphicon-check text-primary" aria-hidden="true"></i>
                                         </span>
-                                        
+
                                         <label for="buttonProspective">&nbsp Prospective &nbsp</label>
                                         <input type="radio" id="buttonProspective" name="userType" data-ng-model="user.userType" value="Prospective" ng-click="prospectiveUser()">
                                         <br>
@@ -120,8 +120,8 @@
                                         <label for="buttonAlumni">&nbsp Alumni &nbsp</label>
                                         <input type="radio" id="buttonAlumni" name="userType" data-ng-model="user.userType" value="Alumni" ng-click="alumniUser()">
 				</div>
-                                
-                                <div class="input-group" > 
+
+                                <div class="input-group" >
                                         <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-music" aria-hidden="true"></i>
                                         </span>
@@ -141,21 +141,21 @@
                                         </span>
                                         <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="user.phoneNumber" placeholder="Phone Number">
 				</div>
-                                <div class="input-group"> 
+                                <div class="input-group">
                                         <span class="input-group-addon">
                                                 <i class="text-muted glyphicon glyphicon-apple text-danger" aria-hidden="true"></i>
                                         </span>
                                         <input type="text" id="highSchool" name="highSchool" class="form-control" data-ng-model="user.highSchool" placeholder="High School and Grad Year">
 				</div>
-                                
-                                
+
+
 <!--				<div class="input-group" >
                                         <span class="input-group-addon">
                                                 <i class="text-muted glyphicon glyphicon-user text-primary" aria-hidden="true"></i>
                                         </span>
 					<input type="text" id="username" name="username" class="form-control" data-ng-model="user.username" placeholder="Username">
 				</div>
-                                
+
                                 <div class="input-group">
                                         <span class="input-group-addon">
                                                 <i class="text-muted glyphicon glyphicon-asterisk text-danger" aria-hidden="true"></i>
@@ -164,32 +164,32 @@
 				</div>-->
                                 <br>
                             </div>
-                            
+
                             <div class="col-md-6">
-				
+
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                                 <i class="text-muted glyphicon glyphicon-home text-success" aria-hidden="true"></i>
                                     </span>
-                                        <input type="text" data-ng-model="user.permanentAddress.line1" id="line1" class="form-control" placeholder="Permanent Address line 1" required>
-                                        <input type="text" data-ng-model="user.permanentAddress.line2" id="line2" class="form-control" placeholder="Permanent Address line 2" >
-                                        <input type="text" data-ng-model="user.permanentAddress.city" id="city" class="form-control" placeholder="City" required>
-                                        <input type="text" data-ng-model="user.permanentAddress.state" id="state" class="form-control" placeholder="State (two letter abbreviation, i.e. FL)" required>
-                                        <input type="text" data-ng-model="user.permanentAddress.zip" id="zip" class="form-control" placeholder="Zip code" required>
+                                        <input type="text" data-ng-model="user.permanentAddress.line1" id="permanentLine1" class="form-control" placeholder="Permanent Address line 1" required>
+                                        <input type="text" data-ng-model="user.permanentAddress.line2" id="permanentLine2" class="form-control" placeholder="Permanent Address line 2" >
+                                        <input type="text" data-ng-model="user.permanentAddress.city" id="permanentCity" class="form-control" placeholder="City" required>
+                                        <input type="text" data-ng-model="user.permanentAddress.state" id="permanentState" class="form-control" placeholder="State" required>
+                                        <input type="text" data-ng-model="user.permanentAddress.zip" id="permanentZip" class="form-control" placeholder="Zip code" required>
                                 </div>
-                                
-                                
+
+
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                                 <i class="text-muted glyphicon glyphicon-tent text-warning" aria-hidden="true"></i>
                                     </span>
-                                        <input type="text" data-ng-model="user.localAddress.line1" id="line1" class="form-control" placeholder="Local Address line 1" required>
-                                        <input type="text" data-ng-model="user.localAddress.line2" id="line2" class="form-control" placeholder="Local Address line 2" >
-                                        <input type="text" data-ng-model="user.localAddress.city" id="city" class="form-control" placeholder="City" required>
-                                        <input type="text" data-ng-model="user.localAddress.state" id="state" class="form-control" placeholder="State (two letter abbreviation, i.e. FL)" required>
-                                        <input type="text" data-ng-model="user.localAddress.zip" id="zip" class="form-control" placeholder="Zip code" required>
+                                        <input type="text" data-ng-model="user.localAddress.line1" id="localLine1" class="form-control" placeholder="Local Address line 1" required>
+                                        <input type="text" data-ng-model="user.localAddress.line2" id="localLine2" class="form-control" placeholder="Local Address line 2" >
+                                        <input type="text" data-ng-model="user.localAddress.city" id="localCity" class="form-control" placeholder="City" required>
+                                        <input type="text" data-ng-model="user.localAddress.state" id="localState" class="form-control" placeholder="State" required>
+                                        <input type="text" data-ng-model="user.localAddress.zip" id="localZip" class="form-control" placeholder="Zip code" required>
                                 </div>
-                                
+
                                 <div class="input-group">
                                         <span class="input-group-addon">
                                                 <i class="text-muted glyphicon glyphicon-chevron-up text-warning" aria-hidden="true"></i>
@@ -206,7 +206,7 @@
                                         <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-pawn " aria-hidden="true"></i>
                                         </span>
-                                        <input type="text" id="permanentAddress" name="year" class="form-control" data-ng-model="user.year" placeholder="Year (e.g. freshman)">
+                                        <input type="text" id="year" name="year" class="form-control" data-ng-model="user.year" placeholder="Year (e.g. freshman)">
 				</div>
 				<div class="input-group">
                                         <span class="input-group-addon">
@@ -214,11 +214,11 @@
                                         </span>
                                         <input type="text" id="graduationDate" name="graduationDate" class="form-control" data-ng-model="user.graduationDate" placeholder="College Graduation Date">
 				</div>
-                               	<br>		                                
+                               	<br>
                             </div>
-                            
-                            
-                            <button type="submit" class="btn btn-large btn-primary text-center col-md-10 col-md-offset-1" id = "signup">Update</button>
+
+
+                            <button type="submit" class="btn btn-large btn-primary text-center col-md-10 col-md-offset-1" id = "update">Update</button>
 			</fieldset>
 		</form>
 
@@ -235,5 +235,5 @@
             </div>
         </div>
 </div>
-        
+
 </section>

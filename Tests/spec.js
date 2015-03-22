@@ -30,6 +30,7 @@ function signout(){
 var newUserNameProspective = makeid();
 var newUserNameCurrent = makeid();
 var newUserNameAlumni = makeid();
+var randomText = makeid();
 
 describe('CEN3031 Testing', function() {
 /*    it('should sign up prospective member', function() {
@@ -192,7 +193,7 @@ describe('CEN3031 Testing', function() {
             });
         });
 
-        element(by.id('username')).sendKeys('g.delatorre');
+        element(by.id('username')).sendKeys('giodelatorre1');
         element(by.id('password')).sendKeys('spy00g11');
         element(by.id('signin')).click();
 
@@ -205,7 +206,7 @@ describe('CEN3031 Testing', function() {
         expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment');
     });
 
-    it('should apply for bands', function() {
+/*    it('should apply for bands', function() {
         element(by.id('applyButton')).click();
 
         browser.driver.wait(function() {
@@ -226,11 +227,77 @@ describe('CEN3031 Testing', function() {
         element.all(by.repeater('instruments in instruments')).click();
         element(by.id('secondaryYears')).sendKeys('5');
         element.all(by.repeater('status in status')).click();
-        element(by.id('weight')).sendKeys('50');
+        element(by.id('mbWeight')).sendKeys('50');
         //element.all(by.repeater('size in size')).click();
         element(by.id('submitButton')).click();
 
 
         });
+
+      it('should send in uniform repairs', function(){
+        browser.get('http://localhost:3000/#!/home/prospective');
+
+        element(by.id('repairDropdown')).click();
+        element(by.id('uniformRepair')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /uniform/.test(url);
+            });
+        });
+
+        element(by.id('uniformID')).sendKeys('TestID');
+        element(by.id('description')).sendKeys('Uniform Smells Bad');
+        element(by.id('submit')).click();  //How to deal with alert??
+
+      });
+
+
+      it('should send in uniform repairs', function(){
+        browser.get('http://localhost:3000/#!/home/prospective');
+
+        element(by.id('repairDropdown')).click();
+        element(by.id('instrumentRepair')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /instrument/.test(url);
+            });
+        });
+
+        element.all(by.repeater('instruments in instruments')).click();
+        element(by.id('instrumentID')).sendKeys('TestID');
+        element(by.id('description')).sendKeys('Uniform Smells Bad'); //How to deal with alert?
+        element(by.id('submit')).click();
+
+      }); */
+
+      it('should edit profile information', function(){
+        browser.get('http://localhost:3000/#!/home/prospective');
+
+        element(by.id('userDropdown')).click();
+        element(by.id('viewProfile')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /profile/.test(url);
+            });
+        });
+
+        element(by.id('editToggle')).click();
+        element(by.id('nickName')).clear();
+        element(by.id('nickName')).sendKeys('New Nickname');
+        element(by.id('major')).clear();
+        element(by.id('major')).sendKeys('New Major')
+        element(by.id('update')).click();
+        element(by.id('reloadPage')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /profile/.test(url);
+            });
+        });
+
+      });
 
     });

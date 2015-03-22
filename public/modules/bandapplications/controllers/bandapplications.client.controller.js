@@ -85,7 +85,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 				$location.path('bandapplications/' + response._id);
 
 				// Clear form fields
-				$scope.name = '';
+				$scope.name = ' ';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

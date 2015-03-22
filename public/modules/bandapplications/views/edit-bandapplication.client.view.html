@@ -1,8 +1,9 @@
 <section data-ng-controller="BandapplicationsController" data-ng-init="findOne()">
     <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
     <div class="page-header">
-        <h1>Edit Bandapplication</h1>
+        <h1>Edit Band Application</h1>
     </div>
+    
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
@@ -15,9 +16,11 @@
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-default">
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
+                
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+		</div>
+                
             </fieldset>
         </form>
     </div>
