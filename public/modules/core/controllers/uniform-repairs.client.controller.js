@@ -5,14 +5,14 @@ angular.module('core').controller('UniformRepairsController', ['$scope', '$http'
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
                 $scope.user = Authentication.user;
-                
+
                 $scope.sendEmail = function (){
 
                     $http.post('/email/uniformRepairEmail').success(function(response) {
                     }).error(function(response) {
 				$scope.error = response.message;
 			});
-                 alert("Thank you for submitting your repair request. \nPlease press OK to finalize");
+                 //alert("Thank you for submitting your repair request. \nPlease press OK to finalize");
                   if($scope.user.userType==='Current')
                         $location.path('/home/current');
                     else if($scope.user.userType==='Prospective')

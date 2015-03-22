@@ -9,7 +9,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a ng-href="/#!/home/{{type}}" class="navbar-brand"><img border="0" alt="UFBands" src="modules/core/img/brand/logo_white_orange.png" width="100" height="25"></a> 
+		<a ng-href="/#!/home/{{type}}" class="navbar-brand"><img border="0" alt="UFBands" src="modules/core/img/brand/logo_white_orange.png" width="100" height="25"></a>
 	</div>
 
 	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
@@ -39,18 +39,18 @@
 		</ul>
 		<!-- User Profile Navbar on the Right When Signed In -->
 		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
-			
+
 			<li class="dropdown">
-				<a href="#" id = "dropdown" class="dropdown-toggle" data-toggle="dropdown">
+				<a href="#" id = "repairDropdown" class="dropdown-toggle" data-toggle="dropdown">
 					<span color="#000000">Repairs</span> <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="/#!/repairs/instrument">Instrument Repairs</a>
+						<a id = "instrumentRepair" href="/#!/repairs/instrument">Instrument Repairs</a>
 					</li>
 					<li class="divider"></li>
 					<li>
-						<a href="/#!/repairs/uniform">Uniform Repairs</a>
+						<a id = "uniformRepair" href="/#!/repairs/uniform">Uniform Repairs</a>
 					</li>
 
 				</ul>
@@ -62,7 +62,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="/#!/settings/profile">View Profile</a>
+						<a href="/#!/settings/profile" id = "viewProfile">View Profile</a>
 					</li>
 					<li data-ng-show="authentication.user.provider === 'local'">
 						<a href="/#!/settings/password">Change Password</a>
@@ -76,5 +76,3 @@
 		</ul>
 	</nav>
 </div>
-
-
