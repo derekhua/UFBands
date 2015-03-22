@@ -217,6 +217,37 @@ var UserSchema = new Schema({
     resetPasswordExpires: {
         type: Date
     }
+    bandMember: {
+        type: String,
+        enum: ['','march','jazz','wind','symph','bball_pep','volley_pep']
+        default: ''
+    }
+    MemberOf: {
+        march: {
+            type: String,
+            default: 'false'
+        }
+        jazz: {
+             type: String,
+            default: 'false'   
+        }
+        wind: {
+             type: String,
+            default: 'false'
+        }
+        symph: {
+             type: String,
+            default: 'false'
+        }
+        bball_pep: {
+             type: String,
+            default: 'false'
+        }
+        volley_pep: {
+             type: String,
+            default: 'false'
+        }
+    }
 });
 
 /**
