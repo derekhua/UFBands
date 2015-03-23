@@ -33,13 +33,13 @@ var newUserNameAlumni = makeid();
 var randomText = makeid();
 
 describe('CEN3031 Testing', function() {
-/*    it('should sign up prospective member', function() {
+    it('should sign up prospective member', function() {
         browser.get('http://localhost:3000');
         element(by.id('signup')).click();
 
         browser.driver.wait(function () {
             return browser.driver.getCurrentUrl().then(function (url) {
-                return /signup/.test(url);
+                return /home/.test(url);
             });
         });
 
@@ -89,7 +89,7 @@ describe('CEN3031 Testing', function() {
 
         browser.driver.wait(function () {
             return browser.driver.getCurrentUrl().then(function (url) {
-                return /signup/.test(url);
+                return /home/.test(url);  //WHY HOME??
             });
         });
 
@@ -139,7 +139,7 @@ describe('CEN3031 Testing', function() {
 
         browser.driver.wait(function () {
             return browser.driver.getCurrentUrl().then(function (url) {
-                return /signup/.test(url);
+                return /home/.test(url);  //WHY HOME??
             });
         });
 
@@ -181,7 +181,7 @@ describe('CEN3031 Testing', function() {
 
         expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment'); //Change to new current page header
         signout();
-    });*/
+    });
 
     it('should log in', function() {
         browser.get('http://localhost:3000');
@@ -206,7 +206,7 @@ describe('CEN3031 Testing', function() {
         expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment');
     });
 
-/*    it('should apply for bands', function() {
+    it('should apply for bands', function() {
         element(by.id('applyButton')).click();
 
         browser.driver.wait(function() {
@@ -224,10 +224,10 @@ describe('CEN3031 Testing', function() {
         });
 
         element(by.id('marchingBand')).click();
-        element.all(by.repeater('instruments in instruments')).click();
-        element(by.id('secondaryYears')).sendKeys('5');
-        element.all(by.repeater('status in status')).click();
         element(by.id('mbWeight')).sendKeys('50');
+        element.all(by.repeater('status in status')).click();
+        element.all(by.repeater('instrument in marchingBandInstruments')).click();
+        element(by.id('secondaryYears')).sendKeys('5');
         //element.all(by.repeater('size in size')).click();
         element(by.id('submitButton')).click();
 
@@ -270,7 +270,7 @@ describe('CEN3031 Testing', function() {
         element(by.id('description')).sendKeys('Uniform Smells Bad'); //How to deal with alert?
         element(by.id('submit')).click();
 
-      }); */
+      });
 
       it('should edit profile information', function(){
         browser.get('http://localhost:3000/#!/home/prospective');

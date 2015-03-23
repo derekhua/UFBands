@@ -66,11 +66,11 @@ var UserSchema = new Schema({
 	default: '',
 	required: 'Must specify an instrument',
 //	enum: ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
-//		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone', 
+//		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone',
 //		'French Horn', 'Horn', 'Mellophone','Trumpet', 'Cornet', 'Baritone', 'Euphonium', 'Trombone',
 //		'Bass Trombone', 'Tuba', 'Sousaphone', 'String Bass', 'Bass', 'Bass Guitar', 'Guitar',
-//		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani', 
-//		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
+//		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani',
+//		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset',
 //		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos']
     },
     primaryYears: {
@@ -168,7 +168,7 @@ var UserSchema = new Schema({
         trim: true,
         default: 'Prospective',
         validate: [validateLocalStrategyProperty, 'Please choose a user type']
-    },    
+    },
     displayName: {
         type: String,
         trim: true
@@ -216,33 +216,33 @@ var UserSchema = new Schema({
     },
     resetPasswordExpires: {
         type: Date
-    }
+    },
     bandMember: {
         type: String,
-        enum: ['','march','jazz','wind','symph','bball_pep','volley_pep']
+        enum: ['','march','jazz','wind','symph','bball_pep','volley_pep'],
         default: ''
-    }
+    },
     MemberOf: {
         march: {
             type: String,
             default: 'false'
-        }
+        },
         jazz: {
              type: String,
-            default: 'false'   
-        }
+            default: 'false'
+        },
         wind: {
              type: String,
             default: 'false'
-        }
+        },
         symph: {
              type: String,
             default: 'false'
-        }
+        },
         bball_pep: {
              type: String,
             default: 'false'
-        }
+        },
         volley_pep: {
              type: String,
             default: 'false'
