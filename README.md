@@ -1,4 +1,4 @@
-UFBands | A simple, but powerful website that handles all of the logistics of the UF Bands. 
+UFBands | A simple, but powerful website that handles all of the daily logistics of all the UF Bands. 
 
 Trello User Stories: 
 
