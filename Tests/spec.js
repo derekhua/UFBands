@@ -300,4 +300,19 @@ describe('CEN3031 Testing', function() {
 
       });
 
+      it('should create new music paths', function(){
+
+          browser.get('http://localhost:3000/#!/music/create');
+
+          element(by.id('title')).sendKeys("Title");
+          element(by.id('composer')).sendKeys("Composer");
+          element.all(by.repeater('instrument in instruments')).click();
+          element(by.id('path')).sendKeys("Path");
+          element(by.id('submit')).click();
+
+          browser.get('http://localhost:3000/#!/music');
+
+      });
+
+
     });
