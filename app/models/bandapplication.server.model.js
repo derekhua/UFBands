@@ -10,6 +10,20 @@ var user = Schema.ObjectId.UserSchema;
 
 var validatePhoneRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
 
+var validateRank = function(rank) {
+    //if rank between [0-4], return true
+    var inRange = rank[0]>0 && rank[1]>0 && rank[2]>0 && rank[3]>0 && rank[0]<=4 && rank[1]<=4 && rank[2]<=4 && rank[3]<=4;
+    for (var i = rank.length - 1; i >= 0; i--) {
+        var j=i;
+        var unequal = true;
+        while (j-- >= 0) {
+            unequal = rank[i]!==rank[j];
+            if (!unequal) return false;
+        }
+    }
+    return inRange;
+};
+
 /**
  * Bandapplication Schema
  */
@@ -30,24 +44,24 @@ var BandapplicationSchema = new Schema({
     },
     // booleans that specify what bands this application is for
     marchingBand: {
-        type: String,
-        default: 'false'
+        type: Boolean,
+        default: false
     },
     concertEnsembles: {
-        type: String,
-        default: 'false'
+        type: Boolean,
+        default: false
     },
     jazzBand: {
-        type: String,
-        default: 'false'
+        type: Boolean,
+        default: false
     },
     volleyballPepBand: {
-        type: String,
-        default: 'false'
+        type: Boolean,
+        default: false
     },
     basketballPepBand: {
-        type: String,
-        default: 'false'
+        type: Boolean,
+        default: false
     },
     MBSecondary: {
         type: String,
@@ -94,16 +108,32 @@ var BandapplicationSchema = new Schema({
         type: String,
         default: '0'
     },
-    
-    
+    /**
+     * Drumline & Auxiliary Information
+     */
+    drumlineInterest: {
+        type: Boolean,
+        default: false
+    },
+    drumlineRank: {
+        type: [Number],
+        //[Snare, Tenors, Bass, Cymbals]
+        default: [0, 0, 0, 0],
+        validate: [validateRank, 'Rank must between 1-4 and you cannot reuse a ranking']
+    },
+    auxiliary: {
+        type: [Boolean],
+        //[Gatorettes, Florida Visual Ensemble]
+        default: '',
+    },
     // marching band/pepband specific
     weight: {
         type: String,
-        default: '0'
+        default: 'No weight specified'
     },
     shirtSize: {
         type: String,
-        default: 'large'
+        default: 'No size specified'
     }
 });
 

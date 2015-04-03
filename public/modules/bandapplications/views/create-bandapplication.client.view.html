@@ -5,12 +5,11 @@
     </div>
 
     <div class="col-md-12">
-        <p>Some information is taken from your user profile.</p>
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
                 <div class="col-md-6">
                     <div class="input-group" >
-                        <h5 class="glyphicon glyphicon-check"><b> Check all that apply</b></h5>
+                        <h3>Check all that apply</h3>
                     </div>
                     <div class="input-group input-group-lg">
                         <label for="marchingBand"> &nbsp Marching Band &nbsp</label>
@@ -30,7 +29,7 @@
                     </div>
                     <div class="input-group input-group-lg">
                         <label for="basketballPepBand">&nbsp Basketball Pep Band &nbsp</label>
-                        <input type="checkbox" id="basketballPepBand" name="basketPepBand" data-ng-model="basketballPepBand" value="true" ng-Click="basketballPepBandToggle()">
+                        <input type="checkbox" id="basketballPepBand" name="basketballPepBand" data-ng-model="basketballPepBand" value="true" ng-Click="basketballPepBandToggle()">
                     </div>
 
                     <div ng-show="marchingBandFlag || volleyballPepBandFlag || basketballPepBandFlag">
@@ -69,18 +68,17 @@
 
                 <div class="col-md-6">
                     <div ng-show="marchingBandFlag">
-                        <label class="control-label" for="weight">Marching Band Specific Information</label>
-                        <!--Marching Band Secondary Instrument-->
+                        <h3 for="weight">Marching Band Specific Information</h3>
                         <label class="control-label" for="secondary">Secondary Instrument</label>
+                        </br>
                         <span><em>Choose only if different than primary instrument.</em></span>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="text-muted glyphicon glyphicon-music" aria-hidden="true"></i>
                             </span>
-
-                                <select name="mydropdown" data-ng-model="MBSecondary" id="secondary" class="form-control" placeholder="secondary" required>
+                            <select name="mydropdown" data-ng-model="MBSecondary" id="secondary" class="form-control" placeholder="secondary" required>
                                         <option ng-repeat="instrument in marchingBandInstruments" value="{{instrument}}">{{instrument}}</option>
-                                </select>
+                            </select>
                         </div>
                         <!--Secondary Instrument Years Experience-->
                         <div class="input-group">
@@ -92,10 +90,46 @@
                         <!--TODO: Secondary Instrument Private Instruction
                             Figure out how to extract true/false data from checkbox and put
                             into model-->
+                        <div class="input-group col-md-12">
+                            <label class="control-label" for="drumline">&nbsp Drumline &nbsp</label>
+                            <input type="checkbox" id="drumline" name="drumline" value="true" ng-Click="drumlineToggle()" data-ng-model="drumlineInterest">
+                            </br>
+                            <div ng-show="drumlineFlag" class="col-md-6">
+                                <em>Please number from (1) most experience to (4) least experience.</em>
+                            </div>
+                            <div ng-show="drumlineFlag" class="col-md-2">
+                                <span>Snare</span>
+                                <input type="text" data-ng-model="r1" id="drumlineRank" class="form-control" required>
+                                <span>Tenors</span>
+                                <input type="text" data-ng-model="r2" id="drumlineRank" class="form-control" required>
+                            </div>
+                            <div ng-show="drumlineFlag" class = "col-md-2">
+                                <span>Bass</span>
+                                <input type="text" data-ng-model="r3" id="drumlineRank" class="form-control" required>
+                                <span>Cymbals</span>
+                                <input type="text" data-ng-model="r4" id="drumlineRank" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="input-group col-md-12">
+                            <label class="control-label" for="auxiliary">&nbsp Auxiliary &nbsp</label>
+                            <input type="checkbox" id="auxiliary" name="auxiliary" value="true" ng-Click="auxiliaryToggle()">
+                            </br>
+                            <div ng-show="auxiliaryFlag" class="col-md-6">
+                                <em>Please check applicable. All groups require prior experience and audition for admittance.</em>
+                            </div>
+                            <div ng-show="auxiliaryFlag" class="input-group input-group-lg">
+                                <label for="gatorettes">&nbsp Gatorettes &nbsp</label>
+                                <input type="checkbox" id="gatorettes" name="gatorettes" data-ng-model="gatorettes" value="">
+                            </div>
+                            <div ng-show="auxiliaryFlag" class="input-group input-group-lg">
+                                <label for="fve">&nbsp Florida Visual Ensemble &nbsp</label>
+                                <input type="checkbox" id="fve" name="fve" data-ng-model="fve" value="">
+                            </div>
+                        </div>
                     </div>
 
                     <div ng-show="concertEnsemblesFlag">
-                        <label class="control-label" for="weight">Concert Ensembles Specific Information</label>
+                        <h3 for="weight">Concert Ensembles Specific Information</h3>
                         <!--Concert Ensemble Secondary Instrument-->
                         <label class="control-label" for="secondary">Secondary Instrument</label>
                         <span><em>Choose only if different than primary instrument.</em></span>
@@ -103,10 +137,9 @@
                             <span class="input-group-addon">
                                 <i class="text-muted glyphicon glyphicon-music" aria-hidden="true"></i>
                             </span>
-
-                                <select name="mydropdown" data-ng-model="CESecondary" id="secondary" class="form-control" placeholder="secondary" required>
-                                        <option ng-repeat="instrument in concertEnsemblesInstruments" value="{{instrument}}">{{instrument}}</option>
-                                </select>
+                            <select name="mydropdown" data-ng-model="CESecondary" id="secondary" class="form-control" placeholder="secondary" required>
+                                    <option ng-repeat="instrument in concertEnsemblesInstruments" value="{{instrument}}">{{instrument}}</option>
+                            </select>
                         </div>
                         <!--Secondary Instrument Years Experience-->
                         <div class="input-group">
@@ -117,7 +150,7 @@
                         </div>
                     </div>
                     <div ng-show="jazzBandFlag">
-                        <label class="control-label" for="weight">Jazz Band Specific Information</label>
+                        <h3 for="weight">Jazz Band Specific Information</h3>
                         <!--Concert Ensemble Secondary Instrument-->
                         <label class="control-label" for="secondary">Secondary Instrument</label>
                         <span><em>Choose only if different than primary instrument.</em></span>
@@ -140,7 +173,7 @@
                     </div>
 
                     <div ng-show="volleyballPepBandFlag">
-                        <label class="control-label" for="weight">Volleyball Pep Band Specific Information</label>
+                        <h3 for="weight">Volleyball Pep Band Specific Information</h3>
                         <!--Volleyball Pep Band Secondary Instrument-->
                         <label class="control-label" for="secondary">Secondary Instrument</label>
                         <span><em>Choose only if different than primary instrument.</em></span>
@@ -163,7 +196,7 @@
                     </div>
 
                     <div ng-show="basketballPepBandFlag">
-                        <label class="control-label" for="weight">Basketball Pep Band Specific Information</label>
+                        <h3 for="weight">Basketball Pep Band Specific Information</h3>
                         <!--Basketball Pep Band Secondary Instrument-->
                         <label class="control-label" for="secondary">Secondary Instrument</label>
                         <span><em>Choose only if different than primary instrument.</em></span>
@@ -190,7 +223,7 @@
 
                 <div class="form-group text-center col-md-12">
                     <div class="col-md-6">
-                        <input id = "submitButton" type="submit" class="btn btn-lg btn-info">
+                        <input id = "submitButton" type="submit" class="btn btn-lg btn-info" value = "Submit">
                     </div>
                     <div data-ng-show="error" class="text-danger">
 			        <strong data-ng-bind="error"></strong>

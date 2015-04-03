@@ -6,14 +6,13 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		$scope.authentication = Authentication;
 
 		//Marching Band Instruments
-		$scope.marchingBandInstruments = ['Flute/Piccolo', 'Clarinet', 'Saxophone', 'Mellophone', 'Trumpet', 
-		'Baritone/Euphonium', 'Trombone', 'Tuba/Sousaphone', 'Snare', 'Tenors', 'Bass Drum', 'Cymbals'];
+		$scope.marchingBandInstruments = ['Piccolo', 'Clarinet', 'Saxophone', 'Mellophone', 'Trumpet', 
+		'Baritone', 'Trombone', 'Sousaphone'];
 
 		//Wind Symphony, Symphonic Band, Jazz Band Instruments
-		$scope.concertEnsemblesInstruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 
-        'Saxophone', 'Alto Saxophone', 'Tenor Saxophone', 'Baritone Saxophone', 
-        'French Horn', 'Trumpet', 'Baritone', 'Euphonium', 'Trombone', 'Bass Trombone', 'Tuba', 
-        'String Bass', 'Percussion', 'Drumset'];
+		$scope.concertEnsemblesInstruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'Basson', 
+        'Saxophone', 'French Horn', 'Trumpet', 'Euphonium', 'Trombone',  'Tuba', 
+        'String Bass', 'Percussion'];
 		
 		//Volleyball and Basketball Pep Band Instruments
 		$scope.pepBandInstruments = ['Piccolo', 'Clarinet', 'Saxophone', 'Mellophone', 'Trumpet', 
@@ -27,14 +26,21 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
 		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 
-        $scope.size = ['XS', 'S', 'M', 'L', 'XL'];
-            
+        $scope.size = ['XS', 'S', 'M', 'L', 'XL'];     
         $scope.status = ['University of Florida', 'Santa Fe', 'Innovation Academy', 'Other State School'];
+        
+        $scope.r1 = 1;
+        $scope.r2 = 2;
+        $scope.r3 = 3;
+        $scope.r4 = 4;
+
         $scope.marchingBandFlag = false;
         $scope.volleyballPepBandFlag = false;
         $scope.basketballPepBandFlag = false;
         $scope.jazzBandFlag = false;
         $scope.concertEnsemblesFlag = false;
+        $scope.drumlineFlag = false;
+        $scope.auxiliaryFlag = false;
 
         $scope.size = ['XS', 'S', 'M', 'L', 'XL'];
         
@@ -53,6 +59,12 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		$scope.jazzBandToggle = function() {
             $scope.jazzBandFlag = !$scope.jazzBandFlag;
 		};
+		$scope.drumlineToggle = function() {
+            $scope.drumlineFlag = !$scope.drumlineFlag;
+		};
+		$scope.auxiliaryToggle = function() {
+            $scope.auxiliaryFlag = !$scope.auxiliaryFlag;
+		};
 		// Create new Bandapplication
 		$scope.create = function() {
 			// Create new Bandapplication object
@@ -70,11 +82,14 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
                 JBSecondary: this.JBSecondary,
                 VBSecondary: this.VBSecondary,
                 BBSecondary: this.BBSecondary,
-                MBSecondaryYears: this.MBSecondaryYears,
-                CESecondaryYears: this.CESecondaryYears,
-                JBSecondaryYears: this.JBSecondaryYears,
-                VBSecondaryYears: this.VBSecondaryYears,
-                BBSecondaryYears: this.BBSecondaryYears,
+                MBSecondaryYearsExp: this.MBSecondaryYearsExp,
+                CESecondaryYearsExp: this.CESecondaryYearsExp,
+                JBSecondaryYearsExp: this.JBSecondaryYearsExp,
+                VBSecondaryYearsExp: this.VBSecondaryYearsExp,
+                BBSecondaryYearsExp: this.BBSecondaryYearsExp,
+                drumlineInterest: this.drumlineInterest,
+                drumlineRank: [parseInt(this.r1), parseInt(this.r2), parseInt(this.r3), parseInt(this.r4)],
+                auxiliary: [this.gatorettes, this.fve],
                 status: this.status,
                 weight: this.weight,
                 shirtSize: this.shirtSize
