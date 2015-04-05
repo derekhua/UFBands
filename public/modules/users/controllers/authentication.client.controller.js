@@ -50,14 +50,19 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
                     $scope.authentication.user = response;
                     $scope.user = Authentication.user;
                     // And redirect to the index page
-                    if($scope.user.userType==='Current')
-                        $location.path('/home/current');
-                    else if($scope.user.userType==='Prospective')
-                        $location.path('/home/prospective');
-                    else if($scope.user.userType==='Alumni')
-                        $location.path('/home/alumni');
-                    else
-                        $location.path('/home');
+                    if($scope.user.role==='admin'){
+                        $location.path('/home/admin');
+                    }
+                    else{
+                        if($scope.user.userType==='Current')
+                            $location.path('/home/current');
+                        else if($scope.user.userType==='Prospective')
+                            $location.path('/home/prospective');
+                        else if($scope.user.userType==='Alumni')
+                            $location.path('/home/alumni');                       
+                        else
+                            $location.path('/home');
+                    }
                 }).error(function(response) {
                         $scope.error = response.message;
                 });
