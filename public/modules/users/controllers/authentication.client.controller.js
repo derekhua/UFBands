@@ -49,7 +49,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
                     $scope.authentication.user = response;
                     $scope.user = Authentication.user;
                     // And redirect to the index page
-                    if($scope.user.role==='admin'){
+                    if($scope.user.roles==='admin'){
                         $location.path('/home/admin');
                     }
                     else{
