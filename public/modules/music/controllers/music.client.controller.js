@@ -6,13 +6,13 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 		$scope.authentication = Authentication;
                
                // allows for the user to be able to access the music view page
-               $scope.viewShow = "false";
+               $scope.viewShow = false
                
                 $scope.user = Authentication.user;
-                if($scope.user.roles !== 'admin' || $scope.user.roles !== 'moderator' || $scope.user.roles !== 'librarian') {
-                    $location.path('/music');               
+                if($scope.user.roles === 'admin' || $scope.user.roles === 'moderator' || $scope.user.userType === 'librarian') {
+                    $scope.viewShow = true
                 } else {
-                    $scope.viewShow = "true";
+                    $location.path('/music');               
                 }
                 
                 
