@@ -65,13 +65,6 @@ var UserSchema = new Schema({
 	type: String,
 	default: '',
 	required: 'Must specify an instrument',
-//	enum: ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
-//		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone',
-//		'French Horn', 'Horn', 'Mellophone','Trumpet', 'Cornet', 'Baritone', 'Euphonium', 'Trombone',
-//		'Bass Trombone', 'Tuba', 'Sousaphone', 'String Bass', 'Bass', 'Bass Guitar', 'Guitar',
-//		'Percussion', 'Bass Drum', 'Quads', 'Tenors', 'Snare', 'Cymbals', 'Triangle', 'Timpani',
-//		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset',
-//		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos']
     },
     primaryYears: {
             type: String,

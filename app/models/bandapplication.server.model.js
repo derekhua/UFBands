@@ -28,7 +28,7 @@ var validateRank = function(rank) {
  * Bandapplication Schema
  */
 var BandapplicationSchema = new Schema({
-        // general info
+    // general info
 	created: {
 		type: Date,
 		default: Date.now
