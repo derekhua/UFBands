@@ -5,6 +5,11 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 	function($scope, $stateParams, $location, Authentication, Music) {
 		$scope.authentication = Authentication;
                
+                $scope.user = Authentication.user;
+                if($scope.user.roles !== 'admin')
+                    $location.path('/music');
+                
+               
                 $scope.instruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
 		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone', 
 		'French Horn', 'Horn', 'Mellophone','Trumpet', 'Cornet', 'Baritone', 'Euphonium', 'Trombone',
