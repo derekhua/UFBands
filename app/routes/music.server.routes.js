@@ -13,6 +13,8 @@ module.exports = function(app) {
 		.get(music.read)
 		.put(users.requiresLogin, music.hasAuthorization, music.update)
 		.delete(users.requiresLogin, music.hasAuthorization, music.delete);
+        
+        app.route('/music/musicSearch').post(music.list);
 
 	// Finish by binding the Music middleware
 	app.param('musicId', music.musicByID);

@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Music = mongoose.model('Music'),
+        User = mongoose.model('User'),
 	_ = require('lodash');
 
 /**
@@ -73,7 +74,47 @@ exports.delete = function(req, res) {
  * List of Music
  */
 exports.list = function(req, res) { 
-	Music.find().sort('-created').populate('user', 'displayName').exec(function(err, music) {
+    if(req.user.roles === 'admin'){
+        Music.find(
+                {    
+                    
+                }
+                
+            ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(music);
+		}
+	});
+    }
+    else{
+        Music.find(
+                {    
+                    instrument: req.user.primary
+                }
+                
+            ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(music);
+		}
+	});
+    }
+};
+
+
+exports.listSearch = function(req, res) { 
+	Music.find(
+                {
+                    instrument: req.user.primary
+                }
+            ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

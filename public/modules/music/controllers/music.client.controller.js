@@ -1,8 +1,8 @@
 'use strict';
 
 // Music controller
-angular.module('music').controller('MusicController', ['$scope', '$stateParams', '$location', 'Authentication', 'Music',
-	function($scope, $stateParams, $location, Authentication, Music) {
+angular.module('music').controller('MusicController', ['$scope', '$stateParams', '$http', '$location', 'Authentication', 'Music',
+	function($scope, $stateParams, $http, $location, Authentication, Music) {
 		$scope.authentication = Authentication;
                
                // allows for the user to be able to access the music view page
@@ -24,7 +24,13 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
 		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 $scope.instruments.sort();
-
+                 
+                    $http.post('/music', $scope.formdata).success(function(response) {
+                    	console.log(response);
+                    }).error(function(response) {
+                    	console.log(response);
+				$scope.error = response.message;
+			});
 
 		// Create new Music
 		$scope.create = function() {
@@ -77,6 +83,12 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 
 		// Find a list of Music
 		$scope.find = function() {
+			$scope.music = Music.query({
+                                    instrument: $scope.formdata.search
+                        });
+		};
+                
+                $scope.findSearch = function() {
 			$scope.music = Music.query();
 		};
 

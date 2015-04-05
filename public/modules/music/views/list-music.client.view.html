@@ -1,8 +1,17 @@
-<section data-ng-controller="MusicController" data-ng-init="find()">
+<section data-ng-controller="MusicController" data-ng-init="">
     <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
     <div class="page-header">
         <h1>Music</h1>
     </div>
+    
+    
+    
+    <form data-ng-submit="find()" novalidate>
+    Search:<br>
+    <input type="text" data-ng-model="formdata.search" class="form-control" placeholder="Dogger" required >
+    </form>
+    
+    
     
     <div class="col-sm-12">
         <div class="text-muted col-sm-4"><b>Title</b><b class="caret"></b></div>
