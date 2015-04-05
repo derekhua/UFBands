@@ -36,6 +36,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 			url: '/repairs/uniform',
 			templateUrl: 'modules/core/views/uniformrepairs.client.view.html'
 		}).
+        		state('homeadmin', {
+			url: '/home/admin',
+			templateUrl: 'modules/users/admin/homeadmin.client.view.html'
+		}).
                 state('instrumentrepairs', {
 			url: '/repairs/instrument',
 			templateUrl: 'modules/core/views/instrumentrepairs.client.view.html'

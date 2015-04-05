@@ -1,0 +1,61 @@
+<section data-ng-controller="HomeAdmin">
+	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+
+	<div class="jumbotron">
+		<h1 class="lead">Manage Band Rosters</h1>
+
+		<div class="bs-example" data-example-ids="select-form-control">
+			<form>
+				<select class="form-control">
+					<option>Marching</option>
+					<option>Jazz</option>
+					<option>Symphonic</option>
+					<option>Wind</option>
+					<option>Basketball Pep</option>
+					<option>Volleyball Pep</option>
+				</select>
+			</form>
+		</div>
+
+		<div class="bs-example" data-example-id="simple-table">
+			<table class="table">
+				<h3>Marching Band:</h3>
+				<thead>
+					<tr>
+						<th></th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Instrument</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row"></th>
+						<td>Mark</td>
+						<td>Otto</td>
+						<td>Trombone</td>
+					</tr>
+					<tr>
+						<th scope="row"></th>
+						<td>Jacob</td>
+						<td>Thornton</td>
+						<td>Tuba</td>
+					</tr>
+					<tr>
+						<th scope="row"></th>
+						<td>Larry</td>
+						<td>Bird</td>
+						<td>Saxophone</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div>
+			<p class="lead" style="font-size:36px">
+				<div ><a class="btn btn-success btn-lg btn-block" href="/#!/home/admin">Back</a></div>
+			</p>
+		</div>         
+
+	</div>	
+</section>
