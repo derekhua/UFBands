@@ -9,7 +9,7 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
                $scope.viewShow = "false";
                
                 $scope.user = Authentication.user;
-                if($scope.user.roles !== 'admin' || $scope.user.roles !== 'moderator') {
+                if($scope.user.roles !== 'admin' || $scope.user.roles !== 'moderator' || $scope.user.roles !== 'librarian') {
                     $location.path('/music');               
                 } else {
                     $scope.viewShow = "true";
