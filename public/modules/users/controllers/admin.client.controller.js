@@ -4,7 +4,7 @@ angular.module('users').controller('AdminController', ['$scope', '$http', '$loca
 	function($scope, $http, $location, Users) {
 
 		$scope.updateMod = function() {
-			$scope.mod = Users.get({roles: "moderator"}, function() {
+			$scope.mod = Users.get({roles: 'moderator'}, function() {
 				$scope.mod.firstName = $scope.firstName;
 				$scope.mod.lastName = $scope.lastName;
 				$scope.mod.lastName = $scope.lastName;
