@@ -3,7 +3,7 @@
 module.exports = {
 	db: 'mongodb://g.delatorre:spy00g11@ds031691.mongolab.com:31691/testdb',
 	app: {
-		title: 'CEN3031Project - Development Environment'
+		title: 'UF Bands - Member Portal'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
