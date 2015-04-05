@@ -40,9 +40,5 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 			url: '/repairs/instrument',
 			templateUrl: 'modules/core/views/instrumentrepairs.client.view.html'
 		});
-                state('homeadmin', {
-			url: '/home/admin',
-			templateUrl: 'modules/core/views/homeadmin.client.view.html'
-		}).
 	}
 ]);
