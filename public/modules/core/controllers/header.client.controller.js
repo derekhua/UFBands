@@ -7,7 +7,9 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		$scope.menu = Menus.getMenu('topbar');
                 $scope.user = Authentication.user;
                 
-                if($scope.user.userType === 'Current')
+                if($scope.user.roles === 'admin')
+                    $scope.type = 'admin'
+                else if($scope.user.userType === 'Current')
                     $scope.type = 'current';
                 else if($scope.user.userType === 'Prospective')
                     $scope.type = 'prospective';
