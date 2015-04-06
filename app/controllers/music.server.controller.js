@@ -74,10 +74,11 @@ exports.delete = function(req, res) {
  * List of Music
  */
 exports.list = function(req, res) { 
-    if(req.user.roles === 'admin'){
+    if(req.user.roles !== 'admin'){
         Music.find(
                 {    
-                    
+                    instrument: req.user.primary
+
                 }
                 
             ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
@@ -93,7 +94,6 @@ exports.list = function(req, res) {
     else{
         Music.find(
                 {    
-                    instrument: req.user.primary
                 }
                 
             ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
