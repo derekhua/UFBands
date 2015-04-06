@@ -84,7 +84,6 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 		// Find a list of Music
 		$scope.find = function() {
 			$scope.music = Music.query({
-                                    instrument: $scope.formdata.search
                         });
 		};
                 
