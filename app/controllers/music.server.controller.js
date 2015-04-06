@@ -77,8 +77,7 @@ exports.list = function(req, res) {
     if(req.user.roles !== 'admin'){
         Music.find(
                 {    
-                    instrument: req.user.primary
-
+                    
                 }
                 
             ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
