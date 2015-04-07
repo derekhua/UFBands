@@ -4,17 +4,19 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 	function($scope, Authentication, $location, Menus) {
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
-		$scope.menu = Menus.getMenu('topbar');
-                $scope.user = Authentication.user;
-                
-                if($scope.user.userType === 'Current')
-                    $scope.type = 'current';
-                else if($scope.user.userType === 'Prospective')
-                    $scope.type = 'prospective';
-                else if($scope.user.userType === 'Alumni')
-                    $scope.type = 'alumni';
-                else
-                    $scope.type = '';
+        $scope.user = Authentication.user;
+        
+        //Determine user type to determine correct home page.
+        var userType = ($scope.user.userType).toLowerCase();
+        if ($scope.user.roles === 'admin')
+            $scope.type = 'admin';
+        else if ($scope.user.roles === 'moderator')
+            $scope.type = '/mod/' + userType; // /mod/librarian or /instrument or /uniform
+        else
+            $scope.type = userType;
+
+        $scope.menu = Menus.getMenu('topbar');
+        //$scope.adminMenu = Menus.getMenu('admin-topbar');
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
 		};

@@ -13,12 +13,13 @@ angular.module('core').service('Menus', [
 		// A private function for rendering decision 
 		var shouldRender = function(user) {
 			if (user) {
+				//returns false when expr is -1; it returns true otherwise
 				if (!!~this.roles.indexOf('*')) {
 					return true;
 				} else {
 					for (var userRoleIndex in user.roles) {
 						for (var roleIndex in this.roles) {
-							if (this.roles[roleIndex] === user.roles[userRoleIndex]) {
+							if (this.roles[roleIndex] === user.roles) {
 								return true;
 							}
 						}
@@ -27,7 +28,6 @@ angular.module('core').service('Menus', [
 			} else {
 				return this.isPublic;
 			}
-
 			return false;
 		};
 
@@ -79,7 +79,7 @@ angular.module('core').service('Menus', [
 		};
 
 		// Add menu item object
-		this.addMenuItem = function(menuId, menuItemTitle, menuItemURL, menuItemType, menuItemUIRoute, isPublic, roles, position) {
+		this.addMenuItem = function(menuId, menuItemTitle, menuItemType, menuItemURL, menuItemUIRoute, isPublic, roles, position) {
 			// Validate that the menu exists
 			this.validateMenuExistance(menuId);
 

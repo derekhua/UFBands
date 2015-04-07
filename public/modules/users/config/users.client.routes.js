@@ -42,8 +42,12 @@ angular.module('users').config(['$stateProvider',
 			templateUrl: 'modules/users/views/password/reset-password.client.view.html'
 		}).
 		state('rosters', {
-			url: '/home/admin/rosters',
+			url: '/admin/rosters',
 			templateUrl: 'modules/users/admin/rosters.client.view.html'
+		}).
+		state('list-mods', {
+			url: '/list/mods',
+			templateUrl: 'modules/users/admin/list-mods.client.view.html'
 		});
 	}
 ]);
