@@ -24,7 +24,7 @@ function signout(){
         });
     });
 
-    expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment'); //Start Page
+    expect(browser.getTitle()).toEqual('UF Bands - Member Portal'); //Start Page
 }
 
 var newUserNameProspective = makeid();
@@ -33,7 +33,7 @@ var newUserNameAlumni = makeid();
 var randomText = makeid();
 
 describe('CEN3031 Testing', function() {
-    it('should sign up prospective member', function() {
+/*    it('should sign up prospective member', function() {
         browser.get('http://localhost:3000');
         element(by.id('signup')).click();
 
@@ -79,7 +79,7 @@ describe('CEN3031 Testing', function() {
             });
         });
 
-        expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment'); //Change to new current page header
+        expect(browser.getTitle()).toEqual('UF Bands - Member Portal'); //Change to new current page header
         signout();
     });
 
@@ -129,7 +129,7 @@ describe('CEN3031 Testing', function() {
             });
         });
 
-        expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment'); //Change to new current page header
+        expect(browser.getTitle()).toEqual('UF Bands - Member Portal'); //Change to new current page header
         signout();
     });
 
@@ -179,9 +179,9 @@ describe('CEN3031 Testing', function() {
             });
         });
 
-        expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment'); //Change to new current page header
+        expect(browser.getTitle()).toEqual('UF Bands - Member Portal'); //Change to new current page header
         signout();
-    });
+    }); */
 
     it('should log in', function() {
         browser.get('http://localhost:3000');
@@ -203,7 +203,7 @@ describe('CEN3031 Testing', function() {
             });
         });
 
-        expect(browser.getTitle()).toEqual('CEN3031Project - Development Environment');
+        expect(browser.getTitle()).toEqual('UF Bands - Member Portal');
     });
 
     it('should apply for bands', function() {
