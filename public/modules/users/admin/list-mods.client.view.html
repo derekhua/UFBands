@@ -4,12 +4,14 @@
 	<div class="jumbotron">
 		<h1 class="lead">Manage Moderators</h1>
 	</div>
-
-	<div class="col-md-12 list-group">
-		<ul data-ng-repeat="mod in mods" class="col-md-6">
-			<label> {{mod.userType}}Moderator </label>
-			<li> Name: {{mod.firstName}} {{mod.lastName}}</li>
-			<li> Updated on: {{mod.updated}}</li>
-		</ul>
-	</div>
+		<div class="list-group">
+			<div data-ng-repeat="mod in mods" class="col-md-4">
+				<h3> {{mod.userType}} Moderator </h3>
+				<ul class="center">
+					<li>Name: {{mod.firstName}} {{mod.lastName}}</li>
+					<li>Email: {{mod.email}}
+					<li>Last updated on: {{mod.updated}}</li>
+				</ul>
+			</div>
+		</div>
 </section>

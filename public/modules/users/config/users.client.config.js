@@ -16,7 +16,7 @@ angular.module('users').run(['Menus',
 		Menus.addMenuItem('topbar', 'Rosters', 'item', 'admin/rosters', 'rosters', 'false', ['admin']);
 		Menus.addMenuItem('topbar', 'Uniforms', 'item', 'admin/uniforms', 'uniforms', 'false', ['admin']);
 		Menus.addMenuItem('topbar', 'Instruments', 'item', 'admin/instruments', 'instruments', 'false', ['admin']);
-		Menus.addMenuItem('topbar', 'Manage Moderators', 'item', 'list/mods', '', 'false', ['admin']);
+		Menus.addMenuItem('topbar', 'Manage Moderators', 'item', 'mods/list', '', 'false', ['admin']);
 	}
 ]);
 

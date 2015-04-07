@@ -46,7 +46,7 @@ angular.module('users').config(['$stateProvider',
 			templateUrl: 'modules/users/admin/rosters.client.view.html'
 		}).
 		state('list-mods', {
-			url: '/list/mods',
+			url: '/mods/list',
 			templateUrl: 'modules/users/admin/list-mods.client.view.html'
 		});
 	}

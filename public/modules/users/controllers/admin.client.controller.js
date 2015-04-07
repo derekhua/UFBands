@@ -1,16 +1,14 @@
 'use strict';
 
-angular.module('users').controller('AdminController', ['$scope', '$http', '$location', 'Users',
-	function($scope, $http, $location, Users) {
+angular.module('users').controller('AdminController', ['$scope', '$http', '$location', 'Users', 'Mods',
+	function($scope, $http, $location, Users, Mods) {
 
 		$scope.modTypes = ['Librarian', 'Instrument', 'Uniform'];
 		$scope.modType = '';
 
 		//Return a list of moderators
 		$scope.listMods = function() {
-			$scope.mods = Users.get({roles: 'moderator'}, function() {
-				console.log($scope.mods);
-			});
+			$scope.mods = Mods.query();
 		};
 
 		//Update the moderator of the type specified by $scope.modType
