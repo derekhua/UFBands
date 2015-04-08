@@ -87,9 +87,7 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 		};
                 $scope.findSearch = function() {
 			$scope.music = Music.query({search: $scope.formdata.search, flag: 'true'});
-	    $scope.findSearch = function() {
-			$scope.music = Music.query();
-		};
+                    }
 
 		// Find existing Music
 		$scope.findOne = function() {
