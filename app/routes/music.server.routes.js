@@ -12,9 +12,10 @@ module.exports = function(app) {
 	app.route('/music/:musicId')
 		.get(music.read)
 		.put(users.requiresLogin, music.hasAuthorization, music.update)
-		.delete(users.requiresLogin, music.hasAuthorization, music.delete);
+		.delete(users.requiresLogin, music.hasAuthorization, music.delete)
+                .get(music.list);
         
-        app.route('/music/musicSearch').post(music.list);
+        app.route('/music/musicSearch').get(music.list);
 
 	// Finish by binding the Music middleware
 	app.param('musicId', music.musicByID);

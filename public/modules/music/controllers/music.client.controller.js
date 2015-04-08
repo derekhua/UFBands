@@ -25,12 +25,12 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 $scope.instruments.sort();
                  
-                    $http.post('/music', $scope.formdata).success(function(response) {
-                    	console.log(response);
-                    }).error(function(response) {
-                    	console.log(response);
-				$scope.error = response.message;
-			});
+                $http.post('/music/musicSearch', $scope.formdata).success(function(response) {
+                    console.log(response);
+                }).error(function(response) {
+                    console.log(response);
+                            $scope.error = response.message;
+                    });
 
 		// Create new Music
 		$scope.create = function() {
@@ -83,12 +83,11 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 
 		// Find a list of Music
 		$scope.find = function() {
-			$scope.music = Music.query({
-                        });
+			$scope.music = Music.query({flag: 'false'});
 		};
                 
                 $scope.findSearch = function() {
-			$scope.music = Music.query();
+			$scope.music = Music.query({search: $scope.formdata.search, flag: 'true'});
 		};
 
 		// Find existing Music
