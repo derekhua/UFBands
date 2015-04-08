@@ -48,6 +48,10 @@ angular.module('users').config(['$stateProvider',
 		state('list-mods', {
 			url: '/mods/list',
 			templateUrl: 'modules/users/admin/list-mods.client.view.html'
+		}).
+		state('edit-mods', {
+			url: '/mods/:modType/edit',
+			templateUrl: 'modules/users/admin/edit-mods.client.view.html'
 		});
 	}
 ]);
