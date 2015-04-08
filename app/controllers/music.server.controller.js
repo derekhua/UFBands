@@ -75,8 +75,7 @@ exports.delete = function(req, res) {
  */
 exports.list = function(req, res) { 
     if(req.query['flag'] === 'false'){
-         Music.find({
-        }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+         Music.find().sort('-created').populate('user', 'displayName').exec(function(err, music) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -91,9 +90,9 @@ exports.list = function(req, res) {
             Music.find({
                 $or:
                 [
-                    {instrument: new RegExp(req.query['search'].toLowerCase(), "i")},
-                    {title: new RegExp(req.query['search'].toLowerCase(), "i")},
-                    {composer: new RegExp(req.query['search'].toLowerCase(), "i")}
+                    {instrument: new RegExp(req.query['search'], "i")},
+                    {title: new RegExp(req.query['search'], "i")},
+                    {composer: new RegExp(req.query['search'], "i")}
                 ]
             }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
@@ -109,9 +108,9 @@ exports.list = function(req, res) {
             Music.find({    
                 $or:
                 [
-                    {instrument: new RegExp(req.query['search'].toLowerCase(), "i")},
-                    {title: new RegExp(req.query['search'].toLowerCase(), "i")},
-                    {composer: new RegExp(req.query['search'].toLowerCase(), "i")}
+                    {instrument: new RegExp(req.query['search'], "i")},
+                    {title: new RegExp(req.query['search'], "i")},
+                    {composer: new RegExp(req.query['search'], "i")}
                 ]
             }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
