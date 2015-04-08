@@ -6,15 +6,52 @@
     </div>
     
     <div class="list-group col-sm-12">
-        <a data-ng-repeat="bandapplication in bandapplications" data-ng-href="#!/bandapplications/{{bandapplication._id}}" class="list-group-item">
+        
+<!--        <a data-ng-repeat="bandapplication in bandapplications" data-ng-href="#!/bandapplications/{{bandapplication._id}}" class="list-group-item">
                 <div class="col-sm-4 ">
                         <i class="text-muted glyphicon glyphicon-file text-danger" aria-hidden="true"></i>
                         <span class="list-group-item-heading" data-ng-bind="bandapplication.user.displayName"></span> 
-                        
                 </div>
                        
-                <div class="col-sm-4">&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.displayName"></span></div>
-                <div class="col-sm-4">&nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.displayName"></span></div>                        
+                <div class="col-sm-4">&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.user.status"></span></div>
+                <div class="col-sm-4">&nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="music.instrument"></span></div>
+                        
+                               			
+        </a>
+        <small class="list-group-item-text">
+                Posted on
+                <span data-ng-bind="bandapplication.created | date:'medium'"></span>
+                by
+                <span data-ng-bind="bandapplication.user.displayName"></span>
+        </small>-->
+        
+        <div class="col-sm-12">
+            <div class="text-muted col-sm-3"><b>Name</b><b class="caret"></b></div>
+            <div class="text-muted col-sm-3"><b>School</b></div>
+            <div class="text-muted col-sm-3"><b>Instrument</b></div>
+            <div class="text-muted col-sm-3"><b>Bands Applying</b></div>
+        </div>
+        <br>
+        <a data-ng-repeat="bandapplication in bandapplications" data-ng-href="#!/bandapplications/{{bandapplication._id}}" class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-3 ">
+                            <i class="text-muted glyphicon glyphicon-search text-info" aria-hidden="true"></i>
+                            <span class="list-group-item-heading" data-ng-bind="bandapplication.user.displayName"></span> 
+
+                    </div>
+
+                    <div class="col-sm-3"><span class="list-group-item-heading" data-ng-bind="bandapplication.status"></span></div>
+                    <div class="col-sm-3"><span class="list-group-item-heading" data-ng-bind="bandapplication.user.primary"></span></div>                        
+
+                    <div class="col-sm-3">
+                        <div class="col-sm-2">MB: <span class="list-group-item-heading"  data-ng-bind="bandapplication.marchingBand"></span></div>
+                        <div class="col-sm-2">CE: <span class="list-group-item-heading" data-ng-bind="bandapplication.concertEnsembles"></span></div>
+                        <div class="col-sm-2">JB: <span class="list-group-item-heading" data-ng-bind="bandapplication.jazzBand"></span></div>
+                        <div class="col-sm-2">VPB: <span class="list-group-item-heading" data-ng-bind="bandapplication.volleyballPepBand"></span></div>
+                        <div class="col-sm-2">BPB: <span class="list-group-item-heading" data-ng-bind="bandapplication.basketballPepBand"></span></div>
+                        <div class="col-sm-2"></div>
+                    </div>    
+                </div>
             
                 <small class="list-group-item-text">
                         Posted on

@@ -37,9 +37,9 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 			// Create new Music object
 			var music = new Music ({
 				title: this.title,
-                                composer: this.composer,
-                                path: this.path,
-                                instrument: this.instrument
+                composer: this.composer,
+                path: this.path,
+                instrument: this.instrument
 			});
 
 			// Redirect after save
@@ -85,9 +85,10 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 		$scope.find = function() {
 			$scope.music = Music.query({flag: 'false'});
 		};
-                
                 $scope.findSearch = function() {
 			$scope.music = Music.query({search: $scope.formdata.search, flag: 'true'});
+	    $scope.findSearch = function() {
+			$scope.music = Music.query();
 		};
 
 		// Find existing Music

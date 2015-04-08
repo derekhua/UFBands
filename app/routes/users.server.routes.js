@@ -30,8 +30,11 @@ module.exports = function(app) {
 	app.route('/auth/github/callback').get(users.oauthCallback('github'));
 
 	// Setting up admin api
-	app.route('/mods/list').get(users.listMods);
+	app.route('/mods').get(users.listMods);
+	app.route('/mod/:modType/edit').put(users.updateMod);
 
-	// Finish by binding the user middleware
+	// Finish by binding the user and admin middleware
 	app.param('userId', users.userByID);
+	app.param('modType', users.modByType);
+
 };

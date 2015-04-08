@@ -6,12 +6,16 @@
 	</div>
 		<div class="list-group">
 			<div data-ng-repeat="mod in mods" class="col-md-4">
-				<h3> {{mod.userType}} Moderator </h3>
+				<h3> {{mod.userType}} Moderator	</h3>
 				<ul class="center">
 					<li>Name: {{mod.firstName}} {{mod.lastName}}</li>
 					<li>Email: {{mod.email}}
 					<li>Last updated on: {{mod.updated}}</li>
 				</ul>
+				<a class="btn btn-info btn-lg" href="/#!/mods/{{mod.userType}}/edit" ng-init-"findOne()">
+					<i class="glyphicon glyphicon-edit"></i>
+					Edit
+            	</a>
 			</div>
 		</div>
 </section>
