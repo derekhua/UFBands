@@ -91,9 +91,9 @@ exports.list = function(req, res) {
             Music.find({
                 $or:
                 [
-                    {instrument: req.query['search']},
-                    {title: req.query['search']},
-                    {composer: req.query['search']}
+                    {instrument: new RegExp(req.query['search'].toLowerCase(), "i")},
+                    {title: new RegExp(req.query['search'].toLowerCase(), "i")},
+                    {composer: new RegExp(req.query['search'].toLowerCase(), "i")}
                 ]
             }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
@@ -106,12 +106,14 @@ exports.list = function(req, res) {
             });
         }
         else{
-            Music.find(
-                    {    
-                        instrument: req.user.primary
-                    }
-
-                ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+            Music.find({    
+                $or:
+                [
+                    {instrument: new RegExp(req.query['search'].toLowerCase(), "i")},
+                    {title: new RegExp(req.query['search'].toLowerCase(), "i")},
+                    {composer: new RegExp(req.query['search'].toLowerCase(), "i")}
+                ]
+            }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
                             return res.status(400).send({
                                     message: errorHandler.getErrorMessage(err)
