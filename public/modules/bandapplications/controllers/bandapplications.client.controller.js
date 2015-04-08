@@ -137,6 +137,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		// Find a list of Bandapplications
 		$scope.find = function() {
 			$scope.bandapplications = Bandapplications.query();
+                        
 		};
 
 		// Find existing Bandapplication
@@ -145,5 +146,6 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 				bandapplicationId: $stateParams.bandapplicationId
 			});
 		};
+            
 	}
 ]);

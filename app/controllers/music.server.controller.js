@@ -74,13 +74,9 @@ exports.delete = function(req, res) {
  * List of Music
  */
 exports.list = function(req, res) { 
-    if(req.user.roles === 'admin'){
-        Music.find(
-                {    
-                    
-                }
-                
-            ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+    if(req.query['flag'] === 'false'){
+         Music.find({
+        }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -91,20 +87,40 @@ exports.list = function(req, res) {
 	});
     }
     else{
-        Music.find(
-                {    
-                    instrument: req.user.primary
-                }
-                
-            ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
-		if (err) {
-			return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-			});
-		} else {
-			res.jsonp(music);
-		}
-	});
+        if(req.user.roles === 'admin'){
+            Music.find({
+                $or:
+                [
+                    {instrument: req.query['search']},
+                    {title: req.query['search']},
+                    {composer: req.query['search']}
+                ]
+            }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+                    if (err) {
+                            return res.status(400).send({
+                                    message: errorHandler.getErrorMessage(err)
+                            });
+                    } else {
+                            res.jsonp(music);
+                    }
+            });
+        }
+        else{
+            Music.find(
+                    {    
+                        instrument: req.user.primary
+                    }
+
+                ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+                    if (err) {
+                            return res.status(400).send({
+                                    message: errorHandler.getErrorMessage(err)
+                            });
+                    } else {
+                            res.jsonp(music);
+                    }
+            });
+        }
     }
 };
 

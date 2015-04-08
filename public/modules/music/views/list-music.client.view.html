@@ -6,7 +6,7 @@
     
     
     
-    <form data-ng-submit="find()" novalidate>
+    <form data-ng-submit="findSearch()" novalidate>
     Search:<br>
     <input type="text" data-ng-model="formdata.search" class="form-control" placeholder="Search" required >
     </form>
@@ -57,7 +57,7 @@
     </div>
     
     <div class="alert alert-warning text-center" data-ng-hide="!music.$resolved || music.length">
-            No Music yet, why don't you <a href="/#!/music/create">create one</a>?
+            Music not found.
     </div>
     
     <nav>

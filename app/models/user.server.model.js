@@ -62,9 +62,9 @@ var UserSchema = new Schema({
     },
     //Primary Instrument
     primary: {
-	type: String,
-	default: '',
-	required: 'Must specify an instrument',
+    	type: String,
+    	default: '',
+    	required: 'Must specify an instrument',
     },
     primaryYears: {
             type: String,

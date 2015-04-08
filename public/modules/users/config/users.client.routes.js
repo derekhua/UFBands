@@ -45,9 +45,21 @@ angular.module('users').config(['$stateProvider',
 			url: '/admin/rosters',
 			templateUrl: 'modules/users/admin/rosters.client.view.html'
 		}).
+		state('instruments', {
+			url: '/admin/instruments',
+			templateUrl: 'modules/users/admin/instruments.client.view.html'
+		}).
+		state('uniforms', {
+			url: '/admin/uniforms',
+			templateUrl: 'modules/users/admin/uniforms.client.view.html'
+		}).
 		state('list-mods', {
-			url: '/list/mods',
+			url: '/mods/list',
 			templateUrl: 'modules/users/admin/list-mods.client.view.html'
+		}).
+		state('edit-mods', {
+			url: '/mods/:modType/edit',
+			templateUrl: 'modules/users/admin/edit-mods.client.view.html'
 		});
 	}
 ]);

@@ -6,8 +6,7 @@
 
 <div id="wrap" ng-hide="edit">
 	<div id="header">
-			<h1><span ng-bind="user.firstName"></span> "<span ng-bind="user.nickName"></span>" <span ng-bind="user.lastName"></span> </h1>
-			<p class="slogan">slogan/motto goes here</p>
+			<h1><span ng-bind="user.firstName"></span> <span ng-model="user.nickName" ng-show="user.nickName">"{{user.nickName}}"</span> <span ng-bind="user.lastName"></span> </h1>
 	</div>
 <!--	<div id="menu">
 		<ul>

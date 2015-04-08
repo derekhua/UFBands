@@ -181,7 +181,7 @@ describe('CEN3031 Testing', function() {
 
         expect(browser.getTitle()).toEqual('UF Bands - Member Portal'); //Change to new current page header
         signout();
-    }); */
+    });
 
     it('should log in', function() {
         browser.get('http://localhost:3000');
@@ -189,7 +189,7 @@ describe('CEN3031 Testing', function() {
 
         browser.driver.wait(function() {
             return browser.driver.getCurrentUrl().then(function(url) {
-                return /signin/.test(url);
+                return /home/.test(url);
             });
         });
 
@@ -253,7 +253,7 @@ describe('CEN3031 Testing', function() {
       });
 
 
-      it('should send in uniform repairs', function(){
+      it('should send in instrument repairs', function(){
         browser.get('http://localhost:3000/#!/home/prospective');
 
         element(by.id('repairDropdown')).click();
@@ -298,9 +298,34 @@ describe('CEN3031 Testing', function() {
             });
         });
 
+      });*/
+
+/////////////////////ADMIN/////////////////////////////////////////////////////
+      it('should log in as admin', function(){
+//            signout();
+
+            browser.get('http://localhost:3000');
+            element(by.id('login')).click();
+
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function(url) {
+                    return /home/.test(url);
+                });
+            });
+
+            element(by.id('username')).sendKeys('jwatkins');
+            element(by.id('password')).sendKeys('cen3031bandapp');
+            element(by.id('signin')).click();
+
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function(url) {
+                    return /admin/.test(url);
+                });
+            });
+
       });
 
-      it('should create new music paths', function(){
+/*      it('should create new music paths', function(){
 
           browser.get('http://localhost:3000/#!/music/create');
 
@@ -310,9 +335,37 @@ describe('CEN3031 Testing', function() {
           element(by.id('path')).sendKeys("Path");
           element(by.id('submit')).click();
 
-          browser.get('http://localhost:3000/#!/music');
+      });*/
+
+      it('should be able to view rosters', function(){
+
+      //  browser.get('http://localhost:3000/#!/admin/rosters');
+        element(by.id('backButton')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /admin/.test(url);
+            });
+        });
 
       });
+
+      it('should be able to view applications', function(){
+
+          //browser.get('http://localhost:3000/#!/home/admin');
+
+          element(by.id('appButton')).click();
+
+          browser.driver.wait(function() {
+              return browser.driver.getCurrentUrl().then(function(url) {
+                  return /bandapplications/.test(url);
+              });
+          });
+
+          expect(element(by.id('header')).getText()).toEqual('Band Applications');
+
+      });
+
 
 
     });

@@ -2,30 +2,18 @@
 	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
 
 	<div class="jumbotron">
-		<h1 class="lead">Manage Band Rosters</h1>
-
-		<div class="bs-example" data-example-ids="select-form-control">
-			<form>
-				<select class="form-control">
-					<option>Marching</option>
-					<option>Jazz</option>
-					<option>Symphonic</option>
-					<option>Wind</option>
-					<option>Basketball Pep</option>
-					<option>Volleyball Pep</option>
-				</select>
-			</form>
-		</div>
+		<h1 class="lead">Uniform Repairs</h1>
 
 		<div class="bs-example" data-example-id="simple-table">
 			<table class="table">
-				<h3>Marching Band:</h3>
+				<h3>Repairs:</h3>
 				<thead>
 					<tr>
 						<th></th>
 						<th>First Name</th>
 						<th>Last Name</th>
-						<th>Instrument</th>
+						<th>Uniform Type</th>
+						<th>Description</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,19 +21,22 @@
 						<th scope="row"></th>
 						<td>Mark</td>
 						<td>Otto</td>
-						<td>Trombone</td>
+						<td>Marching</td>
+						<td>It's ripped</td>
 					</tr>
 					<tr>
 						<th scope="row"></th>
 						<td>Jacob</td>
 						<td>Thornton</td>
-						<td>Tuba</td>
+						<td>Volleyball Pep</td>
+						<td>#RIPTTTTT</td>
 					</tr>
 					<tr>
 						<th scope="row"></th>
 						<td>Larry</td>
 						<td>Bird</td>
-						<td>Saxophone</td>
+						<td>Jazz</td>
+						<td>rip in peace</td>
 					</tr>
 				</tbody>
 			</table>
@@ -53,9 +44,9 @@
 
 		<div>
 			<p class="lead" style="font-size:36px">
-				<div ><a class="btn btn-success btn-lg btn-block" id = "backButton" href="/#!/home/admin">Back</a></div>
+				<div ><a class="btn btn-success btn-lg btn-block" href="/#!/home/admin">Back</a></div>
 			</p>
-		</div>
+		</div>         
 
-	</div>
+	</div>	
 </section>
