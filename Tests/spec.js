@@ -33,7 +33,7 @@ var newUserNameAlumni = makeid();
 var randomText = makeid();
 
 describe('CEN3031 Testing', function() {
-/*    it('should sign up prospective member', function() {
+    it('should sign up prospective member', function() {
         browser.get('http://localhost:3000');
         element(by.id('signup')).click();
 
@@ -298,11 +298,11 @@ describe('CEN3031 Testing', function() {
             });
         });
 
-      });*/
+      });
 
 /////////////////////ADMIN/////////////////////////////////////////////////////
      it('should log in as admin', function(){
-//            signout();
+           signout();
 
             browser.get('http://localhost:3000');
             element(by.id('login')).click();

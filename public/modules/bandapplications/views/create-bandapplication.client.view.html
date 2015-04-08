@@ -85,7 +85,7 @@
                             <span class="input-group-addon">
                                 <i class="text-muted glyphicon glyphicon-fire" aria-hidden="true"></i>
                             </span>
-                                <input type="text" data-ng-model="MBSecondaryYearsExp" id="secondaryYears" class="form-control" placeholder="Secondary Instrument Years Experience" required>
+                                <input type="text" data-ng-model="MBSecondaryYearsExp" id="secondaryYearsMB" class="form-control" placeholder="Secondary Instrument Years Experience" required>
                         </div>
                         <!--TODO: Secondary Instrument Private Instruction
                             Figure out how to extract true/false data from checkbox and put
@@ -146,7 +146,7 @@
                             <span class="input-group-addon">
                                 <i class="text-muted glyphicon glyphicon-fire" aria-hidden="true"></i>
                             </span>
-                                <input type="text" data-ng-model="CESecondaryYearsExp" id="secondaryYears" class="form-control" placeholder="Secondary Instrument Years Experience" required>
+                                <input type="text" data-ng-model="CESecondaryYearsExp" id="secondaryYearsCES" class="form-control" placeholder="Secondary Instrument Years Experience" required>
                         </div>
                     </div>
                     <div ng-show="jazzBandFlag">
@@ -160,7 +160,7 @@
                             </span>
 
                                 <select name="mydropdown" data-ng-model="JBSecondary" id="secondary" class="form-control" placeholder="secondary" required>
-                                        <option ng-repeat="instrument in concertEnsemblesInstruments" value="{{instrument}}">{{instrument}}</option>
+                                        <option ng-repeat="instrument in jazzBandInstruments" value="{{instrument}}">{{instrument}}</option>
                                 </select>
                         </div>
                         <!--Secondary Instrument Years Experience-->
@@ -168,7 +168,7 @@
                             <span class="input-group-addon">
                                 <i class="text-muted glyphicon glyphicon-fire" aria-hidden="true"></i>
                             </span>
-                                <input type="text" data-ng-model="JBSecondaryYearsExp" id="secondaryYears" class="form-control" placeholder="Secondary Instrument Years Experience" required>
+                                <input type="text" data-ng-model="JBSecondaryYearsExp" id="secondaryYearsJazz" class="form-control" placeholder="Secondary Instrument Years Experience" required>
                         </div>
                     </div>
 
@@ -183,7 +183,7 @@
                             </span>
 
                                 <select name="mydropdown" data-ng-model="VBSecondary" id="secondary" class="form-control" placeholder="secondary" required>
-                                        <option ng-repeat="instrument in pepBandInstruments" value="{{instrument}}">{{instrument}}</option>
+                                        <option ng-repeat="instrument in volleyballBandInstruments" value="{{instrument}}">{{instrument}}</option>
                                 </select>
                         </div>
                         <!--Secondary Instrument Years Experience-->
@@ -191,7 +191,7 @@
                             <span class="input-group-addon">
                                 <i class="text-muted glyphicon glyphicon-fire" aria-hidden="true"></i>
                             </span>
-                                <input type="text" data-ng-model="VBSecondaryYearsExp" id="secondaryYears" class="form-control" placeholder="Secondary Instrument Years Experience" required>
+                                <input type="text" data-ng-model="VBSecondaryYearsExp" id="secondaryYearsVolleyball" class="form-control" placeholder="Secondary Instrument Years Experience" required>
                         </div>
                     </div>
 
@@ -206,7 +206,7 @@
                             </span>
 
                                 <select name="mydropdown" data-ng-model="BBSecondary" id="secondary" class="form-control" placeholder="secondary" required>
-                                        <option ng-repeat="instrument in pepBandInstruments" value="{{instrument}}">{{instrument}}</option>
+                                        <option ng-repeat="instrument in basketballBandInstruments" value="{{instrument}}">{{instrument}}</option>
                                 </select>
                         </div>
                         <!--Secondary Instrument Years Experience-->
@@ -214,7 +214,7 @@
                             <span class="input-group-addon">
                                 <i class="text-muted glyphicon glyphicon-fire" aria-hidden="true"></i>
                             </span>
-                                <input type="text" data-ng-model="BBSecondaryYearsExp" id="secondaryYears" class="form-control" placeholder="Secondary Instrument Years Experience" required>
+                                <input type="text" data-ng-model="BBSecondaryYearsExp" id="secondaryYearsBasketball" class="form-control" placeholder="Secondary Instrument Years Experience" required>
                         </div>
                     </div>
                 </div>
