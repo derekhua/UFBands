@@ -301,7 +301,7 @@ describe('CEN3031 Testing', function() {
       });*/
 
 /////////////////////ADMIN/////////////////////////////////////////////////////
-      it('should log in as admin', function(){
+     it('should log in as admin', function(){
 //            signout();
 
             browser.get('http://localhost:3000');
@@ -322,24 +322,15 @@ describe('CEN3031 Testing', function() {
                     return /admin/.test(url);
                 });
             });
-
+            expect(element(by.id('header')).getText()).toEqual('Hello, Administrator!');
       });
 
-/*      it('should create new music paths', function(){
 
-          browser.get('http://localhost:3000/#!/music/create');
-
-          element(by.id('title')).sendKeys("Title");
-          element(by.id('composer')).sendKeys("Composer");
-          element.all(by.repeater('instrument in instruments')).click();
-          element(by.id('path')).sendKeys("Path");
-          element(by.id('submit')).click();
-
-      });*/
 
       it('should be able to view rosters', function(){
 
-      //  browser.get('http://localhost:3000/#!/admin/rosters');
+        browser.get('http://localhost:3000/#!/admin/rosters');
+        expect(element(by.id('header')).getText()).toEqual('Manage Band Rosters');
         element(by.id('backButton')).click();
 
         browser.driver.wait(function() {
@@ -350,9 +341,55 @@ describe('CEN3031 Testing', function() {
 
       });
 
-      it('should be able to view applications', function(){
+      it('should be able to view uniforms', function(){
 
-          //browser.get('http://localhost:3000/#!/home/admin');
+        browser.get('http://localhost:3000/#!/admin/uniforms');
+        expect(element(by.id('header')).getText()).toEqual('Uniform Repairs');
+        element(by.id('backButton')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /admin/.test(url);
+            });
+        });
+
+      });
+
+      it('should be able to view instruments', function(){
+
+        browser.get('http://localhost:3000/#!/admin/instruments');
+        expect(element(by.id('header')).getText()).toEqual('Instrument Repairs');
+        element(by.id('backButton')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /admin/.test(url);
+            });
+        });
+
+      });
+
+      it('should create new music paths', function(){
+
+         browser.get('http://localhost:3000/#!/music/create');
+
+         browser.driver.wait(function() {
+             return browser.driver.getCurrentUrl().then(function(url) {
+                 return /create/.test(url);
+             });
+         });
+
+         element(by.id('title')).sendKeys("Title");
+         element(by.id('composer')).sendKeys("Composer");
+         element.all(by.repeater('instrument in instruments')).click();
+         element(by.id('path')).sendKeys("Path");
+         element(by.id('submit')).click();
+
+     });
+
+/*      it('should be able to view applications', function(){
+
+          browser.get('http://localhost:3000/#!/home/admin');
 
           element(by.id('appButton')).click();
 
@@ -364,7 +401,7 @@ describe('CEN3031 Testing', function() {
 
           expect(element(by.id('header')).getText()).toEqual('Band Applications');
 
-      });
+      });*/
 
 
 
