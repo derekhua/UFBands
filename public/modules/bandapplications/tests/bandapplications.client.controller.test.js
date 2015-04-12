@@ -159,5 +159,33 @@
 			// Test array after successful delete
 			expect(scope.bandapplications.length).toBe(0);
 		}));
+
+		it('marching band toggled properly',function() {
+			expect(scope.state.marchingBandToggled).to.equal(true);
+		}));
+
+		it('volleyball pep band toggled properly',function() {
+			expect(scope.state.volleyballPepBandToggled).to.equal(true);
+		}));
+
+		it('basketball pep band toggled properly',function() {
+			expect(scope.state.basketballPepBandToggled).to.equal(true);
+		}));
+
+		it('concert ensemble properly',function() {
+			expect(scope.state.concertEnsembleToggled).to.equal(true);
+		}));
+
+		it('jazz band toggled properly',function() {
+			expect(scope.state.jazzBandToggled).to.equal(true);
+		}));
+
+		it('drumline toggled properly',function() {
+			expect(scope.state.drumlineToggled).to.equal(true);
+		}));
+
+		it('auxiliary toggled properly',function() {
+			expect(scope.state.auxiliaryToggled).to.equal(true);
+		}));
 	});
 }());

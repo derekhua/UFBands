@@ -46,24 +46,31 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
         
         $scope.marchingBandToggle = function() {
             $scope.marchingBandFlag = !$scope.marchingBandFlag;
+            $scope.state.marchingBandToggled= true; 
 		};
         $scope.volleyballPepBandToggle = function() {
             $scope.volleyballPepBandFlag = !$scope.volleyballPepBandFlag;
+            $scope.state.volleyballPepgBandToggled= true; 
 		}; 
 		$scope.basketballPepBandToggle = function() {
             $scope.basketballPepBandFlag = !$scope.basketballPepBandFlag;
+        	$scope.state.basketballPepgBandToggled= true; 
 		}; 
 		$scope.concertEnsemblesToggle = function() {
             $scope.concertEnsemblesFlag = !$scope.concertEnsemblesFlag;
+           	$scope.state.concertEnsemblesToggled= true; 
 		}; 
 		$scope.jazzBandToggle = function() {
             $scope.jazzBandFlag = !$scope.jazzBandFlag;
+            $scope.state.jazzBandToggled= true; 
 		};
 		$scope.drumlineToggle = function() {
             $scope.drumlineFlag = !$scope.drumlineFlag;
+        	$scope.state.drumlineToggled= true; 
 		};
 		$scope.auxiliaryToggle = function() {
             $scope.auxiliaryFlag = !$scope.auxiliaryFlag;
+            $scope.state.auxiliaryToggled= true; 
 		};
 		// Create new Bandapplication
 		$scope.create = function() {
