@@ -24,7 +24,7 @@ var MusicSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	},
-        path: {
+  path: {
 		type: String, //file path
 		default: '',
 		required: 'Must enter a file path'

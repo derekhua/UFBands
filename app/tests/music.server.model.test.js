@@ -27,7 +27,7 @@ describe('Music Model Unit Tests:', function() {
 			password: 'password'
 		});
 
-		user.save(function() { 
+		user.save(function() {
 			music = new Music({
 				name: 'Music Name',
 				user: user
@@ -45,17 +45,45 @@ describe('Music Model Unit Tests:', function() {
 			});
 		});
 
-		it('should be able to show an error when try to save without name', function(done) { 
-			music.name = '';
+		it('should be able to show an error when try to save without title', function(done) {
+			music.title = '';
 
 			return music.save(function(err) {
 				should.exist(err);
 				done();
 			});
 		});
+
+		it('should be able to show an error when try to save without file path', function(done) {
+			music.path = '';
+
+			return music.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save without composer', function(done) {
+			music.composer = '';
+
+			return music.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save without composer', function(done) {
+			music.instrument = '';
+
+			return music.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
 	});
 
-	afterEach(function(done) { 
+	afterEach(function(done) {
 		Music.remove().exec();
 		User.remove().exec();
 
