@@ -22,15 +22,6 @@ function signout(){
     expect(browser.getTitle()).toEqual('UF Bands - Member Portal'); //Start Page
 }
 
-var selectDropdownbyNum = function ( element, optionNum ) {
-    if (optionNum){
-      var options = element.findElements(by.tagName('option'))
-        .then(function(options){
-          options[optionNum].click();
-        });
-    }
-  };
-
 var newUserNameProspective = makeid();
 
 describe('CEN3031 Testing', function() {

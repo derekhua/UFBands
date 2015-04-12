@@ -83,7 +83,7 @@ describe('CEN3031 Testing', function() {
         signout();
     });
 
-    it('should sign up curren member', function() {
+    it('should sign up current member', function() {
 //        browser.get('http://localhost:3000');
         element(by.id('signup')).click();
 
