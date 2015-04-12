@@ -1,3 +1,6 @@
+'use strict'; 
+
+var applicationConfiguration = require('./config/config');
 // Karma configuration
 // Generated on Mon Apr 06 2015 13:12:32 GMT-0400 (Eastern Daylight Time)
 
@@ -59,8 +62,10 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
+    // If browser does not capture in given timeout [ms], kill it
+    captureTimeout: 60000,
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
