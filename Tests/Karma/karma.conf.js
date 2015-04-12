@@ -1,6 +1,6 @@
-'use strict'; 
+'use strict';
 
-var applicationConfiguration = require('./config/config');
+//var applicationConfiguration = require('./config/config');
 // Karma configuration
 // Generated on Mon Apr 06 2015 13:12:32 GMT-0400 (Eastern Daylight Time)
 
