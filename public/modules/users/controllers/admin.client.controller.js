@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('AdminController', ['$scope', '$http', '$location', '$stateParams', 'Users', 'Mods',
-	function($scope, $http, $location, $stateParams, Users, Mods) {
+angular.module('users').controller('AdminController', ['$scope', '$http', '$state', '$location', '$stateParams', 'Users', 'Mods',
+	function($scope, $http, $state, $location, $stateParams, Users, Mods) {
 
 		$scope.modTypes = ['Librarian', 'Instrument', 'Uniform'];
         
@@ -12,32 +12,24 @@ angular.module('users').controller('AdminController', ['$scope', '$http', '$loca
 
 		//Update the moderator of the type specified by $scope.modType
 		$scope.updateMod = function() {
-			$scope.mod = Mods.get({roles: 'moderator', userType: $scope.modType}, function() {
-			$scope.mod.firstName = $scope.firstName;
-			$scope.mod.lastName = $scope.lastName;
-			$scope.mod.lastName = $scope.lastName;
-			$scope.mod.username = $scope.username;
-			$scope.mod.password = $scope.password;
-			$scope.mod.displayName = $scope.mod.firstName + '' + $scope.mod.lastName;
-			$scope.updated = Date.now;
-
-				$scope.mod.$update(function() {
-					$location.path('home/admin');
-				}, function(errorResponse) {
-					$scope.error = errorResponse.data.message;
-				});
+			var mod = $scope.mod; 
+			mod.updated = Date.now;
+			mod.$update(function() {
+				$location.path('mods/list');
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
 			});
 		};
 
+		$scope.editMods = function(modType) {
+			$state.go('edit-mods', {modType: modType});
+		};
 		// Find existing mod
+
 		$scope.findOne = function() {
 			$scope.mod = Mods.get({ 
 				modType: $stateParams.modType
 			});
-			console.log($scope.mod.modType);
-			/*$scope.mod = mod;
-			$scope.mod.userType = mod.userType;
-			$scope.mod.roles = mod.roles;*/
 		};
 	}
 ]);

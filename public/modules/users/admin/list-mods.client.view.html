@@ -10,9 +10,9 @@
 				<ul class="center">
 					<li>Name: {{mod.firstName}} {{mod.lastName}}</li>
 					<li>Email: {{mod.email}}
-					<li>Last updated on: {{mod.updated}}</li>
+					<!--<li>Last updated on: {{mod.updated}}</li>-->
 				</ul>
-				<a class="btn btn-info btn-lg" href="/#!/mods/{{mod.userType}}/edit" ng-init-"findOne()">
+				<a class="btn btn-info btn-lg" ng-click="editMods(mod.userType)">
 					<i class="glyphicon glyphicon-edit"></i>
 					Edit
             	</a>

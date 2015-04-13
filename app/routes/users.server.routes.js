@@ -31,7 +31,9 @@ module.exports = function(app) {
 
 	// Setting up admin api
 	app.route('/mods').get(users.listMods);
-	app.route('/mod/:modType/edit').put(users.updateMod);
+	app.route('/mods/:modType')
+		.get(users.readMod)
+		.put(users.updateMod);
 
 	// Finish by binding the user and admin middleware
 	app.param('userId', users.userByID);

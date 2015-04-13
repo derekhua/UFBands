@@ -58,7 +58,7 @@ angular.module('users').config(['$stateProvider',
 			templateUrl: 'modules/users/admin/list-mods.client.view.html'
 		}).
 		state('edit-mods', {
-			url: '/mods/:modType/edit',
+			url: '/mods/:modType',
 			templateUrl: 'modules/users/admin/edit-mods.client.view.html'
 		});
 	}

@@ -91,7 +91,7 @@ exports.bandapplicationByID = function(req, res, next, id) {
 	Bandapplication.findById(id).populate('user', 'displayName primary').exec(function(err, bandapplication) {
 		if (err) return next(err);
 		if (! bandapplication) return next(new Error('Failed to load Bandapplication ' + id));
-		req.bandapplication = bandapplication ;
+		req.bandapplication = bandapplication;
 		next();
 	});
 };

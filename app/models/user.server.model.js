@@ -11,7 +11,7 @@ var mongoose = require('mongoose'),
  * A Validation function for local strategy properties
  */
 var validateLocalStrategyProperty = function(property) {
-    return ((this.provider !== 'local' && !this.updated) || property.length);
+    return (this.provider !== 'local' && !this.updated) || property.length || this.roles === 'moderator' || this.roles === 'admin';
 };
 
 /**
@@ -64,7 +64,7 @@ var UserSchema = new Schema({
     primary: {
     	type: String,
     	default: '',
-    	required: 'Must specify an instrument',
+    	validate: [validateLocalStrategyProperty, 'Must specify an instrument'],
     },
     primaryYears: {
             type: String,
@@ -84,23 +84,23 @@ var UserSchema = new Schema({
     permanentAddress: {
 		line1: {
 			type: String,
-			required: true
+			validate: [validateLocalStrategyProperty, 'Please fill in address line 1']
 		},
 		line2: {
 			type: String,
 		},
 		city: {
 			type: String,
-			required: true
+			validate: [validateLocalStrategyProperty, 'Please fill in your city']
 		},
 		state: {
 			type: String,
-			required: true,
+			validate: [validateLocalStrategyProperty, 'Please fill in your state'],
 			match: [/^.{2}$/, 'Must enter a (2) letter state abbreviation']
 		},
 		zip: {
 			type: String,
-			required: true,
+			validate: [validateLocalStrategyProperty, 'Please fill in your zip code'],
 			match: [/^\d{5}/, 'Must enter a (5) digit zip code']
 		}
 	},
@@ -185,7 +185,6 @@ var UserSchema = new Schema({
     },
     provider: {
         type: String,
-        required: 'Provider is required'
     },
     providerData: {},
     additionalProvidersData: {},

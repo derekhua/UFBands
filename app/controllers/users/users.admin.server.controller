@@ -26,14 +26,16 @@ exports.listMods = function(req, res) {
 	});
 };
 
+exports.readMod = function(req, res) {
+	res.jsonp(req.mod);
+};
+
 /**
  * Update a Bandapplication
  */
 exports.updateMod = function(req, res) {
 	var mod = req.mod ;
-
 	mod = _.extend(mod , req.body);
-
 	mod.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -49,13 +51,16 @@ exports.updateMod = function(req, res) {
  * Admin middleware
  */
 exports.modByType = function(req, res, next, modType) {
-	User.findOne({
-		userType: req.modType
-	}).exec(function(err, mod) {
-		if (err) return next(err);
-		if (!mod) return next(new Error('Failed to find ' + modType + ' mod'));
+	User.findOne({userType: modType}).exec(function(err, mod) {
+		if (err) {
+			console.log("err");
+			return next(err);
+		}
+		if (!mod){
+			console.log("err2");
+			return next(new Error('Failed to find ' + modType + ' mod'));
+		}
 		req.mod = mod;
-		console.log(mod.modType);
 		next();
 	});
 };
