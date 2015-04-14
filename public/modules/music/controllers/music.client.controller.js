@@ -24,6 +24,8 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
 		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 $scope.instruments.sort();
+                
+                $scope.band = ['Marching Band', 'Jazz Band', 'Wind Symphony', 'Symphonic Band', 'Basketball Pep Band', 'Volleyball Pep Band'];
                  
                 $http.post('/music/musicSearch', $scope.formdata).success(function(response) {
                     console.log(response);
@@ -37,9 +39,10 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 			// Create new Music object
 			var music = new Music ({
 				title: this.title,
-                composer: this.composer,
-                path: this.path,
-                instrument: this.instrument
+                                composer: this.composer,
+                                path: this.path,
+                                instrument: this.instrument,
+                                band: this.band
 			});
 
 			// Redirect after save
