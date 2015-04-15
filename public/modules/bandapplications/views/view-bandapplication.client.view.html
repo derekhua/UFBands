@@ -132,7 +132,9 @@
                 <div class="col-md-12">
                     <label>Accept To: </label>
                     <div class="btn-group" role="group" aria-label="...">
-                        <button ng-click="acceptMarching(bandapplication)" data-ng-show="bandapplication.marchingBand" type="button" class="btn btn-success">Marching Band</button>
+                        <form data-ng-submit="acceptMarching(bandapplication)" >
+                            <button type="submit" class="btn btn-success">Marching Band</button>
+                        </form>
                         <button ng-click="" data-ng-show="bandapplication.concertEnsembles"type="button" class="btn btn-success">Concert Ensemble</button>
                         <button ng-click="" data-ng-show="bandapplication.jazzBand"type="button" class="btn btn-success">Jazz Band</button>
                         <button ng-click="" data-ng-show="bandapplication.volleyballPepBand"type="button" class="btn btn-success">Volleyball Pep Band</button>

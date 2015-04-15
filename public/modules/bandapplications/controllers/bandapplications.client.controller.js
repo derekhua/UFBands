@@ -180,7 +180,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 			bandapplication.user.MemberOf.march = true; 
                         alert(bandapplication.user.MemberOf.march);
                         
-                        var user = bandapplication.user;
+                        $scope.user = bandapplication.user;
                         user.$update(function(response) {
 					$scope.success = true;
 					Authentication.user = response;
