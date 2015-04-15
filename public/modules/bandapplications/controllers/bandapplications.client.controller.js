@@ -179,6 +179,14 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
                         alert(bandapplication.user.MemberOf.march);
 			bandapplication.user.MemberOf.march = true; 
                         alert(bandapplication.user.MemberOf.march);
+                        
+                        var user = bandapplication.user;
+                        user.$update(function(response) {
+					$scope.success = true;
+					Authentication.user = response;
+				}, function(response) {
+					$scope.error = response.data.message;
+				});
 		};
             
 	}
