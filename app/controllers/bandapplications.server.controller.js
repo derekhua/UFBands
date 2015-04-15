@@ -73,7 +73,7 @@ exports.delete = function(req, res) {
  * List of Bandapplications
  */
 exports.list = function(req, res) { 
-	Bandapplication.find().sort('-created').populate('user', 'displayName primary').exec(function(err, bandapplications) {
+	Bandapplication.find().sort('-created').populate('user').exec(function(err, bandapplications) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -88,7 +88,7 @@ exports.list = function(req, res) {
  * Bandapplication middleware
  */
 exports.bandapplicationByID = function(req, res, next, id) { 
-	Bandapplication.findById(id).populate('user', 'displayName primary').exec(function(err, bandapplication) {
+	Bandapplication.findById(id).populate('user').exec(function(err, bandapplication) {
 		if (err) return next(err);
 		if (! bandapplication) return next(new Error('Failed to load Bandapplication ' + id));
 		req.bandapplication = bandapplication;
