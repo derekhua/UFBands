@@ -214,28 +214,28 @@ var UserSchema = new Schema({
     },
     MemberOf: {
         march: {
-            type: String,
-            default: 'false'
+            type: Boolean,
+            default: false
         },
         jazz: {
-             type: String,
-            default: 'false'
+             type: Boolean,
+            default: false
         },
         wind: {
-             type: String,
-            default: 'false'
+             type: Boolean,
+            default: false
         },
         symph: {
-             type: String,
-            default: 'false'
+             type: Boolean,
+            default: false
         },
         bball_pep: {
-             type: String,
-            default: 'false'
+             type: Boolean,
+            default: false
         },
         volley_pep: {
-             type: String,
-            default: 'false'
+             type: Boolean,
+            default: false
         }
     }
 });

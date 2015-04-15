@@ -174,6 +174,12 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 				bandapplicationId: $stateParams.bandapplicationId
 			});
 		};
+                
+                $scope.acceptMarching = function(bandapplication) {
+                        alert(bandapplication.user.MemberOf.march);
+			bandapplication.user.MemberOf.march = true; 
+                        alert(bandapplication.user.MemberOf.march);
+		};
             
 	}
 ]);

@@ -77,7 +77,10 @@
                             <li class="list-group-item"><span class="text-primary">Drumline Bass Rank:</span> <span data-ng-bind="bandapplication.r3"></span></li>
                             <li class="list-group-item"><span class="text-primary">Drumline Cymbal Rank:</span> <span data-ng-bind="bandapplication.r4"></span></li>
                             <li class="list-group-item"><span class="text-primary">Gatorettes:</span> <span data-ng-bind="bandapplication.gatorettes"></span></li>
-                            <li class="list-group-item"><span class="text-primary">Florida Virtual Ensemble:</span> <span data-ng-bind="bandapplication.fve"></span></li>                            
+                            <li class="list-group-item"><span class="text-primary">Florida Virtual Ensemble:</span> <span data-ng-bind="bandapplication.fve"></span></li> 
+                            
+                            test<li class="list-group-item"><span class="text-primary">MemberOf.marching:</span> <span data-ng-bind="bandapplication.user.MemberOf"></span></li> 
+                            
                       </ul>
                     </div>                    
                     <div class="col-md-4">  
@@ -114,27 +117,32 @@
                     </div>
 <!--                                    =======================================================-->
         </div>        
-             
-        <div class="col-md-12">
-            <label>Accept To: </label>
-            <div class="btn-group" role="group" aria-label="...">
-                <button ng-click="" data-ng-show="bandapplication.marchingBand" type="button" class="btn btn-success">Marching Band</button>
-                <button ng-click="" data-ng-show="bandapplication.concertEnsembles"type="button" class="btn btn-success">Concert Ensemble</button>
-                <button ng-click="" data-ng-show="bandapplication.jazzBand"type="button" class="btn btn-success">Jazz Band</button>
-                <button ng-click="" data-ng-show="bandapplication.volleyballPepBand"type="button" class="btn btn-success">Volleyball Pep Band</button>
-                <button ng-click="" data-ng-show="bandapplication.basketballPepBand"type="button" class="btn btn-success">Basketball Pep Band</button>
-              </div>
-        </div>
-            
+
         <div class="pull-right">
 <!--	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == bandapplication.user._id))">-->
-		<a class="btn btn-primary" href="/#!/bandapplications/{{bandapplication._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
 		<a class="btn btn-primary" data-ng-click="remove();">
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
+                
+                <br>
 	</div>
+        
+        <div class="pull-left">
+                                         
+                <div class="col-md-12">
+                    <label>Accept To: </label>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button ng-click="acceptMarching(bandapplication)" data-ng-show="bandapplication.marchingBand" type="button" class="btn btn-success">Marching Band</button>
+                        <button ng-click="" data-ng-show="bandapplication.concertEnsembles"type="button" class="btn btn-success">Concert Ensemble</button>
+                        <button ng-click="" data-ng-show="bandapplication.jazzBand"type="button" class="btn btn-success">Jazz Band</button>
+                        <button ng-click="" data-ng-show="bandapplication.volleyballPepBand"type="button" class="btn btn-success">Volleyball Pep Band</button>
+                        <button ng-click="" data-ng-show="bandapplication.basketballPepBand"type="button" class="btn btn-success">Basketball Pep Band</button>
+                      </div>
+                </div>
+            
+            
+        </div>
+        
 	<small>
 		<em class="text-muted">
 			Posted on
