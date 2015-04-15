@@ -1,0 +1,81 @@
+<section data-ng-controller="BandsController" data-ng-init="findOne()">
+    <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+    <div class="page-header">
+        <h1>Edit {{band.name}} Information</h1>
+    </div>
+    
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <h2 for="startDate">Membership Start Date</h2>
+                    <div class="col-md-4">
+                        <label class="control-label" for="startMonth">Month</label>
+                        <input type="text" data-ng-model="startMonth" id="name" class="form-control" placeholder="Start Month" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="startDay">Day</label>
+                        <input type="text" data-ng-model="startDay" id="name" class="form-control" placeholder="Start Day" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="startYear">Year</label>
+                        <input type="text" data-ng-model="startYear" id="name" class="form-control" placeholder="Start Year" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h2 for="endDate">Membership End Date</h2>
+                    <div class="col-md-4">
+                        <label class="control-label" for="endMonth">Month</label>
+                        <input type="text" data-ng-model="endMonth" id="name" class="form-control" placeholder="End Month" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="endDay">Day</label>
+                        <input type="text" data-ng-model="endDay" id="name" class="form-control" placeholder="End Day" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="endYear">Year</label>
+                        <input type="text" data-ng-model="endYear" id="name" class="form-control" placeholder="End Year" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h2 for="openDate">Application Open Date</h2>
+                    <div class="col-md-4">
+                        <label class="control-label" for="openMonth">Month</label>
+                        <input type="text" data-ng-model="openMonth" id="name" class="form-control" placeholder="Open Month" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="openDay">Day</label>
+                        <input type="text" data-ng-model="openDay" id="name" class="form-control" placeholder="Open Day" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="openYear">Year</label>
+                        <input type="text" data-ng-model="openYear" id="name" class="form-control" placeholder="Open Year" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h2 for="closeDate">Application Close Date</h2>
+                    <div class="col-md-4">
+                        <label class="control-label" for="closeMonth">Month</label>
+                        <input type="text" data-ng-model="closeMonth" id="name" class="form-control" placeholder="Close Month" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="closeDay">Day</label>
+                        <input type="text" data-ng-model="closeDay" id="name" class="form-control" placeholder="Close Day" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="closeYear">Year</label>
+                        <input type="text" data-ng-model="closeYear" id="name" class="form-control" placeholder="Close Year" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+                
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+		        </div>
+                
+            </fieldset>
+        </form>
+    </div>
+</section>

@@ -17,6 +17,8 @@ angular.module('users').run(['Menus',
 		Menus.addMenuItem('topbar', 'Uniforms', 'item', 'admin/uniforms', 'uniforms', 'false', ['admin']);
 		Menus.addMenuItem('topbar', 'Instruments', 'item', 'admin/instruments', 'instruments', 'false', ['admin']);
 		Menus.addMenuItem('topbar', 'Manage Moderators', 'item', 'mods/list', '', 'false', ['admin']);
+		Menus.addMenuItem('topbar', 'Manage Bands', 'dropdown', 'bands', '', 'false', ['admin']);
+			Menus.addSubMenuItem('topbar', 'bands', 'List Bands', 'bands', 'list-bands', 'false', ['admin']);
 	}
 ]);
 

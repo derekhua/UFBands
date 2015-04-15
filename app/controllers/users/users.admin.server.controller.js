@@ -27,6 +27,7 @@ exports.listMods = function(req, res) {
 };
 
 exports.readMod = function(req, res) {
+	req.mod.password = ''; //hide current password
 	res.jsonp(req.mod);
 };
 
@@ -53,11 +54,9 @@ exports.updateMod = function(req, res) {
 exports.modByType = function(req, res, next, modType) {
 	User.findOne({userType: modType}).exec(function(err, mod) {
 		if (err) {
-			console.log("err");
 			return next(err);
 		}
 		if (!mod){
-			console.log("err2");
 			return next(new Error('Failed to find ' + modType + ' mod'));
 		}
 		req.mod = mod;

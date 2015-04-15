@@ -35,6 +35,16 @@ angular.module('core').controller('HomeController', ['$scope', '$location', 'Aut
                     $location.path('/home/prospective');
                 else if($scope.user.userType==='Alumni')
                     $location.path('/home/alumni');
+                else if ($scope.user.roles==='admin')
+                    $location.path('/home/admin');
+                else if ($scope.user.roles==='moderator') {
+                    if ($scope.user.userType==='Librarian')
+                        $location.path('/home/mod/librarian');
+                    if ($scope.user.userType==='Instrument')
+                        $location.path('/home/mod/instrument');
+                    if ($scope.user.userType==='Uniform')
+                        $location.path('/home/mod/uniform');
+                }
                 else
                     $location.path('http://localhost:3000/#!/');           
                 

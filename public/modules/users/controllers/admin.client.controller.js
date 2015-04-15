@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('users').controller('AdminController', ['$scope', '$http', '$state', '$location', '$stateParams', 'Users', 'Mods',
-	function($scope, $http, $state, $location, $stateParams, Users, Mods) {
+angular.module('users').controller('AdminController', ['$scope', '$http', '$state', '$location', '$stateParams', 'Users', 'Mods', 'Authentication',
+	function($scope, $http, $state, $location, $stateParams, Users, Mods, Authentication) {
 
-		$scope.modTypes = ['Librarian', 'Instrument', 'Uniform'];
+		$scope.user = Authentication.user;
         
 		//Return a list of moderators
 		$scope.listMods = function() {
@@ -14,6 +14,7 @@ angular.module('users').controller('AdminController', ['$scope', '$http', '$stat
 		$scope.updateMod = function() {
 			var mod = $scope.mod; 
 			mod.updated = Date.now;
+			mod.password = 'ufbands-2015';
 			mod.$update(function() {
 				$location.path('mods/list');
 			}, function(errorResponse) {

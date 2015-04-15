@@ -90,9 +90,9 @@ exports.list = function(req, res) {
             Music.find({
                 $or:
                 [
-                    {instrument: new RegExp(req.query['search'], "i")},
-                    {title: new RegExp(req.query['search'], "i")},
-                    {composer: new RegExp(req.query['search'], "i")}
+                    {instrument: new RegExp(req.query['search'], 'i')},
+                    {title: new RegExp(req.query['search'], 'i')},
+                    {composer: new RegExp(req.query['search'], 'i')}
                 ]
             }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
@@ -108,9 +108,9 @@ exports.list = function(req, res) {
             Music.find({    
                 $or:
                 [
-                    {instrument: new RegExp(req.query['search'], "i")},
-                    {title: new RegExp(req.query['search'], "i")},
-                    {composer: new RegExp(req.query['search'], "i")}
+                    {instrument: new RegExp(req.query['search'], 'i')},
+                    {title: new RegExp(req.query['search'], 'i')},
+                    {composer: new RegExp(req.query['search'], 'i')}
                 ]
             }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
