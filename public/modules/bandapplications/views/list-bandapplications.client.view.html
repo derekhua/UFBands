@@ -4,18 +4,56 @@
     <div class="page-header" id = "header">
         <h1>Band Applications</h1>
     </div>
-
+    
+    <div class="col-sm-12">
+        <div class="text-muted col-sm-4"><b>Name</b><b class="caret"></b></div>
+        <div class="text-muted col-sm-4"><b>Instrument</b></div>
+        <div class="text-muted col-sm-4">
+            <div class="text-muted col-sm-2">
+                <b>MB</b>
+            </div>
+            <div class="text-muted col-sm-2">
+                <b>CE</b>
+            </div>
+            <div class="text-muted col-sm-2">
+                <b>JB</b>
+            </div>
+            <div class="text-muted col-sm-2">
+                <b>VPB</b>
+            </div>
+            <div class="text-muted col-sm-2">
+                <b>BPB</b>
+            </div>
+        </div>        
+    </div>
+    
     <div class="list-group col-sm-12">
         <a data-ng-repeat="bandapplication in bandapplications" data-ng-href="#!/bandapplications/{{bandapplication._id}}" class="list-group-item">
                 <div class="col-sm-4 ">
                         <i class="text-muted glyphicon glyphicon-file text-danger" aria-hidden="true"></i>
-                        <span class="list-group-item-heading" data-ng-bind="bandapplication.user.displayName"></span>
-
+                        <span class="list-group-item-heading" data-ng-bind="bandapplication.user.displayName"></span>                        
                 </div>
 
-                <div class="col-sm-4">&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.displayName"></span></div>
-                <div class="col-sm-4">&nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.displayName"></span></div>
-
+                <div class="col-sm-4">&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.user.primary"></span></div>
+                
+                <div class="col-sm-4">
+                    <div class="text-muted col-sm-2">
+                        &nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.marchingBand"></span>
+                    </div>
+                    <div class="text-muted col-sm-2">
+                        &nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.concertEnsembles"></span>
+                    </div>
+                    <div class="text-muted col-sm-2">
+                        &nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.jazzBand"></span>
+                    </div>
+                    <div class="text-muted col-sm-2">
+                        &nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.volleyballPepBand"></span>
+                    </div>
+                    <div class="text-muted col-sm-2">
+                        &nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="bandapplication.basketballPepBand"></span>
+                    </div>
+                </div> 
+                
                 <small class="list-group-item-text">
                         Posted on
 			<span data-ng-bind="bandapplication.created | date:'medium'"></span>
@@ -25,7 +63,4 @@
         </a>
     </div>
 
-    <div class="alert alert-warning text-center" data-ng-hide="!bandapplications.$resolved || bandapplications.length">
-            No Band Applications yet, why don't you <a href="/#!/bandapplications/create">create one</a>?
-    </div>
 </section>

@@ -130,6 +130,27 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 			}
 		};
 
+                $scope.marching = function() {
+			$scope.bandapplications = Bandapplications.query();
+                        
+		};
+                $scope.jazz = function() {
+			$scope.bandapplications = Bandapplications.query();
+                        
+		};
+                $scope.concert = function() {
+			$scope.bandapplications = Bandapplications.query();
+                        
+		};
+                $scope.volleyball = function() {
+			$scope.bandapplications = Bandapplications.query();
+                        
+		};
+                $scope.basketball = function() {
+			$scope.bandapplications = Bandapplications.query();
+                        
+		};     
+                
 		// Update existing Bandapplication
 		$scope.update = function() {
 			var bandapplication = $scope.bandapplication;

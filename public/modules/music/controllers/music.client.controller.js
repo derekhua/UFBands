@@ -15,6 +15,25 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
                     $location.path('/music');               
                 }
                 
+                var march;
+                var jazz;
+                var wind;
+                var symph;
+                var bball_pep;
+                var volley_pep;
+                if($scope.user.MemberOf.march === 'true')
+                    march = 'Marching Band';
+                if($scope.user.MemberOf.jazz === 'true')
+                    jazz = 'Jazz Band';
+                if($scope.user.MemberOf.wind === 'true')
+                    wind = 'Wind Symphony';
+                if($scope.user.MemberOf.symph === 'true')
+                    symph = 'Symphonic Band';
+                if($scope.user.MemberOf.bball_pep === 'true')
+                    bball_pep = 'Basketball Pep Band';
+                if($scope.user.MemberOf.volley_pep === 'true')  
+                    volley_pep = 'Volleyball Pep Band'
+
                 
                 $scope.instruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
 		'Contrabass Bassoon', 'Alto Saxophone', 'Tenor Saxophone','Baritone Saxophone', 
@@ -24,6 +43,8 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
 		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 $scope.instruments.sort();
+                
+                $scope.band = ['Marching Band', 'Jazz Band', 'Wind Symphony', 'Symphonic Band', 'Basketball Pep Band', 'Volleyball Pep Band'];
                  
                 $http.post('/music/musicSearch', $scope.formdata).success(function(response) {
                     console.log(response);
@@ -37,9 +58,10 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 			// Create new Music object
 			var music = new Music ({
 				title: this.title,
-                composer: this.composer,
-                path: this.path,
-                instrument: this.instrument
+                                composer: this.composer,
+                                path: this.path,
+                                instrument: this.instrument,
+                                band: this.band
 			});
 
 			// Redirect after save
@@ -81,13 +103,61 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
 			});
 		};
 
+                var march = 'NOTHING';
+                var jazz = 'NOTHING';
+                var wind = 'NOTHING';
+                var symph = 'NOTHING';
+                var bball_pep = 'NOTHING';
+                var volley_pep = 'NOTHING';
+                if($scope.user.MemberOf.march === 'true')
+                    march = 'Marching Band';
+                if($scope.user.MemberOf.jazz === 'true')
+                    jazz = 'Jazz Band';
+                if($scope.user.MemberOf.wind === 'true')
+                    wind = 'Wind Symphony';
+                if($scope.user.MemberOf.symph === 'true')
+                    symph = 'Symphonic Band';
+                if($scope.user.MemberOf.bball_pep === 'true')
+                    bball_pep = 'Basketball Pep Band';
+                if($scope.user.MemberOf.volley_pep === 'true')  
+                    volley_pep = 'Volleyball Pep Band';
+
 		// Find a list of Music
 		$scope.find = function() {
+                    if($scope.user.roles === 'admin')
 			$scope.music = Music.query({flag: 'false'});
+                    else {
+                         $scope.music = Music.query({march: march, 
+                                                    jazz: jazz,
+                                                     wind: wind, 
+                                                     symph: symph, 
+                                                     bball_pep: bball_pep,
+                                                     volley_pep: volley_pep,  
+                                                     flag: 'true'});
+                    }
+                    
 		};
                 $scope.findSearch = function() {
-			$scope.music = Music.query({search: $scope.formdata.search, flag: 'true'});
-                    };
+                    if($scope.user.roles === 'admin')
+                        $scope.music = Music.query({instrument: $scope.formdata.instrument, 
+                                                    band: $scope.formdata.band, 
+                                                    title: $scope.formdata.title, 
+                                                    composer: $scope.formdata.composer,
+                                                    flag: 'true'});
+                    else {
+                         $scope.music = Music.query({instrument: $scope.formdata.instrument,
+                                                    band: $scope.formdata.band,
+                                                    title: $scope.formdata.title, 
+                                                    composer: $scope.formdata.composer, 
+                                                    march: march, 
+                                                    jazz: jazz,
+                                                    wind: wind, 
+                                                    symph: symph, 
+                                                    bball_pep: bball_pep,
+                                                    volley_pep: volley_pep,  
+                                                    flag: 'true'});
+                    }
+                };
 
 		// Find existing Music
 		$scope.findOne = function() {

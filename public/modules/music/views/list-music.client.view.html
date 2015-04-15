@@ -5,30 +5,34 @@
     </div>
     
     
-    
-    <form data-ng-keyup="findSearch()" novalidate>
-    Search:<br>
-    <input type="text" data-ng-model="formdata.search" class="form-control" placeholder="Search" >
-    </form>
-    
+    <div class="col-lg-12">
+        <form data-ng-keyup="findSearch()" novalidate>
+            <div class="col-sm-3"><input type="text" data-ng-model="formdata.title" class="form-control" placeholder="Title" ></div>
+            <div class="col-sm-3"><input type="text" data-ng-model="formdata.composer" class="form-control" placeholder="Composer" ></div>
+            <div class="col-sm-3"><input type="text" data-ng-model="formdata.band" class="form-control" placeholder="Band" ></div>
+            <div class="col-sm-3"><input type="text" data-ng-model="formdata.instrument" class="form-control" placeholder="Instrument" ></div>
+        </form>
+    </div>
     
     
     <div class="col-sm-12">
-        <div class="text-muted col-sm-4"><b>Title</b><b class="caret"></b></div>
-        <div class="text-muted col-sm-4"><b>Composer</b></div>
-        <div class="text-muted col-sm-4"><b>Instrument</b></div>
+        <div class="text-muted col-sm-3"><b>Title</b><b class="caret"></b></div>
+        <div class="text-muted col-sm-3"><b>Composer</b></div>
+        <div class="text-muted col-sm-3"><b>Band</b></div>
+        <div class="text-muted col-sm-3"><b>Instrument</b></div>
     </div>
     
     <div class="list-group col-sm-12">
 <!--        for admin-->
         <a ng-show="{{viewShow}}" data-ng-repeat="music in music" data-ng-href="#!/music/{{music._id}}" class="list-group-item">
-                <div class="col-sm-4 ">
+                <div class="col-sm-3 ">
                         <i class="text-muted glyphicon glyphicon-file text-danger" aria-hidden="true"></i>
                         <span class="list-group-item-heading" data-ng-bind="music.title"></span> 
                 </div>
                        
-                <div class="col-sm-4">&nbsp<span class="list-group-item-heading" data-ng-bind="music.composer"></span></div>
-                <div class="col-sm-4">&nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="music.instrument"></span></div>
+                <div class="col-sm-3">&nbsp<span class="list-group-item-heading" data-ng-bind="music.composer"></span></div>
+                <div class="col-sm-3">&nbsp<span class="list-group-item-heading" data-ng-bind="music.band"></span></div>
+                <div class="col-sm-3">&nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="music.instrument"></span></div>
                         
                 <br>                			
         </a>
@@ -42,41 +46,19 @@
                         <span data-ng-bind="music.instrument"></span>
                 </h4>-->
                         
-                <div class="col-sm-4 ">
+                <div class="col-sm-3 ">
                         <i class="text-muted glyphicon glyphicon-file text-danger" aria-hidden="true"></i>
                         <span class="list-group-item-heading" data-ng-bind="music.title"></span> 
                 </div>
                        
-                <div class="col-sm-4">&nbsp<span class="list-group-item-heading" data-ng-bind="music.composer"></span></div>
-                <div class="col-sm-4">&nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="music.instrument"></span></div>
+                <div class="col-sm-3">&nbsp<span class="list-group-item-heading" data-ng-bind="music.composer"></span></div>
+                 <div class="col-sm-3">&nbsp<span class="list-group-item-heading" data-ng-bind="music.band"></span></div>
+                <div class="col-sm-3">&nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="music.instrument"></span></div>
                         
                 <br>                			
         </a>
-        
- 
-    </div>
-    
-    <div class="alert alert-warning text-center" data-ng-hide="!music.$resolved || music.length">
+            <div class="alert alert-warning text-center" data-ng-hide="!music.$resolved || music.length">
             Music not found.
     </div>
-    
-    <nav>
-        <ul class="pagination">
-          <li>
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-    </nav>
+ 
 </section>
