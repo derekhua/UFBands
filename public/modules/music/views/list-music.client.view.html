@@ -5,12 +5,14 @@
     </div>
     
     
-    
-    <form data-ng-keyup="findSearch()" novalidate>
-    Search:<br>
-    <input type="text" data-ng-model="formdata.search" class="form-control" placeholder="Search" >
-    </form>
-    
+    <div class="col-lg-12">
+        <form data-ng-keyup="findSearch()" novalidate>
+            <div class="col-sm-3"><input type="text" data-ng-model="formdata.title" class="form-control" placeholder="Title" ></div>
+            <div class="col-sm-3"><input type="text" data-ng-model="formdata.composer" class="form-control" placeholder="Composer" ></div>
+            <div class="col-sm-3"><input type="text" data-ng-model="formdata.band" class="form-control" placeholder="Band" ></div>
+            <div class="col-sm-3"><input type="text" data-ng-model="formdata.instrument" class="form-control" placeholder="Instrument" ></div>
+        </form>
+    </div>
     
     
     <div class="col-sm-12">

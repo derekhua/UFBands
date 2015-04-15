@@ -85,8 +85,7 @@ exports.list = function(req, res) {
 		}
 	});
     }
-    else if(req.query['flag'] === 'false' && req.user.roles === 'user'){
-
+    else if(req.query['flag'] === 'false' && req.user.roles === 'user') {
          Music.find(
                 {$or:
                 [
@@ -111,13 +110,10 @@ exports.list = function(req, res) {
     else{
         if(req.user.roles === 'admin'){
             Music.find({
-                $or:
-                [
-                    {instrument: new RegExp(req.query['search'], "i")},
-                    {title: new RegExp(req.query['search'], "i")},
-                    {composer: new RegExp(req.query['search'], "i")},
-                    {band: new RegExp(req.query['search'], "i")}
-                ]
+                    instrument: new RegExp(req.query['instrument'], "i"),
+                    title: new RegExp(req.query['title'], "i"),
+                    composer: new RegExp(req.query['composer'], "i"),
+                    band: new RegExp(req.query['band'], "i")
             }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
                             return res.status(400).send({
@@ -139,12 +135,12 @@ exports.list = function(req, res) {
                     {band: req.query['bball_pep']},
                     {band: req.query['volley_pep']}
                 ]},
-                {$or:
-                [
-                    {instrument: new RegExp(req.query['search'], "i")},
-                    {title: new RegExp(req.query['search'], "i")},
-                    {composer: new RegExp(req.query['search'], "i")}
-                ]}
+                {
+                    instrument: new RegExp(req.query['instrument'], "i"),
+                    title: new RegExp(req.query['title'], "i"),
+                    band: new RegExp(req.query['band'], "i"),
+                    composer: new RegExp(req.query['composer'], "i")
+                }
             ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
                             return res.status(400).send({

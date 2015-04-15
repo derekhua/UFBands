@@ -127,19 +127,35 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
                     if($scope.user.roles === 'admin')
 			$scope.music = Music.query({flag: 'false'});
                     else {
-                         $scope.music = Music.query({march: march, jazz: jazz,
-                                                     wind: wind, symph: symph, bball_pep: bball_pep,
-                                                     volley_pep: volley_pep,  flag: 'true'});
+                         $scope.music = Music.query({march: march, 
+                                                    jazz: jazz,
+                                                     wind: wind, 
+                                                     symph: symph, 
+                                                     bball_pep: bball_pep,
+                                                     volley_pep: volley_pep,  
+                                                     flag: 'true'});
                     }
                     
 		};
                 $scope.findSearch = function() {
                     if($scope.user.roles === 'admin')
-                        $scope.music = Music.query({search: $scope.formdata.search, flag: 'true'});
+                        $scope.music = Music.query({instrument: $scope.formdata.instrument, 
+                                                    band: $scope.formdata.band, 
+                                                    title: $scope.formdata.title, 
+                                                    composer: $scope.formdata.composer,
+                                                    flag: 'true'});
                     else {
-                         $scope.music = Music.query({search: $scope.formdata.search, march: march, jazz: jazz,
-                                                     wind: wind, symph: symph, bball_pep: bball_pep,
-                                                     volley_pep: volley_pep,  flag: 'true'});
+                         $scope.music = Music.query({instrument: $scope.formdata.instrument,
+                                                    band: $scope.formdata.band,
+                                                    title: $scope.formdata.title, 
+                                                    composer: $scope.formdata.composer, 
+                                                    march: march, 
+                                                    jazz: jazz,
+                                                    wind: wind, 
+                                                    symph: symph, 
+                                                    bball_pep: bball_pep,
+                                                    volley_pep: volley_pep,  
+                                                    flag: 'true'});
                     }
                 };
 
