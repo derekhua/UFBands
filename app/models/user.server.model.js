@@ -184,7 +184,7 @@ var UserSchema = new Schema({
         type: String
     },
     provider: {
-        type: String,
+        type: String
     },
     providerData: {},
     additionalProvidersData: {},
