@@ -20,7 +20,7 @@ describe('User Model Unit Tests:', function() {
 		user = new User({
 			size: 'm'
 		});
-		user2 = new User({
+		user = new User({
 			size: 'l'
 		});
 
@@ -31,4 +31,22 @@ describe('User Model Unit Tests:', function() {
 		User.remove().exec();
 		done();
 	});
+
+	describe('Uniform Size:', function(){
+		before(function(done) {
+		user2 = new User({
+			size: 'p'
+		});
+		user2 = new User({
+			size: 'q'
+		});
+
+		done();
+	});
+
+	after(function(done) {
+		User.remove().exec();
+		done();
+	}
+
 });
