@@ -115,7 +115,7 @@ describe('Music CRUD tests', function() {
 					.end(function(musicSaveErr, musicSaveRes) {
 						// Set message assertion
 						(musicSaveRes.body.message).should.match('Please fill Music name');
-						
+
 						// Handle Music save error
 						done(musicSaveErr);
 					});
@@ -238,7 +238,7 @@ describe('Music CRUD tests', function() {
 	});
 
 	it('should not be able to delete Music instance if not signed in', function(done) {
-		// Set Music user 
+		// Set Music user
 		music.user = user;
 
 		// Create new Music model instance
