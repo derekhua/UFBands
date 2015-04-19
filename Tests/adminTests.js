@@ -19,7 +19,7 @@ describe('Admin Testing', function(){
                return /admin/.test(url);
            });
        });
-       expect(element(by.id('header')).getText()).toEqual('Hello, Administrator!');
+       expect(element(by.id('header')).getText()).toEqual('Hello, Admin');
      });
 
 
@@ -65,9 +65,44 @@ describe('Admin Testing', function(){
 
       });
 
+  it('should be able to view pending applications', function(){
+
+
+      element(by.id('listAppButton')).click();
+
+      browser.driver.wait(function() {
+        return browser.driver.getCurrentUrl().then(function(url) {
+            return /bandapplications/.test(url);
+          });
+        });
+
+    });
+
+  it('should be able to edit moderators', function(){
+
+    browser.get('http://localhost:3000/#!/mods/list');
+
+    element(by.id('editButton')).click();
+    element(by.id('firstName')).sendKeys("First Name");
+    element(by.id('lastName')).sendKeys("Last Name");
+    element(by.id('username')).sendKeys("Username");
+    element(by.id('password')).sendKeys("Password");
+    element(by.id('email')).sendKeys("Email");
+    element(by.id('submitButton')).click();
+
+    browser.driver.wait(function() {
+      return browser.driver.getCurrentUrl().then(function(url) {
+          return /list/.test(url);
+        });
+      });
+
+
+  });
+
   it('should create new music paths', function(){
 
-    browser.get('http://localhost:3000/#!/music/create');
+    browser.get('http://localhost:3000/#!/home/admin');
+    element(by.id('createMusicButton')).click();
 
     browser.driver.wait(function() {
         return browser.driver.getCurrentUrl().then(function(url) {
