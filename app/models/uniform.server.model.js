@@ -89,6 +89,8 @@ var UniformSchema = new Schema({
     bandName: {
         type: String,
         lowercase: true,
+        trim: true,
+        default:'',
         enum: ['marching band', 'gator band', 'gator marching band', 'basketball pep band', 'volleyball pep band', 
         'alumni pep band', 'alumni band', 'alumni marching pep band'],
         required: 'Must specify a band.'
@@ -101,6 +103,11 @@ var UniformSchema = new Schema({
     user: {
         type: Schema.ObjectId,
         ref: 'User'
+    }
+    description: {
+        type: String,
+        trim: true,
+        default:''
     }
 });
 
