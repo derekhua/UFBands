@@ -21,16 +21,27 @@ describe('Bandapplication Model Unit Tests:', function() {
 		user = new User({
 			firstName: 'Full',
 			lastName: 'Name',
-			displayName: 'Full Name',
-			email: 'test@test.com',
+			phoneNumber: '5613862573',
+			gatorlink: 'test@ufl.edu',
+			email: 'test@ufl.edu',
+			primary: 'Baritone',
+			permanentAddress: ['test', '', 'test', 'FL', '32601'],
+			localAddress: ['test', '', 'test', 'FL', '32601'],
+			highSchool: 'test',
+			graduationDate: '2011',
+			class: '3EG',
+			major: 'Band',
+			year: 'freshman',
+      userType: 'Current',
 			username: 'username',
-			password: 'password'
+			password: 'password',
+			provider: 'local'
 		});
 
-		user.save(function() { 
+		user.save(function() {
 			bandapplication = new Bandapplication({
-				name: 'Bandapplication Name',
-				user: user
+				user: user,
+				drumlineRank: [0,0,0,0] 
 			});
 
 			done();
@@ -45,7 +56,7 @@ describe('Bandapplication Model Unit Tests:', function() {
 			});
 		});
 
-		it('should be able to show an error when try to save without name', function(done) { 
+		it('should be able to show an error when try to save without name', function(done) {
 			bandapplication.name = '';
 
 			return bandapplication.save(function(err) {
@@ -55,7 +66,7 @@ describe('Bandapplication Model Unit Tests:', function() {
 		});
 	});
 
-	afterEach(function(done) { 
+	afterEach(function(done) {
 		Bandapplication.remove().exec();
 		User.remove().exec();
 
