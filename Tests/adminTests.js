@@ -83,11 +83,16 @@ describe('Admin Testing', function(){
     browser.get('http://localhost:3000/#!/mods/list');
 
     element(by.id('editButton')).click();
-    element(by.id('firstName')).sendKeys("First Name");
-    element(by.id('lastName')).sendKeys("Last Name");
-    element(by.id('username')).sendKeys("Username");
+    element(by.id('firstName')).clear();
+    element(by.id('firstName')).sendKeys("Blake");
+    element(by.id('lastName')).clear();
+    element(by.id('lastName')).sendKeys("Garcia");
+    element(by.id('username')).clear();
+    element(by.id('username')).sendKeys("uni-mod");
+    element(by.id('password')).clear();
     element(by.id('password')).sendKeys("Password");
-    element(by.id('email')).sendKeys("Email");
+    element(by.id('email')).clear();
+    element(by.id('email')).sendKeys("bgg1103@ufl.edu");
     element(by.id('submitButton')).click();
 
     browser.driver.wait(function() {

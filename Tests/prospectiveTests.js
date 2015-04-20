@@ -104,7 +104,7 @@ describe('CEN3031 Testing', function() {
 
       browser.driver.wait(function() {
           return browser.driver.getCurrentUrl().then(function(url) {
-              return /bands/.test(url);
+              return /apply/.test(url);
           });
       });
 
@@ -136,7 +136,7 @@ describe('CEN3031 Testing', function() {
 
           browser.driver.wait(function() {
               return browser.driver.getCurrentUrl().then(function(url) {
-                  return /bands/.test(url);
+                  return /apply/.test(url);
               });
           });
 
@@ -164,7 +164,7 @@ describe('CEN3031 Testing', function() {
 
               browser.driver.wait(function() {
                   return browser.driver.getCurrentUrl().then(function(url) {
-                      return /bands/.test(url);
+                      return /apply/.test(url);
                   });
               });
 
@@ -189,7 +189,7 @@ describe('CEN3031 Testing', function() {
 
           browser.driver.wait(function() {
               return browser.driver.getCurrentUrl().then(function(url) {
-                  return /bands/.test(url);
+                  return /apply/.test(url);
               });
           });
 
@@ -215,7 +215,7 @@ describe('CEN3031 Testing', function() {
 
           browser.driver.wait(function() {
               return browser.driver.getCurrentUrl().then(function(url) {
-                  return /bands/.test(url);
+                  return /apply/.test(url);
               });
           });
 
