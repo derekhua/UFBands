@@ -29,7 +29,10 @@ describe('Music Model Unit Tests:', function() {
 
 		user.save(function() {
 			music = new Music({
-				name: 'Music Name',
+				title: 'Music Name',
+				path: 'path',
+				composer: 'mozart',
+				instrument: 'baritone',
 				user: user
 			});
 
@@ -72,7 +75,7 @@ describe('Music Model Unit Tests:', function() {
 			});
 		});
 
-		it('should be able to show an error when try to save without composer', function(done) {
+		it('should be able to show an error when try to save without instrument', function(done) {
 			music.instrument = '';
 
 			return music.save(function(err) {

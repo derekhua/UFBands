@@ -44,7 +44,7 @@ var BandapplicationSchema = new Schema({
     // (admitted to Santa Fe, Innovation Academy, or attending another state school)
     status: {
         type: String,
-        defualt: ''
+        default: ''
     },
     // booleans that specify what bands this application is for
     marchingBand: {
