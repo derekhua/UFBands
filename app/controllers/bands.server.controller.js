@@ -4,10 +4,10 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+	moment = require('moment'),
 	errorHandler = require('./errors.server.controller'),
 	Band = mongoose.model('Band'),
 	_ = require('lodash');
-
 /**
  * Show the current Band
  */
@@ -22,7 +22,7 @@ exports.update = function(req, res) {
 	var band = req.band ;
 
 	band = _.extend(band , req.body);
-
+	console.log('Start Date: '+band.startDate);
 	band.save(function(err) {
 		if (err) {
 			return res.status(400).send({
@@ -68,6 +68,7 @@ exports.bandByID = function(req, res, next, id) {
  */
 exports.hasAuthorization = function(req, res, next) {
 	if (req.user.roles !== 'admin') {
+
 		return res.status(403).send('User is not authorized');
 	}
 	next();

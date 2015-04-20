@@ -1,9 +1,10 @@
 'use strict';
 
 // Bands controller
-angular.module('bands').controller('BandsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Bands',
+angular.module('bands').controller('BandsController', ['$scope', '$stateParams', '$location',  'Authentication', 'Bands',
 	function($scope, $stateParams, $location, Authentication, Bands) {
 		$scope.authentication = Authentication;
+		$scope.user = Authentication.user;
 		
 		// Update existing Band
 		$scope.update = function() {
@@ -25,7 +26,10 @@ angular.module('bands').controller('BandsController', ['$scope', '$stateParams',
 
 		// Find a list of Bands
 		$scope.find = function() {
-			$scope.bands = Bands.query();
+			if ($scope.user.roles !== 'admin')
+				$location.path('home/'+$scope.user.userType);
+			else
+				$scope.bands = Bands.query();
 		};
 
 		// Find existing Band
@@ -45,7 +49,9 @@ angular.module('bands').controller('BandsController', ['$scope', '$stateParams',
 			var openDate = new Date(band.openDate);
 			var closeDate = new Date(band.closeDate);
 			//startDate day, month, and year
+			console.log('Computed Start Date: '+startDate.getDate());
 			$scope.startDay = startDate.getDate();
+			console.log('List Start Date: '+$scope.startDay);
 			$scope.startMonth = startDate.getMonth()+1;
 			$scope.startYear = startDate.getFullYear();
 

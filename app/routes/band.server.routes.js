@@ -6,10 +6,10 @@ module.exports = function(app) {
 
 	// Bands Routes
 	app.route('/bands')
-		.get(bands.list);
+		.get(users.requiresLogin, bands.hasAuthorization, bands.list);
 
 	app.route('/bands/:bandId')
-		.get(bands.read)
+		.get(users.requiresLogin, bands.hasAuthorization, bands.read)
 		.put(users.requiresLogin, bands.hasAuthorization, bands.update);
 		
 
