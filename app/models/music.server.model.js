@@ -24,7 +24,7 @@ var MusicSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	},
-  path: {
+        path: {
 		type: String, //file path
 		default: '',
 		required: 'Must enter a file path'
@@ -40,6 +40,11 @@ var MusicSchema = new Schema({
 		default: '',
                 trim: true,
 		required: 'Must specify an instrument'
+        },
+        band: {
+            type: String,
+            default: '',
+            enum: [ 'Marching Band', 'Jazz Band', 'Wind Symphony', 'Symphonic Band', 'Basketball Pep Band', 'Volleyball Pep Band' ]
         }
 });
 
