@@ -32,7 +32,7 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
                 if($scope.user.MemberOf.bball_pep === 'true')
                     bball_pep = 'Basketball Pep Band';
                 if($scope.user.MemberOf.volley_pep === 'true')  
-                    volley_pep = 'Volleyball Pep Band'
+                    volley_pep = 'Volleyball Pep Band';
 
                 
                 $scope.instruments = ['Piccolo', 'Flute', 'Clarinet', 'Oboe', 'English Horn', 'Basson', 'Contrabass',
