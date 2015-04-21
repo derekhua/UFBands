@@ -177,18 +177,88 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
                 
         $scope.acceptMarching = function(bandapplication) {
 			
-			bandapplication.user.MemberOf.march = true; 
+            bandapplication.user.MemberOf.march = true; 
             
             $scope.applicant = bandapplication.user;
             var user = new Users($scope.applicant);  
 
             user.$update(function(response) {
-				$scope.success = true;
+				$scope.successMarching = true;
 				//Authentication.user = response;
 			}, function(response) {
-					$scope.error = response.data.message;
+					$scope.errorMarching = response.data.message;
 			});
-};
+        };
+        $scope.acceptWind = function(bandapplication) {
+			
+            bandapplication.user.MemberOf.wind = true; 
             
-	}
+            $scope.applicant = bandapplication.user;
+            var user = new Users($scope.applicant);  
+
+            user.$update(function(response) {
+				$scope.successWind = true;
+				//Authentication.user = response;
+			}, function(response) {
+					$scope.errorWind = response.data.message;
+			});
+        };
+        $scope.acceptSymph = function(bandapplication) {
+			
+            bandapplication.user.MemberOf.symph = true; 
+            
+            $scope.applicant = bandapplication.user;
+            var user = new Users($scope.applicant);  
+
+            user.$update(function(response) {
+				$scope.successSymph = true;
+				//Authentication.user = response;
+			}, function(response) {
+					$scope.errorSymph = response.data.message;
+			});
+        };
+        $scope.acceptJazz = function(bandapplication) {
+		
+            bandapplication.user.MemberOf.jazz = true; 
+            
+            $scope.applicant = bandapplication.user;
+            var user = new Users($scope.applicant);  
+
+            user.$update(function(response) {
+				$scope.successJazz = true;
+				//Authentication.user = response;
+			}, function(response) {
+					$scope.errorJazz = response.data.message;
+			});
+        };
+        $scope.acceptVolley = function(bandapplication) {
+			
+            bandapplication.user.MemberOf.volley = true; 
+            
+            $scope.applicant = bandapplication.user;
+            var user = new Users($scope.applicant);  
+
+            user.$update(function(response) {
+				$scope.successVolley = true;
+				//Authentication.user = response;
+			}, function(response) {
+					$scope.errorVolley = response.data.message;
+			});
+        };
+        $scope.acceptBball = function(bandapplication) {
+			
+            bandapplication.user.MemberOf.bball_pep = true; 
+            
+            $scope.applicant = bandapplication.user;
+            var user = new Users($scope.applicant);  
+
+            user.$update(function(response) {
+				$scope.successBBall = true;
+				//Authentication.user = response;
+			}, function(response) {
+					$scope.errorBBall = response.data.message;
+			});
+        };
+            
+}
 ]);
