@@ -1,8 +1,8 @@
 'use strict';
 
 // Bandapplications controller
-angular.module('bandapplications').controller('BandapplicationsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Bandapplications',
-	function($scope, $stateParams, $location, Authentication, Bandapplications) {
+angular.module('bandapplications').controller('BandapplicationsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Bandapplications', 'Users',
+	function($scope, $stateParams, $location, Authentication, Bandapplications, Users) {
 		$scope.authentication = Authentication;
 
 		//Marching Band Instruments
@@ -175,19 +175,20 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 			});
 		};
                 
-                $scope.acceptMarching = function(bandapplication) {
-                        alert(bandapplication.user.MemberOf.march);
+        $scope.acceptMarching = function(bandapplication) {
+			
 			bandapplication.user.MemberOf.march = true; 
-                        alert(bandapplication.user.MemberOf.march);
-                        
-                        $scope.user = bandapplication.user;
-                        user.$update(function(response) {
-					$scope.success = true;
-					Authentication.user = response;
-				}, function(response) {
+            
+            $scope.applicant = bandapplication.user;
+            var user = new Users($scope.applicant);  
+
+            user.$update(function(response) {
+				$scope.success = true;
+				//Authentication.user = response;
+			}, function(response) {
 					$scope.error = response.data.message;
-				});
-		};
+			});
+};
             
 	}
 ]);

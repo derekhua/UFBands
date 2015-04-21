@@ -63,3 +63,14 @@ exports.modByType = function(req, res, next, modType) {
 		next();
 	});
 };
+
+/**
+ * Band authorization middleware
+ */
+exports.hasAdminAuthorization = function(req, res, next) {
+	if (req.user.roles !== 'admin') {
+
+		return res.status(403).send('User is not authorized');
+	}
+	next();
+};
