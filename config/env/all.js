@@ -26,10 +26,7 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-				'app/node_modules/quagga/dist/quagga.js',
-				'public/lib/moment/moment.js',
-				'public/lib/moment/locale/*.js',
-				'public/lib/moment/min/moment-with-locales.js'
+				'app/node_modules/quagga/dist/quagga.js'
 			]
 		},
 		css: [
