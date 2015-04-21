@@ -1,7 +1,7 @@
 'use strict';
 
 // Bands controller
-angular.module('bands').controller('BandsController', ['$scope', '$stateParams', '$location',  'Authentication', 'Bands',
+angular.module('bands').controller('BandsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Bands',
 	function($scope, $stateParams, $location, Authentication, Bands) {
 		$scope.authentication = Authentication;
 		$scope.user = Authentication.user;
@@ -29,7 +29,24 @@ angular.module('bands').controller('BandsController', ['$scope', '$stateParams',
 			if ($scope.user.roles !== 'admin')
 				$location.path('home/'+$scope.user.userType);
 			else
-				$scope.bands = Bands.query();
+				var bands = Bands.query().
+					$promise.then(function(bands) {
+						for (var i = bands.length - 1; i >= 0; i--) {
+							//Start Date
+							var sd = new Date(bands[i].startDate);
+							bands[i].start = (sd.getMonth()+1)+'/'+sd.getDate()+'/'+sd.getFullYear();
+							//End Date
+							var ed = new Date(bands[i].endDate);
+							bands[i].end = (ed.getMonth()+1)+'/'+ed.getDate()+'/'+ed.getFullYear();
+							//Open Date
+							var od = new Date(bands[i].openDate);
+							bands[i].open = (od.getMonth()+1)+'/'+od.getDate()+'/'+od.getFullYear();
+							//Close Date
+							var cd = new Date(bands[i].closeDate);
+							bands[i].close = (cd.getMonth()+1)+'/'+cd.getDate()+'/'+cd.getFullYear();
+						}
+						$scope.bands = bands;
+					});
 		};
 
 		// Find existing Band
@@ -49,9 +66,7 @@ angular.module('bands').controller('BandsController', ['$scope', '$stateParams',
 			var openDate = new Date(band.openDate);
 			var closeDate = new Date(band.closeDate);
 			//startDate day, month, and year
-			console.log('Computed Start Date: '+startDate.getDate());
 			$scope.startDay = startDate.getDate();
-			console.log('List Start Date: '+$scope.startDay);
 			$scope.startMonth = startDate.getMonth()+1;
 			$scope.startYear = startDate.getFullYear();
 
@@ -70,6 +85,5 @@ angular.module('bands').controller('BandsController', ['$scope', '$stateParams',
 			$scope.closeMonth = closeDate.getMonth()+1;
 			$scope.closeYear = closeDate.getFullYear();
 		};
-		$scope.getDates = getDates;
 	}
 ]);
