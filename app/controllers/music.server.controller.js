@@ -73,9 +73,31 @@ exports.delete = function(req, res) {
 /**
  * List of Music
  */
-exports.list = function(req, res) { 
-    if(req.query['flag'] === 'false'){
-         Music.find().sort('-created').populate('user', 'displayName').exec(function(err, music) {
+exports.list = function(req, res) {
+    if(req.query['flag'] === 'false' && req.user.roles === 'admin'){
+        Music.find().sort('-created').populate('user', 'displayName').exec(function(err, music) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(music);
+		}
+	});
+    }
+    else if(req.query['flag'] === 'false' && req.user.roles === 'user') {
+         Music.find(
+                {$or:
+                [
+                    {band: req.query['march']},
+                    {band: req.query['jazz']},
+                    {band: req.query['wind']},
+                    {band: req.query['symph']},
+                    {band: req.query['bball_pep']},
+                    {band: req.query['volley_pep']},
+                    
+                ]}
+                ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -88,12 +110,10 @@ exports.list = function(req, res) {
     else{
         if(req.user.roles === 'admin'){
             Music.find({
-                $or:
-                [
-                    {instrument: new RegExp(req.query['search'], 'i')},
-                    {title: new RegExp(req.query['search'], 'i')},
-                    {composer: new RegExp(req.query['search'], 'i')}
-                ]
+                    instrument: new RegExp(req.query['instrument'], "i"),
+                    title: new RegExp(req.query['title'], "i"),
+                    composer: new RegExp(req.query['composer'], "i"),
+                    band: new RegExp(req.query['band'], "i")
             }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
                             return res.status(400).send({
@@ -105,14 +125,23 @@ exports.list = function(req, res) {
             });
         }
         else{
-            Music.find({    
-                $or:
+            Music.find(
+                {$or:
                 [
-                    {instrument: new RegExp(req.query['search'], 'i')},
-                    {title: new RegExp(req.query['search'], 'i')},
-                    {composer: new RegExp(req.query['search'], 'i')}
-                ]
-            }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+                    {band: req.query['march']},
+                    {band: req.query['jazz']},
+                    {band: req.query['wind']},
+                    {band: req.query['symph']},
+                    {band: req.query['bball_pep']},
+                    {band: req.query['volley_pep']}
+                ]},
+                {
+                    instrument: new RegExp(req.query['instrument'], "i"),
+                    title: new RegExp(req.query['title'], "i"),
+                    band: new RegExp(req.query['band'], "i"),
+                    composer: new RegExp(req.query['composer'], "i")
+                }
+            ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
                             return res.status(400).send({
                                     message: errorHandler.getErrorMessage(err)
