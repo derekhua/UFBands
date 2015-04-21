@@ -109,17 +109,17 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
                 var symph = 'NOTHING';
                 var bball_pep = 'NOTHING';
                 var volley_pep = 'NOTHING';
-                if($scope.user.MemberOf.march === 'true')
+                if($scope.user.MemberOf.march !== 'true')
                     march = 'Marching Band';
-                if($scope.user.MemberOf.jazz === 'true')
+                if($scope.user.MemberOf.jazz !== 'true')
                     jazz = 'Jazz Band';
-                if($scope.user.MemberOf.wind === 'true')
+                if($scope.user.MemberOf.wind !== 'true')
                     wind = 'Wind Symphony';
-                if($scope.user.MemberOf.symph === 'true')
+                if($scope.user.MemberOf.symph !== 'true')
                     symph = 'Symphonic Band';
-                if($scope.user.MemberOf.bball_pep === 'true')
+                if($scope.user.MemberOf.bball_pep !== 'true')
                     bball_pep = 'Basketball Pep Band';
-                if($scope.user.MemberOf.volley_pep === 'true')  
+                if($scope.user.MemberOf.volley_pep !== 'true')  
                     volley_pep = 'Volleyball Pep Band';
 
 		// Find a list of Music
@@ -133,7 +133,7 @@ angular.module('music').controller('MusicController', ['$scope', '$stateParams',
                                                      symph: symph, 
                                                      bball_pep: bball_pep,
                                                      volley_pep: volley_pep,  
-                                                     flag: 'true'});
+                                                     flag: 'false'});
                     }
                     
 		};
