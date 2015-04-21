@@ -4,7 +4,6 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-	moment = require('moment'),
 	errorHandler = require('./errors.server.controller'),
 	Band = mongoose.model('Band'),
 	_ = require('lodash');
