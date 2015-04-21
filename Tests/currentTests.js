@@ -98,6 +98,142 @@ describe('Current Member Testing', function(){
 
     });
 
+    it('should apply for marching bands', function() {
+        element(by.id('applyButton')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /apply/.test(url);
+            });
+        });
+
+        element(by.id('bandButton')).click();
+
+        browser.driver.wait(function() {
+            return browser.driver.getCurrentUrl().then(function(url) {
+                return /create/.test(url);
+            });
+        });
+
+        element(by.id('marchingBand')).click();
+        element(by.id('mbWeight')).sendKeys('50');
+        element(by.repeater('size in size')).click();
+        element(by.repeater('status in status')).click();
+        element(by.repeater('instrument in marchingBandInstruments')).click();
+        element(by.id('secondaryYearsMB')).sendKeys('5');
+        element(by.id('drumline')).click();
+        element(by.id('auxiliary')).click();
+  //      element(by.id('submitButton')).click();
+
+
+        });
+
+        it('should apply for concert ensembles', function() {
+            browser.get('http://localhost:3000/#!/home/current');
+
+            element(by.id('applyButton')).click();
+
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function(url) {
+                    return /apply/.test(url);
+                });
+            });
+
+            element(by.id('bandButton')).click();
+
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function(url) {
+                    return /create/.test(url);
+                });
+            });
+
+            element(by.id('concertEnsembles')).click();
+            element(by.repeater('status in status')).click();
+            element(by.repeater('instrument in concertEnsemblesInstruments')).click();
+            element(by.id('secondaryYearsCES')).sendKeys('5');
+  //          element(by.id('submitButton')).click();
+
+
+            });
+
+            it('should apply for jazz band', function() {
+              browser.get('http://localhost:3000/#!/home/current');
+
+                element(by.id('applyButton')).click();
+
+                browser.driver.wait(function() {
+                    return browser.driver.getCurrentUrl().then(function(url) {
+                        return /apply/.test(url);
+                    });
+                });
+
+                element(by.id('bandButton')).click();
+
+                browser.driver.wait(function() {
+                    return browser.driver.getCurrentUrl().then(function(url) {
+                        return /create/.test(url);
+                    });
+                });
+
+                element(by.id('jazzBand')).click();
+  //              element(by.repeater('instrument in jazzBandInstruments')).click();
+                element(by.id('secondaryYearsJazz')).sendKeys('5');
+          //      element(by.id('submitButton')).click();
+        });
+
+        it('should apply for volleyball band', function() {
+          browser.get('http://localhost:3000/#!/home/current');
+
+            element(by.id('applyButton')).click();
+
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function(url) {
+                    return /apply/.test(url);
+                });
+            });
+
+            element(by.id('bandButton')).click();
+
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function(url) {
+                    return /create/.test(url);
+                });
+            });
+
+            element(by.id('volleyballPepBand')).click();
+            element(by.id('mbWeight')).sendKeys('50');
+  //          element(by.repeater('instrument in volleyballBandInstruments')).click();
+            element(by.id('secondaryYearsVolleyball')).sendKeys('5');
+      //      element(by.id('submitButton')).click();
+    });
+
+        it('should apply for basketball band', function() {
+          browser.get('http://localhost:3000/#!/home/current');
+
+            element(by.id('applyButton')).click();
+
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function(url) {
+                    return /apply/.test(url);
+                });
+            });
+
+            element(by.id('bandButton')).click();
+
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function(url) {
+                    return /create/.test(url);
+                });
+            });
+
+            element(by.id('basketballPepBand')).click();
+            element(by.id('mbWeight')).sendKeys('50');
+            element(by.repeater('size in size')).click();
+  //          element(by.repeater('instrument in basketballBandInstruments')).click();
+            element(by.id('secondaryYearsBasketball')).sendKeys('5');
+      //      element(by.id('submitButton')).click();
+    });
+
     it('should send in uniform repairs', function(){
       browser.get('http://localhost:3000/#!/home/current');
 
