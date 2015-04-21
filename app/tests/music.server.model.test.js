@@ -44,6 +44,7 @@ describe('Music Model Unit Tests:', function() {
 				path: 'path',
 				composer: 'mozart',
 				instrument: 'baritone',
+				band: 'Jazz Band',
 				user: user
 			});
 
@@ -88,6 +89,15 @@ describe('Music Model Unit Tests:', function() {
 
 		it('should be able to show an error when try to save without instrument', function(done) {
 			music.instrument = '';
+
+			return music.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save without band', function(done) {
+			music.band = '';
 
 			return music.save(function(err) {
 				should.exist(err);
