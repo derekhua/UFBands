@@ -21,10 +21,21 @@ describe('Music Model Unit Tests:', function() {
 		user = new User({
 			firstName: 'Full',
 			lastName: 'Name',
-			displayName: 'Full Name',
-			email: 'test@test.com',
+			phoneNumber: '5613862573',
+			gatorlink: 'test@ufl.edu',
+			email: 'test@ufl.edu',
+			primary: 'Baritone',
+			permanentAddress: ['test', '', 'test', 'FL', '32601'],
+			localAddress: ['test', '', 'test', 'FL', '32601'],
+			highSchool: 'test',
+			graduationDate: '2011',
+			class: '3EG',
+			major: 'Band',
+			year: 'freshman',
+			userType: 'Current',
 			username: 'username',
-			password: 'password'
+			password: 'password',
+			provider: 'local'
 		});
 
 		user.save(function() {

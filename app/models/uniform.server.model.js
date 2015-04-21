@@ -15,7 +15,8 @@ var SizeSchema = new Schema({
     size: {
         type: String,
         lowercase: true,
-        enum: ['xs', 's', 'm', 'r', 'l', 'xl', '2xl', '3xl', '4xl']
+        enum: ['xs', 's', 'm', 'r', 'l', 'xl', '2xl', '3xl', '4xl'],
+        required: 'Must specify a size'
     }
 });
 
@@ -32,16 +33,18 @@ var MarchingBandUniformSchema = new Schema({
     brandName: String,
     sex: {
         type: String,
-        enum: ['m', 'f']
+        enum: ['m', 'f'],
+        required: 'Must specify gender'
     },
     height: [{
         feet: {
             type: Number,
-            min: 0
+            min: 0,
         },
         inches: {
             type: Number,
-            min: 0}
+            min: 0
+          },
     }],
     weight: [NumberSchema],
     chest: [NumberSchema],
@@ -104,7 +107,7 @@ var UniformSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     },
-    
+
     description: {
         type: String,
         trim: true,
@@ -112,4 +115,5 @@ var UniformSchema = new Schema({
     }
 });
 
+mongoose.model('Size', SizeSchema)
 mongoose.model('Uniform', UniformSchema);
