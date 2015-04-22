@@ -72,13 +72,13 @@
                                                 </span>
 
                                                 <label for="buttonProspective">&nbsp Prospective &nbsp</label>
-                                                <input type="radio" id="buttonProspective" name="userType" data-ng-model="credentials.userType" value="Prospective" ng-click="prospectiveUser()">
+                                                <input type="radio" id="buttonProspective" name="userType" data-ng-model="credentials.userType" value="Prospective" ng-click="prospectiveUser()" title="If you would like to join a band">
                                                 <br>
                                                 <label for="buttonCurrent">&nbsp Current &nbsp</label>
-                                                <input type="radio" id="buttonCurrent" name="userType" data-ng-model="credentials.userType" value="Current" ng-click="currentUser()">
+                                                <input type="radio" id="buttonCurrent" name="userType" data-ng-model="credentials.userType" value="Current" ng-click="currentUser()" title="If you are currently in a band">
                                                 <br>
                                                 <label for="buttonAlumni">&nbsp Alumni &nbsp</label>
-                                                <input type="radio" id="buttonAlumni" name="userType" data-ng-model="credentials.userType" value="Alumni" ng-click="alumniUser()">
+                                                <input type="radio" id="buttonAlumni" name="userType" data-ng-model="credentials.userType" value="Alumni" ng-click="alumniUser()" title="If you have previously been in a band">
                                         </div>
 
                                         <div class="input-group" >
@@ -127,7 +127,7 @@
 <!--                                    =======================================================-->
                                     
                                     <div class="col-md-6">
-                                        <div class="input-group">
+                                        <div class="input-group" title="For communication purposes">
                                             <span class="input-group-addon">
                                                         <i class="text-muted glyphicon glyphicon-home text-success" aria-hidden="true"></i>
                                             </span>
@@ -138,7 +138,7 @@
                                                 <input type="text" data-ng-model="credentials.permanentAddress.zip" id="permanentZip" class="form-control" placeholder="Zip code" required>
                                         </div>
 
-                                        <div class="input-group">
+                                        <div class="input-group" title="For communication purposes">
                                             <span class="input-group-addon">
                                                         <i class="text-muted glyphicon glyphicon-tent text-warning" aria-hidden="true"></i>
                                             </span>
