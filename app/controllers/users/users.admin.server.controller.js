@@ -25,7 +25,7 @@ exports.acceptApp = function(req, res) {
 		// Merge existing user
 		user = _.extend(user, req.body);
 		user.updated = Date.now();
-		user.displayName = user.firstName + ' ' + user.lastName;
+		user.displayName = user.lastName + ' ' + user.lastName;
 
 		user.save(function(err) {
 			if (err) {
@@ -50,7 +50,7 @@ exports.listRoster = function(req, res) {
     if( req.query['send'] === 'Marching Band' ){
 	User.find({
                     "MemberOf.march": true
-                }).exec(function(err, users) {
+                }).sort({lastName: 1}).exec(function(err, users) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -60,10 +60,10 @@ exports.listRoster = function(req, res) {
 		}
 	});
     }
-    if( req.query['send'] === 'Jazz Band' ){
+    else if( req.query['send'] === 'Jazz Band' ){
 	User.find({
                     "MemberOf.jazz": true
-                }).exec(function(err, users) {
+                }).sort({lastName: 1}).exec(function(err, users) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -73,10 +73,10 @@ exports.listRoster = function(req, res) {
 		}
 	});
     }
-        if( req.query['send'] === 'Wind Symphony' ){
+    else if( req.query['send'] === 'Wind Symphony' ){
 	User.find({
                     "MemberOf.wind": true
-                }).exec(function(err, users) {
+                }).sort({lastName: 1}).exec(function(err, users) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -86,10 +86,10 @@ exports.listRoster = function(req, res) {
 		}
 	});
     }
-        if( req.query['send'] === 'Symphonic Band' ){
+    else if( req.query['send'] === 'Symphonic Band' ){
 	User.find({
                     "MemberOf.symph": true
-                }).exec(function(err, users) {
+                }).sort({lastName: 1}).exec(function(err, users) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -99,10 +99,10 @@ exports.listRoster = function(req, res) {
 		}
 	});
     }
-        if( req.query['send'] === 'Basketball Pep Band' ){
+    if( req.query['send'] === 'Basketball Pep Band' ){
 	User.find({
                     "MemberOf.bball_pep": true
-                }).exec(function(err, users) {
+                }).sort({lastName: 1}).exec(function(err, users) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -112,10 +112,10 @@ exports.listRoster = function(req, res) {
 		}
 	});
     }
-        if( req.query['send'] === 'Volleyball Pep Band' ){
+    else if( req.query['send'] === 'Volleyball Pep Band' ){
 	User.find({
                     "MemberOf.volley_pep": true
-                }).exec(function(err, users) {
+                }).sort({lastName: 1}).exec(function(err, users) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

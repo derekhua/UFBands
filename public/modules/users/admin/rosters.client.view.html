@@ -1,7 +1,7 @@
 <section data-ng-controller="AdminController">
 	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
 
-		<h1>Manage Band Rosters</h1>
+		<h1>Band Rosters</h1>
 
 		<div class="bs-example" data-example-ids="select-form-control">
                     <form data-ng-click="findRoster()" >
@@ -24,7 +24,7 @@
         <a data-ng-repeat="user in users" class="list-group-item">
                 <div class="col-sm-8 ">
                         <i class="text-muted glyphicon glyphicon-file text-danger" aria-hidden="true"></i>
-                        <span class="list-group-item-heading" data-ng-bind="user.firstName + ' ' + user.lastName"></span> 
+                        <span class="list-group-item-heading" data-ng-bind="user.lastName + ', ' + user.firstName"></span> 
                 </div>
                        
                 <div class="col-sm-4">&nbsp&nbsp&nbsp<span class="list-group-item-heading" data-ng-bind="user.primary"></span></div>
