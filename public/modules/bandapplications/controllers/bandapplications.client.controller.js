@@ -96,16 +96,13 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
                 shirtSize: this.shirtSize
             });
 
-                // Redirect after save
-                bandapplication.$save(function(response) {
-                        alert('app submited');
-                        $location.path('bandapplications/' + response._id);
-
-                        // Clear form fields
-                        $scope.name = ' ';
-                }, function(errorResponse) {
-                        $scope.error = errorResponse.data.message;
-                });
+            // Redirect after save
+            bandapplication.$save(function(response) {
+                    // Clear form fields
+                    $scope.success = true;
+            }, function(errorResponse) {
+                    $scope.error = errorResponse.data.message;
+            });
         };
 
         // Remove existing Bandapplication

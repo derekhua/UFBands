@@ -4,9 +4,9 @@
         <h1>New Band Application</h1>
     </div>
 
-    <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
+                <div class="col-md-12">
                 <div class="col-md-6">
                     <div class="input-group" >
                         <h3>Check all that apply</h3>
@@ -218,19 +218,26 @@
                         </div>
                     </div>
                 </div>
-
-                <br><br><br>
-
-                <div class="form-group text-center col-md-12">
-                    <div class="col-md-6">
-                        <input id = "submitButton" type="submit" class="btn btn-lg btn-info" value = "Submit">
+                </div>
+                    
+                 
+                <div class="text-center form-group center col-md-12 ">
+                    <br><br>    
+                    <input id = "submitButton" type="submit" class="text-center btn btn-lg btn-info" value = "Submit">
+                </div>
+                
+                <div class="text-center form-group center col-md-12">
+                    <div data-ng-show="success" class="text-center text-success alert alert-success">
+                        <strong>Submission Successful</strong>
+                    </div>
+                    <div data-ng-show="error" class="text-center text-success alert alert-danger">
+                        <strong>Submission NOT Successful</strong>
                     </div>
                     <div data-ng-show="error" class="text-danger">
-			        <strong data-ng-bind="error"></strong>
+                                    <strong data-ng-bind="error"></strong>
                     </div>
                 </div>
-
+                
             </fieldset>
         </form>
-    </div>
 </section>
