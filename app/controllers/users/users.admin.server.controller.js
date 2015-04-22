@@ -44,6 +44,89 @@ exports.acceptApp = function(req, res) {
 	}
 };
 
+
+
+exports.listRoster = function(req, res) { 
+    if( req.query['send'] === 'Marching Band' ){
+	User.find({
+                    "MemberOf.march": true
+                }).exec(function(err, users) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(users);
+		}
+	});
+    }
+    if( req.query['send'] === 'Jazz Band' ){
+	User.find({
+                    "MemberOf.jazz": true
+                }).exec(function(err, users) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(users);
+		}
+	});
+    }
+        if( req.query['send'] === 'Wind Symphony' ){
+	User.find({
+                    "MemberOf.wind": true
+                }).exec(function(err, users) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(users);
+		}
+	});
+    }
+        if( req.query['send'] === 'Symphonic Band' ){
+	User.find({
+                    "MemberOf.symph": true
+                }).exec(function(err, users) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(users);
+		}
+	});
+    }
+        if( req.query['send'] === 'Basketball Pep Band' ){
+	User.find({
+                    "MemberOf.bball_pep": true
+                }).exec(function(err, users) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(users);
+		}
+	});
+    }
+        if( req.query['send'] === 'Volleyball Pep Band' ){
+	User.find({
+                    "MemberOf.volley_pep": true
+                }).exec(function(err, users) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(users);
+		}
+	});
+    }
+};
+
 /**
  * List of Moderators
  */

@@ -11,7 +11,9 @@ angular.module('users').controller('AdminController', ['$scope', '$http', '$stat
                 $scope.band = ['Marching Band', 'Jazz Band', 'Wind Symphony', 'Symphonic Band', 'Basketball Pep Band', 'Volleyball Pep Band'];
                 
                 $scope.findRoster = function () {
+                    
                     $scope.type = $scope.drop.band;
+                    $scope.users = Users.query({send: $scope.drop.band });
                 };
 
 		//Update the moderator of the type specified by $scope.modType

@@ -64,7 +64,7 @@ var UserSchema = new Schema({
     primary: {
     	type: String,
     	default: '',
-    	validate: [validateLocalStrategyProperty, 'Must specify an instrument'],
+    	validate: [validateLocalStrategyProperty, 'Must specify an instrument']
     },
     primaryYears: {
             type: String,
