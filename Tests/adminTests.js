@@ -1,3 +1,15 @@
+function signout(){
+    element(by.id('userDropdown')).click();
+    element(by.id('signout')).click();
+
+    browser.driver.wait(function() {
+        return browser.driver.getCurrentUrl().then(function(url) {
+            return /#!/.test(url);
+        });
+    });
+
+    expect(browser.getTitle()).toEqual('UF Bands - Member Portal'); //Start Page
+}
 
 describe('Admin Testing', function(){
   it('should log in as admin', function(){
@@ -26,7 +38,7 @@ describe('Admin Testing', function(){
   it('should be able to view rosters', function(){
 
     browser.get('http://localhost:3000/#!/admin/rosters');
-    expect(element(by.id('header')).getText()).toEqual('Manage Band Rosters');
+    expect(element(by.id('header')).getText()).toEqual('Band Rosters');
     element(by.id('backButton')).click();
 
     browser.driver.wait(function() {
@@ -120,6 +132,12 @@ describe('Admin Testing', function(){
     element.all(by.repeater('instrument in instruments')).click();
     element(by.id('path')).sendKeys("Path");
     element(by.id('submit')).click();
+
+  });
+
+  it('should sign out', function(){
+    browser.get('http://localhost:3000/#!/home/admin');
+    signout();
 
   });
 

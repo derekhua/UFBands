@@ -87,8 +87,8 @@ describe('CEN3031 Testing', function() {
           });
       });
 
-      element(by.id('username')).sendKeys('giodelatorre1');
-      element(by.id('password')).sendKeys('spy00g11');
+      element(by.id('username')).sendKeys(newUserNameProspective);
+      element(by.id('password')).sendKeys('TestTest');
       element(by.id('signin')).click();
 
       browser.driver.wait(function() {

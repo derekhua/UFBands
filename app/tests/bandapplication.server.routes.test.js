@@ -53,10 +53,10 @@ describe('Bandapplication CRUD tests', function() {
 				user: user,
 				band: new Band({
 					name: 'Alumni Band',
-					startDate: new Date(115, 3, 25),
-					endDate: new Date(115, 3, 26),
-					openDate: new Date(115, 3, 12),
-					closeDate: new Date(115, 3, 14),
+					startDate: new Date(2015, 3, 25),
+					endDate: new Date(2015, 3, 26),
+					openDate: new Date(2015, 3, 12),
+					closeDate: new Date(2015, 3, 14),
 				}),
 				drumlineRank: [1,2,3,4]
 			});
@@ -176,7 +176,7 @@ describe('Bandapplication CRUD tests', function() {
 //								(bandapplicationUpdateRes.body.user).should.match(user);
 
 								// Call the assertion callback
-								done();
+//								done();
 							});
 					});
 			});
