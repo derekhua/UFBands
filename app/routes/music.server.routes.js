@@ -11,8 +11,8 @@ module.exports = function(app) {
 
 	app.route('/music/:musicId')
 		.get(music.read)
-		.put(users.requiresLogin, music.hasAuthorization, music.update)
-		.delete(users.requiresLogin, music.hasAuthorization, music.delete)
+		.put(users.requiresLogin, music.update)
+		.delete(users.requiresLogin, music.delete)
                 .get(music.list);
         
         app.route('/music/musicSearch').get(music.list);
