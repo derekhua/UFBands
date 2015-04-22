@@ -230,7 +230,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
         };
         $scope.acceptVolley = function(bandapplication) {
 			
-            bandapplication.user.MemberOf.volley = true; 
+            bandapplication.user.MemberOf.volley_pep = true; 
             
             $scope.applicant = bandapplication.user;
             var user = new Users($scope.applicant);  
@@ -251,11 +251,11 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
             var user = new Users($scope.applicant);  
 
             user.$update(function(response) {
-                    $scope.successBBall = true;
+                    $scope.successBball = true;
                     //$location.path('bandapplications/' + bandapplication._id);
                     //Authentication.user = response;
             }, function(response) {
-                            $scope.errorBBall = response.data.message;
+                            $scope.errorBball = response.data.message;
             });
         };
             
