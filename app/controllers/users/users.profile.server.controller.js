@@ -32,13 +32,20 @@ exports.update = function(req, res) {
 					message: errorHandler.getErrorMessage(err)
 				});
 			} else {
-				req.login(user, function(err) {
-					if (err) {
+                            if (err) {
 						res.status(400).send(err);
 					} else {
+                                                console.log('inside shit');
 						res.json(user);
 					}
-				});
+//				req.login(user, function(err) {
+//					if (err) {
+//						res.status(400).send(err);
+//					} else {
+//                                                console.log('inside shit');
+//						res.json(user);
+//					}
+//				});
 			}
 		});
 	} else {

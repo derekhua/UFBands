@@ -15,3 +15,4 @@ module.exports = _.extend(
 	require('./users/users.profile.server.controller'),
 	require('./users/users.admin.server.controller')
 );
+

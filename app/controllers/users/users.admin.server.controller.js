@@ -11,6 +11,39 @@ var _ = require('lodash'),
 	_ = require('lodash');
 
 
+exports.acceptApp = function(req, res) {
+	// Init Variables
+	var user = req.user;
+	console.log('accept app');
+        console.log(req.user);
+        var message = null;
+
+	// For security measurement we remove the roles from the req.body object
+	delete req.body.roles;
+
+	if (user) {
+		// Merge existing user
+		user = _.extend(user, req.body);
+		user.updated = Date.now();
+		user.displayName = user.firstName + ' ' + user.lastName;
+
+		user.save(function(err) {
+			if (err) {
+				return res.status(400).send({
+					message: errorHandler.getErrorMessage(err)
+				});
+			} else {
+                                console.log('inside admin');
+				res.json(user);
+			}
+		});
+	} else {
+		res.status(400).send({
+			message: 'User is not signed in'
+		});
+	}
+};
+
 /**
  * List of Moderators
  */

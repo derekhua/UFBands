@@ -176,7 +176,8 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		};
                 
         $scope.acceptMarching = function(bandapplication) {
-			
+            var current = Authentication.user;
+
             bandapplication.user.MemberOf.march = true; 
             
             $scope.applicant = bandapplication.user;
@@ -184,7 +185,8 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 
             user.$update(function(response) {
 				$scope.successMarching = true;
-				//Authentication.user = response;
+                                //$location.path('bandapplications/' + bandapplication._id);
+				Authentication.user = current;
 			}, function(response) {
 					$scope.errorMarching = response.data.message;
 			});
@@ -198,6 +200,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 
             user.$update(function(response) {
 				$scope.successWind = true;
+                                //$location.path('bandapplications/' + bandapplication._id);
 				//Authentication.user = response;
 			}, function(response) {
 					$scope.errorWind = response.data.message;
@@ -212,6 +215,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 
             user.$update(function(response) {
 				$scope.successSymph = true;
+                                //$location.path('bandapplications/' + bandapplication._id);
 				//Authentication.user = response;
 			}, function(response) {
 					$scope.errorSymph = response.data.message;
@@ -226,6 +230,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 
             user.$update(function(response) {
 				$scope.successJazz = true;
+                                //$location.path('bandapplications/' + bandapplication._id);
 				//Authentication.user = response;
 			}, function(response) {
 					$scope.errorJazz = response.data.message;
@@ -240,6 +245,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 
             user.$update(function(response) {
 				$scope.successVolley = true;
+                                //$location.path('bandapplications/' + bandapplication._id);
 				//Authentication.user = response;
 			}, function(response) {
 					$scope.errorVolley = response.data.message;
@@ -254,6 +260,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 
             user.$update(function(response) {
 				$scope.successBBall = true;
+                                //$location.path('bandapplications/' + bandapplication._id);
 				//Authentication.user = response;
 			}, function(response) {
 					$scope.errorBBall = response.data.message;
