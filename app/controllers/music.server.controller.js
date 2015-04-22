@@ -126,7 +126,8 @@ exports.list = function(req, res) {
             });
         }
         else{
-            Music.find(
+            Music.find({
+                $and:[
                {
                     $or:
                     [
@@ -136,8 +137,7 @@ exports.list = function(req, res) {
                         {band: req.query['wind']},
                         {band: req.query['symph']},
                         {band: req.query['bball_pep']},
-                        {band: req.query['volley_pep']}
-                        
+                        {band: req.query['volley_pep']}                       
                      ]
                 },
                 {
@@ -145,9 +145,8 @@ exports.list = function(req, res) {
                     title: new RegExp(req.query['title'], "i"),
                     band: new RegExp(req.query['band'], "i"),
                     composer: new RegExp(req.query['composer'], "i")
-                }
-                        
-            ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+                }                        
+                ]}).sort('-created').populate('user', 'displayName').exec(function(err, music) {
                     if (err) {
                             return res.status(400).send({
                                     message: errorHandler.getErrorMessage(err)
