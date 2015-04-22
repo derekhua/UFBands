@@ -8,8 +8,8 @@ module.exports = function(grunt) {
 		clientViews: ['public/modules/**/views/**/*.html'],
 		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
 		clientCSS: ['public/modules/**/*.css'],
-		mochaTests: ['app/tests/*.js']
-//		mochaTests: ['app/tests/tbd/band.server.routes.test.js']
+//		mochaTests: ['app/tests/*.js']
+		mochaTests: ['app/tests/tbd/band.server.model.test.js']
 	};
 
 	// Project Configuration

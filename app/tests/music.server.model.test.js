@@ -106,6 +106,15 @@ describe('Music Model Unit Tests:', function() {
 			});
 		});
 
+		it('should be able to show an error when try to save with band not enum', function(done) {
+			music.band = 'Mnupsksksk';
+
+			return music.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
 	});
 
 	afterEach(function(done) {

@@ -100,7 +100,16 @@ describe('Bandapplication Model Unit Tests:', function() {
 			});
 		});
 
+	it('should be able to show an error when try to save with out of bounds drumline rank', function(done) {
+		bandapplication.drumlineRank = [5, 10, 10, 0];
+
+		return bandapplication.save(function(err) {
+			should.exist(err);
+			done();
+		});
 	});
+
+});
 
 	afterEach(function(done) {
 		Bandapplication.remove().exec();
