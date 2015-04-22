@@ -14,7 +14,7 @@ module.exports = function(app) {
 	app.route('/bandapplications/:bandapplicationId')
 		.get(bandapplications.read)
                 .put(userAccept.acceptApp)
-		.delete(users.requiresLogin, bandapplications.hasAuthorization, bandapplications.delete);
+		.delete(users.requiresLogin, bandapplications.delete);
 
 	// Finish by binding the Bandapplication middleware
 	app.param('bandapplicationId', bandapplications.bandapplicationByID);

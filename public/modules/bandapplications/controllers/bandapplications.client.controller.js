@@ -109,7 +109,6 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
         $scope.remove = function(bandapplication) {
                 if ( bandapplication ) { 
                         bandapplication.$remove();
-
                         for (var i in $scope.bandapplications) {
                                 if ($scope.bandapplications [i] === bandapplication) {
                                         $scope.bandapplications.splice(i, 1);
