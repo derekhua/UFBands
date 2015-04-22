@@ -26,7 +26,8 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		'Marimba', 'Vibraphone', 'Xylophone', 'Glockenspiel', 'Drumset', 
 		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 
-        $scope.size = ['XS', 'S', 'M', 'L', 'XL'];     
+
+        $scope.sizes = ['XS', 'S', 'M', 'L', 'XL'];     
         $scope.statuses = ['University of Florida', 'Santa Fe', 'Innovation Academy', 'Other State School'];
         
         $scope.r1 = 1;
@@ -46,31 +47,24 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
         
         $scope.marchingBandToggle = function() {
             $scope.marchingBandFlag = !$scope.marchingBandFlag;
-            $scope.marchingBandToggled= true; 
 		};
         $scope.volleyballPepBandToggle = function() {
             $scope.volleyballPepBandFlag = !$scope.volleyballPepBandFlag;
-            $scope.volleyballPepgBandToggled= true; 
 		}; 
 		$scope.basketballPepBandToggle = function() {
             $scope.basketballPepBandFlag = !$scope.basketballPepBandFlag;
-        	$scope.basketballPepgBandToggled= true; 
 		}; 
 		$scope.concertEnsemblesToggle = function() {
             $scope.concertEnsemblesFlag = !$scope.concertEnsemblesFlag;
-           	$scope.concertEnsemblesToggled= true; 
 		}; 
 		$scope.jazzBandToggle = function() {
             $scope.jazzBandFlag = !$scope.jazzBandFlag;
-            $scope.jazzBandToggled= true; 
 		};
 		$scope.drumlineToggle = function() {
             $scope.drumlineFlag = !$scope.drumlineFlag;
-        	$scope.drumlineToggled= true; 
 		};
 		$scope.auxiliaryToggle = function() {
             $scope.auxiliaryFlag = !$scope.auxiliaryFlag;
-            $scope.auxiliaryToggled= true; 
 		};
 		// Create new Bandapplication
 		$scope.create = function() {
@@ -114,68 +108,129 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 				$scope.error = errorResponse.data.message;
 			});
 		};
+        };
+        
+        $scope.volleyballPepBandToggle = function() {
+            $scope.volleyballPepBandFlag = !$scope.volleyballPepBandFlag;
+	}; 
+        
+	$scope.basketballPepBandToggle = function() {
+            $scope.basketballPepBandFlag = !$scope.basketballPepBandFlag;
+	}; 
+	$scope.concertEnsemblesToggle = function() {
+            $scope.concertEnsemblesFlag = !$scope.concertEnsemblesFlag;
+	}; 
+	$scope.jazzBandToggle = function() {
+            $scope.jazzBandFlag = !$scope.jazzBandFlag;
+	};
+	$scope.drumlineToggle = function() {
+            $scope.drumlineFlag = !$scope.drumlineFlag;
+	};
+	$scope.auxiliaryToggle = function() {
+            $scope.auxiliaryFlag = !$scope.auxiliaryFlag;
+	};
+        // Create new Bandapplication
+        $scope.create = function() {
+                // Create new Bandapplication object
+                var bandapplication = new Bandapplications({
+                        user: this.user,
+                        created: this.created,
+                        marchingBand: this.marchingBand,
+                        concertEnsembles: this.concertEnsembles,
+                        jazzBand: this.jazzBand,
+                        volleyballPepBand: this.volleyballPepBand,
+                        basketballPepBand: this.basketballPepBand,
+                        MBSecondary: this.MBSecondary,
+                        CESecondary: this.CESecondary,
+                        JBSecondary: this.JBSecondary,
+                        VBSecondary: this.VBSecondary,
+                        BBSecondary: this.BBSecondary,
+                        MBSecondaryYearsExp: this.MBSecondaryYearsExp,
+                        CESecondaryYearsExp: this.CESecondaryYearsExp,
+                        JBSecondaryYearsExp: this.JBSecondaryYearsExp,
+                        VBSecondaryYearsExp: this.VBSecondaryYearsExp,
+                        BBSecondaryYearsExp: this.BBSecondaryYearsExp,
+                        drumlineInterest: this.drumlineInterest,
+                        drumlineRank: [parseInt(this.r1), parseInt(this.r2), parseInt(this.r3), parseInt(this.r4)],
+                        auxiliary: [this.gatorettes, this.fve],
+                        status: this.status,
+                        weight: this.weight,
+                        shirtSize: this.shirtSize
+                });
 
-		// Remove existing Bandapplication
-		$scope.remove = function(bandapplication) {
-			if ( bandapplication ) { 
-				bandapplication.$remove();
+                // Redirect after save
+                bandapplication.$save(function(response) {
+                        alert('app submited');
+                        $location.path('bandapplications/' + response._id);
 
-				for (var i in $scope.bandapplications) {
-					if ($scope.bandapplications [i] === bandapplication) {
-						$scope.bandapplications.splice(i, 1);
-					}
-				}
-			} else {
-				$scope.bandapplication.$remove(function() {
-					$location.path('bandapplications');
-				});
-			}
-		};
+                        // Clear form fields
+                        $scope.name = ' ';
+                }, function(errorResponse) {
+                        $scope.error = errorResponse.data.message;
+                });
+        };
 
-                $scope.marching = function() {
-			$scope.bandapplications = Bandapplications.query();
-                        
-		};
-                $scope.jazz = function() {
-			$scope.bandapplications = Bandapplications.query();
-                        
-		};
-                $scope.concert = function() {
-			$scope.bandapplications = Bandapplications.query();
-                        
-		};
-                $scope.volleyball = function() {
-			$scope.bandapplications = Bandapplications.query();
-                        
-		};
-                $scope.basketball = function() {
-			$scope.bandapplications = Bandapplications.query();
-                        
-		};     
+        // Remove existing Bandapplication
+        $scope.remove = function(bandapplication) {
+                if ( bandapplication ) { 
+                        bandapplication.$remove();
+
+                        for (var i in $scope.bandapplications) {
+                                if ($scope.bandapplications [i] === bandapplication) {
+                                        $scope.bandapplications.splice(i, 1);
+                                }
+                        }
+                } else {
+                        $scope.bandapplication.$remove(function() {
+                                $location.path('bandapplications');
+                        });
+                }
+        };
+
+        $scope.marching = function() {
+                $scope.bandapplications = Bandapplications.query();
+
+        };
+        $scope.jazz = function() {
+                $scope.bandapplications = Bandapplications.query();
+
+        };
+        $scope.concert = function() {
+                $scope.bandapplications = Bandapplications.query();
+
+        };
+        $scope.volleyball = function() {
+                $scope.bandapplications = Bandapplications.query();
+
+        };
+        $scope.basketball = function() {
+                $scope.bandapplications = Bandapplications.query();
+
+        };     
                 
-		// Update existing Bandapplication
-		$scope.update = function() {
-			var bandapplication = $scope.bandapplication;
+//        // Update existing Bandapplication
+//        $scope.update = function() {
+//                var bandapplication = $scope.bandapplication;
+//
+//                bandapplication.$update(function() {
+//                        $location.path('bandapplications/' + bandapplication._id);
+//                }, function(errorResponse) {
+//                        $scope.error = errorResponse.data.message;
+//                });
+//        };
 
-			bandapplication.$update(function() {
-				$location.path('bandapplications/' + bandapplication._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+        // Find a list of Bandapplications
+        $scope.find = function() {
+                $scope.bandapplications = Bandapplications.query();
 
-		// Find a list of Bandapplications
-		$scope.find = function() {
-			$scope.bandapplications = Bandapplications.query();
-                        
-		};
+        };
 
-		// Find existing Bandapplication
-		$scope.findOne = function() {
-			$scope.bandapplication = Bandapplications.get({ 
-				bandapplicationId: $stateParams.bandapplicationId
-			});
-		};
+        // Find existing Bandapplication
+        $scope.findOne = function() {
+                $scope.bandapplication = Bandapplications.get({ 
+                        bandapplicationId: $stateParams.bandapplicationId
+                });
+        };
                 
         $scope.acceptMarching = function(bandapplication) {
             var current = Authentication.user;
@@ -186,13 +241,14 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
             var user = new Users($scope.applicant);  
 
             user.$update(function(response) {
-				$scope.successMarching = true;
-                                //$location.path('bandapplications/' + bandapplication._id);
-				Authentication.user = current;
-			}, function(response) {
-					$scope.errorMarching = response.data.message;
-			});
+                    $scope.successMarching = true;
+                    //$location.path('bandapplications/' + bandapplication._id);
+                    Authentication.user = current;
+            }, function(response) {
+                            $scope.errorMarching = response.data.message;
+            });
         };
+        
         $scope.acceptWind = function(bandapplication) {
 			
             bandapplication.user.MemberOf.wind = true; 
@@ -201,12 +257,12 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
             var user = new Users($scope.applicant);  
 
             user.$update(function(response) {
-				$scope.successWind = true;
-                                //$location.path('bandapplications/' + bandapplication._id);
-				//Authentication.user = response;
-			}, function(response) {
-					$scope.errorWind = response.data.message;
-			});
+                    $scope.successWind = true;
+                    //$location.path('bandapplications/' + bandapplication._id);
+                    //Authentication.user = response;
+            }, function(response) {
+                            $scope.errorWind = response.data.message;
+            });
         };
         $scope.acceptSymph = function(bandapplication) {
 			
@@ -216,12 +272,12 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
             var user = new Users($scope.applicant);  
 
             user.$update(function(response) {
-				$scope.successSymph = true;
-                                //$location.path('bandapplications/' + bandapplication._id);
-				//Authentication.user = response;
-			}, function(response) {
-					$scope.errorSymph = response.data.message;
-			});
+                    $scope.successSymph = true;
+                    //$location.path('bandapplications/' + bandapplication._id);
+                    //Authentication.user = response;
+            }, function(response) {
+                            $scope.errorSymph = response.data.message;
+            });
         };
         $scope.acceptJazz = function(bandapplication) {
 		
@@ -231,12 +287,12 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
             var user = new Users($scope.applicant);  
 
             user.$update(function(response) {
-				$scope.successJazz = true;
-                                //$location.path('bandapplications/' + bandapplication._id);
-				//Authentication.user = response;
-			}, function(response) {
-					$scope.errorJazz = response.data.message;
-			});
+                    $scope.successJazz = true;
+                    //$location.path('bandapplications/' + bandapplication._id);
+                    //Authentication.user = response;
+            }, function(response) {
+                            $scope.errorJazz = response.data.message;
+            });
         };
         $scope.acceptVolley = function(bandapplication) {
 			
@@ -246,12 +302,12 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
             var user = new Users($scope.applicant);  
 
             user.$update(function(response) {
-				$scope.successVolley = true;
-                                //$location.path('bandapplications/' + bandapplication._id);
-				//Authentication.user = response;
-			}, function(response) {
-					$scope.errorVolley = response.data.message;
-			});
+                    $scope.successVolley = true;
+                    //$location.path('bandapplications/' + bandapplication._id);
+                    //Authentication.user = response;
+            }, function(response) {
+                            $scope.errorVolley = response.data.message;
+            });
         };
         $scope.acceptBball = function(bandapplication) {
 			
@@ -261,12 +317,12 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
             var user = new Users($scope.applicant);  
 
             user.$update(function(response) {
-				$scope.successBBall = true;
-                                //$location.path('bandapplications/' + bandapplication._id);
-				//Authentication.user = response;
-			}, function(response) {
-					$scope.errorBBall = response.data.message;
-			});
+                    $scope.successBBall = true;
+                    //$location.path('bandapplications/' + bandapplication._id);
+                    //Authentication.user = response;
+            }, function(response) {
+                            $scope.errorBBall = response.data.message;
+            });
         };
             
 }
