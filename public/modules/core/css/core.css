@@ -21,6 +21,16 @@
     transform: translate(-50%, -50%);
 }
 
+.banner {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.information {
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
 /*
 Original design: Basic Profile (fluid) (v2.0 - Sep 11, 2012) - A free xhtml/css website template by Andreas Viklund.
 For more information, see http://andreasviklund.com/templates/basic-profile/
