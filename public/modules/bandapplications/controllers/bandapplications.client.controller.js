@@ -47,69 +47,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
         
         $scope.marchingBandToggle = function() {
             $scope.marchingBandFlag = !$scope.marchingBandFlag;
-		};
-        $scope.volleyballPepBandToggle = function() {
-            $scope.volleyballPepBandFlag = !$scope.volleyballPepBandFlag;
-		}; 
-		$scope.basketballPepBandToggle = function() {
-            $scope.basketballPepBandFlag = !$scope.basketballPepBandFlag;
-		}; 
-		$scope.concertEnsemblesToggle = function() {
-            $scope.concertEnsemblesFlag = !$scope.concertEnsemblesFlag;
-		}; 
-		$scope.jazzBandToggle = function() {
-            $scope.jazzBandFlag = !$scope.jazzBandFlag;
-		};
-		$scope.drumlineToggle = function() {
-            $scope.drumlineFlag = !$scope.drumlineFlag;
-		};
-		$scope.auxiliaryToggle = function() {
-            $scope.auxiliaryFlag = !$scope.auxiliaryFlag;
-		};
-		// Create new Bandapplication
-		$scope.create = function() {
-			// Create new Bandapplication object
-			$scope.user = Authentication.user;
-			var bandapplication = new Bandapplications ({
-
-				user: this.user,
-                created: this.created,
-                marchingBand: this.marchingBand,
-                concertEnsembles: this.concertEnsembles,
-                jazzBand: this.jazzBand,
-                volleyballPepBand: this.volleyballPepBand,
-                basketballPepBand: this.volleyballPepBand,
-                MBSecondary: this.MBSecondary,
-                CESecondary: this.CESecondary,
-                JBSecondary: this.JBSecondary,
-                VBSecondary: this.VBSecondary,
-                BBSecondary: this.BBSecondary,
-                MBSecondaryYearsExp: this.MBSecondaryYearsExp,
-                CESecondaryYearsExp: this.CESecondaryYearsExp,
-                JBSecondaryYearsExp: this.JBSecondaryYearsExp,
-                VBSecondaryYearsExp: this.VBSecondaryYearsExp,
-                BBSecondaryYearsExp: this.BBSecondaryYearsExp,
-                drumlineInterest: this.drumlineInterest,
-                drumlineRank: [parseInt(this.r1), parseInt(this.r2), parseInt(this.r3), parseInt(this.r4)],
-                auxiliary: [this.gatorettes, this.fve],
-                status: this.status,
-                weight: this.weight,
-                shirtSize: this.shirtSize
-			});
-			console.log('creating');
-			// Redirect after save
-			bandapplication.$save(function(response) {
-				console.log('home/'+$scope.user.userType);
-				$location.path('home/'+$scope.user.userType);
-				alert('Band application submitted!');
-				// Clear form fields
-				$scope.name = ' ';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
-        };
-        
+	};      
         $scope.volleyballPepBandToggle = function() {
             $scope.volleyballPepBandFlag = !$scope.volleyballPepBandFlag;
 	}; 
@@ -132,31 +70,31 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
         // Create new Bandapplication
         $scope.create = function() {
                 // Create new Bandapplication object
-                var bandapplication = new Bandapplications({
-                        user: this.user,
-                        created: this.created,
-                        marchingBand: this.marchingBand,
-                        concertEnsembles: this.concertEnsembles,
-                        jazzBand: this.jazzBand,
-                        volleyballPepBand: this.volleyballPepBand,
-                        basketballPepBand: this.basketballPepBand,
-                        MBSecondary: this.MBSecondary,
-                        CESecondary: this.CESecondary,
-                        JBSecondary: this.JBSecondary,
-                        VBSecondary: this.VBSecondary,
-                        BBSecondary: this.BBSecondary,
-                        MBSecondaryYearsExp: this.MBSecondaryYearsExp,
-                        CESecondaryYearsExp: this.CESecondaryYearsExp,
-                        JBSecondaryYearsExp: this.JBSecondaryYearsExp,
-                        VBSecondaryYearsExp: this.VBSecondaryYearsExp,
-                        BBSecondaryYearsExp: this.BBSecondaryYearsExp,
-                        drumlineInterest: this.drumlineInterest,
-                        drumlineRank: [parseInt(this.r1), parseInt(this.r2), parseInt(this.r3), parseInt(this.r4)],
-                        auxiliary: [this.gatorettes, this.fve],
-                        status: this.status,
-                        weight: this.weight,
-                        shirtSize: this.shirtSize
-                });
+            var bandapplication = new Bandapplications({
+                user: this.user,
+                created: this.created,
+                marchingBand: this.marchingBand,
+                concertEnsembles: this.concertEnsembles,
+                jazzBand: this.jazzBand,
+                volleyballPepBand: this.volleyballPepBand,
+                basketballPepBand: this.basketballPepBand,
+                MBSecondary: this.MBSecondary,
+                CESecondary: this.CESecondary,
+                JBSecondary: this.JBSecondary,
+                VBSecondary: this.VBSecondary,
+                BBSecondary: this.BBSecondary,
+                MBSecondaryYearsExp: this.MBSecondaryYearsExp,
+                CESecondaryYearsExp: this.CESecondaryYearsExp,
+                JBSecondaryYearsExp: this.JBSecondaryYearsExp,
+                VBSecondaryYearsExp: this.VBSecondaryYearsExp,
+                BBSecondaryYearsExp: this.BBSecondaryYearsExp,
+                drumlineInterest: this.drumlineInterest,
+                drumlineRank: [parseInt(this.r1), parseInt(this.r2), parseInt(this.r3), parseInt(this.r4)],
+                auxiliary: [this.gatorettes, this.fve],
+                status: this.status,
+                weight: this.weight,
+                shirtSize: this.shirtSize
+            });
 
                 // Redirect after save
                 bandapplication.$save(function(response) {
