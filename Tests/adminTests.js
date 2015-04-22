@@ -39,13 +39,13 @@ describe('Admin Testing', function(){
 
     browser.get('http://localhost:3000/#!/admin/rosters');
     expect(element(by.id('header')).getText()).toEqual('Band Rosters');
-    element(by.id('backButton')).click();
+/*    element(by.id('backButton')).click();
 
     browser.driver.wait(function() {
        return browser.driver.getCurrentUrl().then(function(url) {
            return /admin/.test(url);
        });
-     });
+     });*/
 
   });
 

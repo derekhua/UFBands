@@ -35,6 +35,7 @@ describe('Band Model Unit Tests:', function() {
       userType: 'Current',
 			username: 'username',
 			password: 'password',
+			roles: 'admin',
 			provider: 'local'
 		});
 
