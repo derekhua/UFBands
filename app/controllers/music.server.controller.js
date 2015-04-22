@@ -86,17 +86,19 @@ exports.list = function(req, res) {
 	});
     }
     else if(req.query['flag'] === 'false' && req.user.roles === 'user') {
-         Music.find(
-                {$ne:
-                [
-                    {band: req.query['march']},
-                    {band: req.query['jazz']},
-                    {band: req.query['wind']},
-                    {band: req.query['symph']},
-                    {band: req.query['bball_pep']},
-                    {band: req.query['volley_pep']}
-                ]}
-                ).sort('-created').populate('user', 'displayName').exec(function(err, music) {
+         Music.find({
+                    $or:
+                    [
+                        
+                        {band: req.query['march']},
+                        {band: req.query['jazz']},
+                        {band: req.query['wind']},
+                        {band: req.query['symph']},
+                        {band: req.query['bball_pep']},
+                        {band: req.query['volley_pep']}
+                        
+                     ]
+                }).sort('-created').populate('user', 'displayName').exec(function(err, music) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -125,15 +127,19 @@ exports.list = function(req, res) {
         }
         else{
             Music.find(
-                {$ne:
-                [
-                    {band: req.query['march']},
-                    {band: req.query['jazz']},
-                    {band: req.query['wind']},
-                    {band: req.query['symph']},
-                    {band: req.query['bball_pep']},
-                    {band: req.query['volley_pep']}
-                ]},
+               {
+                    $or:
+                    [
+                        
+                        {band: req.query['march']},
+                        {band: req.query['jazz']},
+                        {band: req.query['wind']},
+                        {band: req.query['symph']},
+                        {band: req.query['bball_pep']},
+                        {band: req.query['volley_pep']}
+                        
+                     ]
+                },
                 {
                     instrument: new RegExp(req.query['instrument'], "i"),
                     title: new RegExp(req.query['title'], "i"),
