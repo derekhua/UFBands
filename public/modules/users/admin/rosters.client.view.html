@@ -5,21 +5,19 @@
 		<h1 class="lead" id = "header">Manage Band Rosters</h1>
 
 		<div class="bs-example" data-example-ids="select-form-control">
-			<form>
-				<select class="form-control">
-					<option>Marching</option>
-					<option>Jazz</option>
-					<option>Symphonic</option>
-					<option>Wind</option>
-					<option>Basketball Pep</option>
-					<option>Volleyball Pep</option>
-				</select>
+                    <form data-ng-click="findRoster()" >
+                                <label class="control-label" for="instrument">Band</label>
+                                <div class="controls">
+                                    <select name="mydropdown" data-ng-model="drop.band" class="form-control" required>
+                                                <option ng-repeat="band in band" value="{{band}}">{{band}}</option>
+                                    </select>
+                                </div>
 			</form>
-		</div>
+		</div>         
 
 		<div class="bs-example" data-example-id="simple-table">
 			<table class="table">
-				<h3>Marching Band:</h3>
+				<h3>{{type}}</h3>
 				<thead>
 					<tr>
 						<th></th>

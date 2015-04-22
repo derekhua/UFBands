@@ -2,6 +2,7 @@
 
 module.exports = function(app) {
 	var users = require('../../app/controllers/users.server.controller');
+        var userAccept = require('../../app/controllers/users/users.admin.server.controller');
 	var bandapplications = require('../../app/controllers/bandapplications.server.controller');
 
 	// Bandapplications Routes
@@ -10,12 +11,9 @@ module.exports = function(app) {
 		.post(users.requiresLogin, bandapplications.create)
 		.put(users.requiresLogin, users.hasAdminAuthorization, users.update);
 
-	app.route('/bandapplications/create')
-		.post(bandapplications.create);
-
 	app.route('/bandapplications/:bandapplicationId')
 		.get(bandapplications.read)
-		.put(users.requiresLogin, bandapplications.hasAuthorization, bandapplications.update)
+                .put(userAccept.acceptApp)
 		.delete(users.requiresLogin, bandapplications.hasAuthorization, bandapplications.delete);
 
 	// Finish by binding the Bandapplication middleware

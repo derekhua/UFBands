@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
 		clientCSS: ['public/modules/**/*.css'],
 		mochaTests: ['app/tests/**/*.js']
-//		mochaTests: ['app/tests/bandapplication.server.model.test.js']
+//		mochaTests: ['app/tests/user.server.model.test.js']
 	};
 
 	// Project Configuration

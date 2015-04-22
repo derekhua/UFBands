@@ -38,14 +38,15 @@ var MusicSchema = new Schema({
 	instrument: {
 		type: String,
 		default: '',
-                trim: true,
+    trim: true,
 		required: 'Must specify an instrument'
         },
-        band: {
-            type: String,
-            default: '',
-            enum: [ 'Marching Band', 'Jazz Band', 'Wind Symphony', 'Symphonic Band', 'Basketball Pep Band', 'Volleyball Pep Band' ]
-        }
+  band: {
+    type: String,
+    default: '',
+    enum: [ 'Marching Band', 'Jazz Band', 'Wind Symphony', 'Symphonic Band', 'Basketball Pep Band', 'Volleyball Pep Band' ],
+		required: 'Must specify band'
+      }
 });
 
 mongoose.model('Music', MusicSchema);

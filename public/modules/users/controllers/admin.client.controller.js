@@ -2,13 +2,17 @@
 
 angular.module('users').controller('AdminController', ['$scope', '$http', '$state', '$location', '$stateParams', 'Users', 'Mods', 'Authentication',
 	function($scope, $http, $state, $location, $stateParams, Users, Mods, Authentication) {
-
 		$scope.user = Authentication.user;
-        
 		//Return a list of moderators
 		$scope.listMods = function() {
 			$scope.mods = Mods.query();
 		};
+
+                $scope.band = ['Marching Band', 'Jazz Band', 'Wind Symphony', 'Symphonic Band', 'Basketball Pep Band', 'Volleyball Pep Band'];
+                
+                $scope.findRoster = function () {
+                    $scope.type = $scope.drop.band;
+                };
 
 		//Update the moderator of the type specified by $scope.modType
 		$scope.updateMod = function() {

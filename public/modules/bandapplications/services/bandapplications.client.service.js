@@ -8,6 +8,7 @@ angular.module('bandapplications').factory('Bandapplications', ['$resource',
 			update: {
 				method: 'PUT'
 			}
-		});
+		}                
+		);
 	}
 ]);
