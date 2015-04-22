@@ -37,10 +37,6 @@ var BandapplicationSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	},
-    band: {
-        type: Schema.ObjectId,
-        ref: 'Band'
-    },
     // (admitted to Santa Fe, Innovation Academy, or attending another state school)
     status: {
         type: String,
@@ -128,7 +124,7 @@ var BandapplicationSchema = new Schema({
     auxiliary: {
         type: [Boolean],
         //[Gatorettes, Florida Visual Ensemble]
-        default: '',
+        default: [false, false]
     },
     // marching band/pepband specific
     weight: {

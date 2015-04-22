@@ -33,7 +33,7 @@
                     </div>
 
                     <div ng-show="marchingBandFlag || volleyballPepBandFlag || basketballPepBandFlag">
-                        <h3>>Personal Information</h3>
+                        <h3>Personal Information</h3>
                         <!--Weight-->
                         <div class="input-group">
                                 <span class="input-group-addon">
@@ -60,7 +60,7 @@
                             </span>
 
                                 <select name="mydropdown" data-ng-model="status" id="status" class="form-control" placeholder="status" required>
-                                        <option ng-repeat="status in status" value="{{status}}">{{status}}</option>
+                                        <option ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
                                 </select>
                         </div>
                     </div>

@@ -7,8 +7,11 @@ module.exports = function(app) {
 	// Bandapplications Routes
 	app.route('/bandapplications')
 		.get(users.requiresLogin, users.hasAdminAuthorization, bandapplications.list)
-		.post(users.requiresLogin, users.hasAdminAuthorization, bandapplications.create)
+		.post(users.requiresLogin, bandapplications.create)
 		.put(users.requiresLogin, users.hasAdminAuthorization, users.update);
+
+	app.route('/bandapplications/create')
+		.post(bandapplications.create);
 
 	app.route('/bandapplications/:bandapplicationId')
 		.get(bandapplications.read)

@@ -27,7 +27,7 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
 		'Celeste', 'Celesta', 'Piano', 'Harp', 'Bongos'];
                 
         $scope.size = ['XS', 'S', 'M', 'L', 'XL'];     
-        $scope.status = ['University of Florida', 'Santa Fe', 'Innovation Academy', 'Other State School'];
+        $scope.statuses = ['University of Florida', 'Santa Fe', 'Innovation Academy', 'Other State School'];
         
         $scope.r1 = 1;
         $scope.r2 = 2;
@@ -46,35 +46,36 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
         
         $scope.marchingBandToggle = function() {
             $scope.marchingBandFlag = !$scope.marchingBandFlag;
-            $scope.state.marchingBandToggled= true; 
+            $scope.marchingBandToggled= true; 
 		};
         $scope.volleyballPepBandToggle = function() {
             $scope.volleyballPepBandFlag = !$scope.volleyballPepBandFlag;
-            $scope.state.volleyballPepgBandToggled= true; 
+            $scope.volleyballPepgBandToggled= true; 
 		}; 
 		$scope.basketballPepBandToggle = function() {
             $scope.basketballPepBandFlag = !$scope.basketballPepBandFlag;
-        	$scope.state.basketballPepgBandToggled= true; 
+        	$scope.basketballPepgBandToggled= true; 
 		}; 
 		$scope.concertEnsemblesToggle = function() {
             $scope.concertEnsemblesFlag = !$scope.concertEnsemblesFlag;
-           	$scope.state.concertEnsemblesToggled= true; 
+           	$scope.concertEnsemblesToggled= true; 
 		}; 
 		$scope.jazzBandToggle = function() {
             $scope.jazzBandFlag = !$scope.jazzBandFlag;
-            $scope.state.jazzBandToggled= true; 
+            $scope.jazzBandToggled= true; 
 		};
 		$scope.drumlineToggle = function() {
             $scope.drumlineFlag = !$scope.drumlineFlag;
-        	$scope.state.drumlineToggled= true; 
+        	$scope.drumlineToggled= true; 
 		};
 		$scope.auxiliaryToggle = function() {
             $scope.auxiliaryFlag = !$scope.auxiliaryFlag;
-            $scope.state.auxiliaryToggled= true; 
+            $scope.auxiliaryToggled= true; 
 		};
 		// Create new Bandapplication
 		$scope.create = function() {
 			// Create new Bandapplication object
+			$scope.user = Authentication.user;
 			var bandapplication = new Bandapplications ({
 
 				user: this.user,
@@ -101,11 +102,12 @@ angular.module('bandapplications').controller('BandapplicationsController', ['$s
                 weight: this.weight,
                 shirtSize: this.shirtSize
 			});
-
+			console.log('creating');
 			// Redirect after save
 			bandapplication.$save(function(response) {
-				$location.path('bandapplications/' + response._id);
-
+				console.log('home/'+$scope.user.userType);
+				$location.path('home/'+$scope.user.userType);
+				alert('Band application submitted!');
 				// Clear form fields
 				$scope.name = ' ';
 			}, function(errorResponse) {
