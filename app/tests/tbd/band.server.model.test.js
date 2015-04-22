@@ -47,7 +47,7 @@ describe('Band Model Unit Tests:', function() {
 					endDate: new Date(2015, 3, 26),
 					openDate: new Date(2015, 3, 12),
 					closeDate: new Date(2015, 3, 14),
-				}),
+				});
 			done();
 		});
 	});

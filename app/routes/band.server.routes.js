@@ -7,11 +7,11 @@ module.exports = function(app) {
 	// Bands Routes
 	app.route('/bands')
 		.get(users.requiresLogin, bands.hasAuthorization, bands.list);
-
+		
 	app.route('/bands/:bandId')
 		.get(users.requiresLogin, bands.hasAuthorization, bands.read)
 		.put(users.requiresLogin, bands.hasAuthorization, bands.update);
-		
+
 
 	// Finish by binding the Band middleware
 	app.param('bandId', bands.bandByID);
